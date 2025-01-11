@@ -1,0 +1,44 @@
+[
+  {
+    "product_name": "SuperClean Detergent",
+    "product_brand": "CleanCo",
+    "product_image_url": "https://i.ibb.co.com/Y8mCqLH/macbook-pro-16.jpg",
+    "query_title": "Is there any better product that gives me the same quality?",
+    "boycotting_reason_details": "Contains harmful chemicals that can harm the environment."
+  },
+  {
+    "product_name": "FreshBrew Coffee",
+    "product_brand": "BrewMaster",
+    "product_image_url": "https://i.ibb.co.com/Y8mCqLH/macbook-pro-16.jpg",
+    "query_title": "Is there any better product that gives me the same quality?",
+    "boycotting_reason_details": "The company has poor labor practices and underpays workers."
+  },
+  {
+    "product_name": "EcoLife Water Bottle",
+    "product_brand": "EcoLife",
+    "product_image_url": "https://i.ibb.co.com/Y8mCqLH/macbook-pro-16.jpg",
+    "query_title": "Is there any better product that gives me the same quality?",
+    "boycotting_reason_details": "Plastic components are not truly recyclable as advertised."
+  },
+  {
+    "product_name": "ShinySpark Toothpaste",
+    "product_brand": "DentalGuard",
+    "product_image_url": "https://i.ibb.co.com/Y8mCqLH/macbook-pro-16.jpg",
+    "query_title": "Is there any better product that gives me the same quality?",
+    "boycotting_reason_details": "Tests products on animals despite claiming to be cruelty-free."
+  },
+  {
+    "product_name": "GlowSkin Lotion",
+    "product_brand": "SkinCare Plus",
+    "product_image_url": "https://i.ibb.co.com/Y8mCqLH/macbook-pro-16.jpg",
+    "query_title": "Is there any better product that gives me the same quality?",
+    "boycotting_reason_details": "Contains ingredients sourced unethically, impacting local communities."
+  },
+  {
+    "product_name": "ZoomTech Headphones",
+    "product_brand": "SoundMax",
+    "product_image_url": "https://i.ibb.co.com/Y8mCqLH/macbook-pro-16.jpg",
+    "query_title": "Is there any better product that gives me the same quality?",
+    "boycotting_reason_details": "Company data practices raise privacy concerns for users."
+  }
+]
