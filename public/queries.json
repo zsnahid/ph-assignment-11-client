@@ -1,44 +1,58 @@
 [
   {
-    "product_name": "SuperClean Detergent",
-    "product_brand": "CleanCo",
-    "product_image_url": "https://i.ibb.co.com/Y8mCqLH/macbook-pro-16.jpg",
-    "query_title": "Is there any better product that gives me the same quality?",
-    "boycotting_reason_details": "Contains harmful chemicals that can harm the environment."
+    "productName": "Alienware m15 R7",
+    "productBrand": "Alienware",
+    "productImage": "https://example.com/images/alienware-m15-r7.jpg",
+    "question": "What’s the best gaming laptop under $1500?",
+    "description": "I’m looking for a powerful gaming laptop that can handle the latest AAA games with high settings. It should have a fast refresh rate, good cooling, and a reliable GPU for long gaming sessions. Portability is a bonus, but I am okay with a slightly bulky design if the performance is worth it. Any recommendations for something that balances price and features?"
   },
   {
-    "product_name": "FreshBrew Coffee",
-    "product_brand": "BrewMaster",
-    "product_image_url": "https://i.ibb.co.com/Y8mCqLH/macbook-pro-16.jpg",
-    "query_title": "Is there any better product that gives me the same quality?",
-    "boycotting_reason_details": "The company has poor labor practices and underpays workers."
+    "productName": "Sony WF-1000XM4",
+    "productBrand": "Sony",
+    "productImage": "https://example.com/images/sony-wf-1000xm4.jpg",
+    "question": "Are these earbuds good for noise cancellation?",
+    "description": "I need earbuds with excellent noise cancellation for commuting, especially to block out subway and street noise. Comfort is a big factor since I wear them for long periods. Battery life and call quality are also important as I often use them for work calls. Would these be a good choice, or is there a better alternative in this price range?"
   },
   {
-    "product_name": "EcoLife Water Bottle",
-    "product_brand": "EcoLife",
-    "product_image_url": "https://i.ibb.co.com/Y8mCqLH/macbook-pro-16.jpg",
-    "query_title": "Is there any better product that gives me the same quality?",
-    "boycotting_reason_details": "Plastic components are not truly recyclable as advertised."
+    "productName": "Nike Air Zoom Pegasus 40",
+    "productBrand": "Nike",
+    "productImage": "https://example.com/images/nike-air-zoom-pegasus-40.jpg",
+    "question": "Which running shoes are best for beginners?",
+    "description": "I’ve just started jogging and need comfortable running shoes for daily use. They should have good arch support and cushioning to avoid injury as I build my routine. Durability is also important since I plan to use them on both roads and trails. Can you recommend something within a beginner-friendly budget?"
   },
   {
-    "product_name": "ShinySpark Toothpaste",
-    "product_brand": "DentalGuard",
-    "product_image_url": "https://i.ibb.co.com/Y8mCqLH/macbook-pro-16.jpg",
-    "query_title": "Is there any better product that gives me the same quality?",
-    "boycotting_reason_details": "Tests products on animals despite claiming to be cruelty-free."
+    "productName": "Samsung QN90C Neo QLED 4K",
+    "productBrand": "Samsung",
+    "productImage": "https://example.com/images/samsung-qn90c-neo-qled.jpg",
+    "question": "Is this TV good for gaming and streaming?",
+    "description": "I’m looking for a 55-inch 4K smart TV that’s good for both gaming and watching movies. Low input lag and a high refresh rate are essential for a smooth gaming experience. I also want excellent picture quality and vibrant colors for streaming content. Does this model deliver on these features, or is there a better alternative in the same price range?"
   },
   {
-    "product_name": "GlowSkin Lotion",
-    "product_brand": "SkinCare Plus",
-    "product_image_url": "https://i.ibb.co.com/Y8mCqLH/macbook-pro-16.jpg",
-    "query_title": "Is there any better product that gives me the same quality?",
-    "boycotting_reason_details": "Contains ingredients sourced unethically, impacting local communities."
+    "productName": "Apple iPhone 15 Pro",
+    "productBrand": "Apple",
+    "productImage": "https://example.com/images/iphone-15-pro.jpg",
+    "question": "Is the latest iPhone worth upgrading to?",
+    "description": "I currently use an iPhone 12 and am considering upgrading to the latest model. I’m curious about the improvements in performance, battery life, and camera quality. Are the new features, like the upgraded processor or titanium build, worth the investment? Would this be a noticeable upgrade, or should I wait for the next version?"
   },
   {
-    "product_name": "ZoomTech Headphones",
-    "product_brand": "SoundMax",
-    "product_image_url": "https://i.ibb.co.com/Y8mCqLH/macbook-pro-16.jpg",
-    "query_title": "Is there any better product that gives me the same quality?",
-    "boycotting_reason_details": "Company data practices raise privacy concerns for users."
+    "productName": "Ninja Professional Plus Blender with Auto-iQ",
+    "productBrand": "Ninja",
+    "productImage": "https://example.com/images/ninja-professional-plus.jpg",
+    "question": "Best blender for making smoothies daily?",
+    "description": "I need a durable blender that can handle frozen fruits and ice for daily smoothies. Easy cleanup is a must since I’ll use it every morning. Noise level is also a concern as I don’t want to wake up my family during early preparations. Does this model fit the bill, or is there a quieter and equally efficient alternative?"
+  },
+  {
+    "productName": "Logitech MX Mechanical",
+    "productBrand": "Logitech",
+    "productImage": "https://example.com/images/logitech-mx-mechanical.jpg",
+    "question": "What’s the best mechanical keyboard for coding?",
+    "description": "I want a quiet mechanical keyboard with great tactile feedback for long coding sessions. Ergonomics is also important since I spend several hours typing daily. It should be durable and have customizable keys for shortcuts. Does this keyboard offer a good balance of features and price, or should I explore other options?"
+  },
+  {
+    "productName": "Dyson V15 Detect",
+    "productBrand": "Dyson",
+    "productImage": "https://example.com/images/dyson-v15-detect.jpg",
+    "question": "Is this vacuum cleaner good for pet hair?",
+    "description": "I have a dog that sheds a lot, so I need a vacuum cleaner that’s effective on pet hair. It should work well on both carpets and hardwood floors without losing suction. A lightweight design would be ideal for easy maneuvering around furniture. Is this model worth the investment, or is there a better option for pet owners?"
   }
 ]

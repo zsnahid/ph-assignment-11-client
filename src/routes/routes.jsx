@@ -18,6 +18,7 @@ export const router = createBrowserRouter([
       {
         path: "/my-queries",
         element: <MyQueries />,
+        loader: () => fetch("http://localhost:3000/queries"),
       },
       {
         path: "/add-query",

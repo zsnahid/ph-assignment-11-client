@@ -6,8 +6,7 @@ import { AuthContext } from "../contexts/AuthContext";
 
 export default function AddQuery() {
   const { user } = useContext(AuthContext);
-  // console.log(user);
-  // console.log(typeof time, time);
+
   const handleAddQuery = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -31,7 +30,6 @@ export default function AddQuery() {
       recommendationCount: 0,
     };
 
-    console.log(query);
     axios
       .post("http://localhost:3000/queries", query)
       .then((response) => console.log(response.data))
