@@ -3,10 +3,8 @@
 import {
   PiArticleDuotone,
   PiCalendarDotsDuotone,
-  PiCaretCircleDoubleUpDuotone,
   PiChats,
   PiPencilSimpleLineDuotone,
-  PiTrashDuotone,
 } from "react-icons/pi";
 import MyIconButton from "./MyIconButton";
 
@@ -90,29 +88,10 @@ export default function HorizontalCard({ query }) {
               <p className="text-sm">{"0 Comments"}</p>
             </div>
           </div>
-        </div>
-
-        <div className="hidden lg:block border-r border-gray-300 self-stretch"></div>
-
-        <div className="space-y-2 flex flex-col">
-          <button className="w-44">
+          <button className="w-44 mt-4">
             <MyIconButton
-              icon={<PiArticleDuotone />}
-              text={"Details"}
-            />
-          </button>
-
-          <button className="w-44">
-            <MyIconButton
-              icon={<PiCaretCircleDoubleUpDuotone />}
-              text={"Update"}
-            />
-          </button>
-
-          <button className="w-44">
-            <MyIconButton
-              icon={<PiTrashDuotone />}
-              text={"Delete"}
+              icon={""}
+              text={"Recommend"}
             />
           </button>
         </div>
