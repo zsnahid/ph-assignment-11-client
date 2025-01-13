@@ -5,11 +5,17 @@ import { Link } from "react-router-dom";
 import MyIconButton from "../components/MyIconButton";
 import MySolidButton from "../components/MySolidButton";
 import HorizontalLayout from "../layouts/HorizontalLayout";
+import VerticalLayout from "../layouts/VerticalLayout";
 export default function MyQueries() {
   const [menuOpen, setMenuOpen] = useState(false);
-
+  const [layout, setLayout] = useState("list");
   const handleToggleDropdown = () => {
     setMenuOpen(!menuOpen);
+  };
+
+  const handleLayoutChange = (selectedLayout) => {
+    setLayout(selectedLayout);
+    setMenuOpen(false);
   };
 
   return (
@@ -77,6 +83,7 @@ export default function MyQueries() {
                   <button
                     role="menuitem"
                     className="w-full"
+                    onClick={() => handleLayoutChange("grid")}
                   >
                     <MyIconButton
                       icon={<PiGridFourDuotone />}
@@ -86,6 +93,7 @@ export default function MyQueries() {
                   <button
                     role="menuitem"
                     className="w-full"
+                    onClick={() => handleLayoutChange("list")}
                   >
                     <MyIconButton
                       icon={<PiRowsDuotone />}
@@ -97,7 +105,7 @@ export default function MyQueries() {
             )}
           </div>
         </div>
-        <HorizontalLayout />
+        {layout === "grid" ? <VerticalLayout /> : <HorizontalLayout />}
       </section>
     </div>
   );

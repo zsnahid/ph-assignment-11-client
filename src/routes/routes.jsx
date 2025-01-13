@@ -4,6 +4,7 @@ import AddQuery from "../pages/AddQuery";
 import Home from "../pages/Home";
 import Login from "../pages/Login";
 import MyQueries from "../pages/MyQueries";
+import Queries from "../pages/Queries";
 import Signup from "../pages/Signup";
 
 export const router = createBrowserRouter([
@@ -14,6 +15,11 @@ export const router = createBrowserRouter([
       {
         path: "/",
         element: <Home />,
+      },
+      {
+        path: "/queries",
+        element: <Queries />,
+        loader: () => fetch("http://localhost:3000/queries"),
       },
       {
         path: "/my-queries",
