@@ -164,7 +164,8 @@ export default function MyNavbar() {
               <Tooltip content={user.displayName}>
                 <Avatar
                   src={user.photoURL}
-                  size="sm"
+                  size="md"
+                  variant="rounded"
                   className="mr-4"
                 />
               </Tooltip>
@@ -192,6 +193,7 @@ export default function MyNavbar() {
                 <Avatar
                   size="xs"
                   src={user.photoURL}
+                  variant="rounded"
                 />
               </Tooltip>
             ) : (

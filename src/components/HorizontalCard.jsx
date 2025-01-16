@@ -1,11 +1,6 @@
 /* eslint-disable react/prop-types */
 
-import {
-  PiArticleDuotone,
-  PiCalendarDotsDuotone,
-  PiChats,
-  PiPencilSimpleLineDuotone,
-} from "react-icons/pi";
+import { PiCalendarDotsDuotone, PiChats } from "react-icons/pi";
 import MyIconButton from "./MyIconButton";
 
 /*
@@ -26,6 +21,8 @@ import MyIconButton from "./MyIconButton";
 export default function HorizontalCard({ query }) {
   console.log(query);
   const {
+    _id,
+    productImage,
     question,
     details,
     userName,
@@ -37,21 +34,18 @@ export default function HorizontalCard({ query }) {
   return (
     <article className="rounded-xl border-2 border-gray-100 bg-white">
       <div className="flex items-start gap-4 p-4 sm:p-6 lg:p-8">
-        <a
-          href="#"
-          className="block shrink-0"
-        >
+        <span className="block shrink-0">
           <img
             alt=""
             src={userImage}
             className="size-14 rounded-lg object-cover"
           />
-        </a>
+        </span>
 
-        <div className="flex-grow">
+        <div className="mr-8">
           <h3 className="font-medium sm:text-lg">
             <a
-              href="#"
+              href={`/query-details/${_id}`}
               className="hover:underline"
             >
               {question}
@@ -75,25 +69,25 @@ export default function HorizontalCard({ query }) {
             </div>
           </div>
 
-          <p className="line-clamp-2 text-sm text-gray-700">{details}</p>
+          <p className="line-clamp-2 text-sm text-gray-700 hidden lg:block">
+            {details}
+          </p>
 
-          <div className="mt-2 sm:flex sm:items-center sm:gap-4">
-            <p className="hidden sm:flex sm:items-center sm:gap-1 sm:text-sm sm:text-gray-500">
-              <PiPencilSimpleLineDuotone className="text-base" />
-              {recommendationCount} Recommendations
-            </p>
+          <a href={`/query-details/${_id}`}>
+            <button className="mt-4">
+              <MyIconButton
+                icon={<PiChats />}
+                text={recommendationCount}
+              />
+            </button>
+          </a>
+        </div>
 
-            <div className="flex items-center gap-1 text-gray-500">
-              <PiChats className="text-base" />
-              <p className="text-sm">{"0 Comments"}</p>
-            </div>
-          </div>
-          <button className="w-44 mt-4">
-            <MyIconButton
-              icon={""}
-              text={"Recommend"}
-            />
-          </button>
+        <div className="">
+          <img
+            src={productImage}
+            className="w-96 h-44 object-cover object-center rounded-xl border border-gray-200"
+          />
         </div>
       </div>
     </article>

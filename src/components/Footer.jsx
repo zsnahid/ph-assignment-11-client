@@ -32,7 +32,7 @@ export default function Footer() {
               Better Buy
             </Typography>
             <img
-              src="logo.png"
+              src="/logo.png"
               className="size-32"
             />
           </div>

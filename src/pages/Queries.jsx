@@ -19,9 +19,9 @@ export default function Queries() {
     setMenuOpen(false);
   };
   return (
-    <div className="min-h-[60vh] max-w-screen-2xl w-11/12 mx-auto">
+    <div className="flex-grow max-w-screen-2xl w-11/12 mx-auto">
       <div className="border-b border-gray-300 py-2 flex justify-between items-center">
-        <Typography variant="h3">My Queries</Typography>
+        <Typography variant="h3">All Queries</Typography>
 
         {/* dropdown */}
         <div className="relative">

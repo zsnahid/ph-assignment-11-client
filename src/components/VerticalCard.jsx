@@ -12,7 +12,7 @@ export default function VerticalCard({ query }) {
     question,
     details,
     userName,
-    userImage,
+    productImage,
     uploadTime,
     recommendationCount,
   } = query;
@@ -37,7 +37,7 @@ export default function VerticalCard({ query }) {
         <div className="hidden lg:block lg:shrink-0">
           <img
             alt=""
-            src={userImage}
+            src={productImage}
             className="size-16 rounded-lg object-cover shadow-sm"
           />
         </div>
