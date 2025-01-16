@@ -21,13 +21,14 @@ export default function QueryDetails() {
     productName,
     productImage,
   } = query;
+  console.log(_id);
 
   useEffect(() => {
     axios
-      .get("http://localhost:3000/recommendations")
+      .get(`http://localhost:3000/recommendations/${_id}`)
       .then((response) => setComments(response.data))
       .catch((error) => console.error(error));
-  }, []);
+  }, [_id]);
 
   console.log(comments);
 
@@ -67,6 +68,8 @@ export default function QueryDetails() {
       .patch(`http://localhost:3000/queries/${_id}`, { _id })
       .then((response) => console.log(response.data))
       .catch((error) => console.error(error));
+
+    setComments([...comments, recommendation]);
   };
 
   return (
@@ -156,8 +159,8 @@ export default function QueryDetails() {
                     className="font-bold tracking-wide"
                   >
                     {recommendationTitle}
-                      {": "}{recommendedProductName}{" "}
-
+                    {": "}
+                    {recommendedProductName}{" "}
                   </Typography>
                   <Typography
                     variant="small"
@@ -166,7 +169,10 @@ export default function QueryDetails() {
                   >
                     {recommendationReason}
                   </Typography>
-                  <img src={recommendedProductImage} className="size-40 mt-2 rounded-xl" />
+                  <img
+                    src={recommendedProductImage}
+                    className="size-40 mt-2 rounded-xl object-scale-down"
+                  />
                 </div>
               </div>
             )
