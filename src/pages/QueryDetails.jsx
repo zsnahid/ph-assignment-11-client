@@ -9,7 +9,7 @@ export default function QueryDetails() {
   const query = useLoaderData();
   const { user } = useContext(AuthContext);
   const [comments, setComments] = useState([]);
-  console.log(query);
+  // console.log(query);
   const {
     _id,
     userEmail,
@@ -25,9 +25,11 @@ export default function QueryDetails() {
   useEffect(() => {
     axios
       .get("http://localhost:3000/recommendations")
-      .then((response) => console.log(response.data))
+      .then((response) => setComments(response.data))
       .catch((error) => console.error(error));
   }, []);
+
+  console.log(comments);
 
   const handleAddRecommendation = (e) => {
     e.preventDefault();
@@ -45,6 +47,7 @@ export default function QueryDetails() {
       recommendationReason,
       recommenderName: user.displayName,
       recommenderEmail: user.email,
+      recommenderImage: user.photoURL,
       recommendingTime: time,
       queryId: _id,
       queryTitle: question,
@@ -115,54 +118,59 @@ export default function QueryDetails() {
 
           {/* comments */}
 
-          <div className="flex gap-2 mt-4">
-            <Avatar
-              src={userImage}
-              size="sm"
-              className="flex-none"
-            />
-            <div className="bg-gray-300 rounded-xl px-4 py-2">
-              <Typography
-                variant="small"
-                color="gray"
-                className="font-bold tracking-wide"
+          {comments?.map(
+            ({
+              _id,
+              recommenderImage,
+              recommenderName,
+              recommendationTitle,
+              recommendedProductName,
+              recommendedProductImage,
+              recommendationReason,
+              recommendingTime,
+            }) => (
+              <div
+                key={_id}
+                className="flex gap-2 mt-4"
               >
-                {userName}
-                <span className="font-normal text-xs"> . {uploadTime} </span>
-              </Typography>
-              <Typography
-                variant="small"
-                color="gray"
-                className="font-normal"
-              >
-                {details}
-              </Typography>
-            </div>
-          </div>
-          <div className="flex gap-2 mt-4">
-            <Avatar
-              src={userImage}
-              size="sm"
-              className="flex-none"
-            />
-            <div className="bg-gray-300 rounded-xl px-4 py-2">
-              <Typography
-                variant="small"
-                color="gray"
-                className="font-bold tracking-wide"
-              >
-                {userName}
-                <span className="font-normal text-xs"> . {uploadTime} </span>
-              </Typography>
-              <Typography
-                variant="small"
-                color="gray"
-                className="font-normal"
-              >
-                {details}
-              </Typography>
-            </div>
-          </div>
+                <Avatar
+                  src={recommenderImage}
+                  size="sm"
+                  className="flex-none"
+                />
+                <div className="bg-gray-300 rounded-xl p-4">
+                  <Typography
+                    variant="small"
+                    color="gray"
+                    className="font-normal tracking-wide"
+                  >
+                    {recommenderName}
+                    <span className="font-normal text-xs">
+                      {" "}
+                      . {recommendingTime}{" "}
+                    </span>
+                  </Typography>
+                  <Typography
+                    variant="paragraph"
+                    color="gray"
+                    className="font-bold tracking-wide"
+                  >
+                    {recommendationTitle}
+                      {": "}{recommendedProductName}{" "}
+
+                  </Typography>
+                  <Typography
+                    variant="small"
+                    color="gray"
+                    className="font-normal"
+                  >
+                    {recommendationReason}
+                  </Typography>
+                  <img src={recommendedProductImage} className="size-40 mt-2 rounded-xl" />
+                </div>
+              </div>
+            )
+          )}
         </div>
       </div>
       {/* form */}
