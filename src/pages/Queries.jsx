@@ -3,8 +3,8 @@ import { useState } from "react";
 import { PiGridFourDuotone, PiRowsDuotone } from "react-icons/pi";
 import { useLoaderData } from "react-router-dom";
 import MyIconButton from "../components/MyIconButton";
-import HorizontalLayout from "../layouts/HorizontalLayout";
-import VerticalLayout from "../layouts/VerticalLayout";
+import AllQueriesHorizontalLayout from "../layouts/AllQueriesHorizontalLayout";
+import AllQueriesVerticalLayout from "../layouts/AllQueriesVerticalLayout";
 
 export default function Queries() {
   const queries = useLoaderData();
@@ -84,7 +84,11 @@ export default function Queries() {
           )}
         </div>
       </div>
-      {layout === "grid" ? <VerticalLayout /> : <HorizontalLayout />}
+      {layout === "grid" ? (
+        <AllQueriesVerticalLayout />
+      ) : (
+        <AllQueriesHorizontalLayout />
+      )}
     </div>
   );
 }

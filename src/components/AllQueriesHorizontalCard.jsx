@@ -18,7 +18,7 @@ import MyIconButton from "./MyIconButton";
     "recommendationCount": 0
 }
 */
-export default function HorizontalCard({ query }) {
+export default function AllQueriesHorizontalCard({ query }) {
   console.log(query);
   const {
     _id,
@@ -73,7 +73,7 @@ export default function HorizontalCard({ query }) {
             {details}
           </p>
 
-          <a href={`/query-details/${_id}`}>
+          <a href={`/query/details/${_id}`}>
             <button className="mt-4">
               <MyIconButton
                 icon={<PiChats />}

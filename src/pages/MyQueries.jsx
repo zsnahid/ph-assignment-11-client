@@ -4,8 +4,8 @@ import { PiGridFourDuotone, PiRowsDuotone } from "react-icons/pi";
 import { Link } from "react-router-dom";
 import MyIconButton from "../components/MyIconButton";
 import MySolidButton from "../components/MySolidButton";
-import HorizontalLayout from "../layouts/HorizontalLayout";
-import VerticalLayout from "../layouts/VerticalLayout";
+import MyQueriesHorizontalLayout from "../layouts/MyQueriesHorizontalLayout";
+import MyQueriesVerticalLayout from "../layouts/MyQueriesVerticalLayout";
 export default function MyQueries() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [layout, setLayout] = useState("list");
@@ -105,7 +105,11 @@ export default function MyQueries() {
             )}
           </div>
         </div>
-        {layout === "grid" ? <VerticalLayout /> : <HorizontalLayout />}
+        {layout === "grid" ? (
+          <MyQueriesVerticalLayout />
+        ) : (
+          <MyQueriesHorizontalLayout />
+        )}
       </section>
     </div>
   );

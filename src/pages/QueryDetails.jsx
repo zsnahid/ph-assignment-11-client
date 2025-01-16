@@ -169,10 +169,12 @@ export default function QueryDetails() {
                   >
                     {recommendationReason}
                   </Typography>
-                  <img
-                    src={recommendedProductImage}
-                    className="size-40 mt-2 rounded-xl object-scale-down"
-                  />
+                  {recommendedProductImage && (
+                    <img
+                      src={recommendedProductImage}
+                      className="size-40 mt-2 rounded-xl object-cover"
+                    />
+                  )}
                 </div>
               </div>
             )
@@ -180,7 +182,7 @@ export default function QueryDetails() {
         </div>
       </div>
       {/* form */}
-      <div className="lg:col-span-5 bg-gray-300 px-6 py-4 rounded-lg h-fit">
+      <div className="lg:col-span-5 bg-white px-6 py-4 rounded-lg h-fit">
         <Typography variant="h4">Recommend a product</Typography>
         <form
           className="mt-8 mb-2"

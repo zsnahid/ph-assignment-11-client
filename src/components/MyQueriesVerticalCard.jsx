@@ -6,7 +6,7 @@ import {
 import MyIconButton from "./MyIconButton";
 
 /* eslint-disable react/prop-types */
-export default function VerticalCard({ query }) {
+export default function MyQueriesVerticalCard({ query }) {
   console.log(query);
   const {
     question,
