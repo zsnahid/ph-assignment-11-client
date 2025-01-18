@@ -1,9 +1,11 @@
 /* eslint-disable react/prop-types */
 
+import axios from "axios";
 import { GrDocumentUpdate } from "react-icons/gr";
 import { PiCalendarDotsDuotone } from "react-icons/pi";
 import { RiDeleteBinLine } from "react-icons/ri";
 import { TbListDetails } from "react-icons/tb";
+import Swal from "sweetalert2";
 import MyIconButton from "./MyIconButton";
 
 /*
@@ -21,8 +23,12 @@ import MyIconButton from "./MyIconButton";
     "recommendationCount": 0
 }
 */
-export default function MyQueriesHorizontalCard({ query }) {
-  console.log(query);
+export default function MyQueriesHorizontalCard({
+  query,
+  queries,
+  setQueries,
+}) {
+  // console.log(query);
   const {
     _id,
     productImage,
@@ -32,6 +38,40 @@ export default function MyQueriesHorizontalCard({ query }) {
     userImage,
     uploadTime,
   } = query;
+
+  const handleDeleteQuery = () => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: question,
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#d33",
+      confirmButtonText: "Delete",
+      reverseButtons: true,
+      width: "22rem"
+    }).then((result) => {
+      if (result.isConfirmed) {
+        axios
+          .delete(`http://localhost:3000/queries/${_id}`)
+          .then((response) => {
+            if (response.data.deletedCount === 1) {
+              Swal.fire({
+                title: "Deleted!",
+                text: "Your file has been deleted.",
+                icon: "success",
+                confirmButtonColor: "#689f38",
+              });
+
+              const remainingQueries = queries.filter(
+                (query) => query._id !== _id
+              );
+              setQueries(remainingQueries);
+            }
+          })
+          .catch((error) => console.error(error));
+      }
+    });
+  };
 
   return (
     <article className="rounded-xl border-2 border-gray-100 bg-white">
@@ -56,12 +96,7 @@ export default function MyQueriesHorizontalCard({ query }) {
 
           <div className="mb-2 sm:flex sm:items-center sm:gap-4">
             <p className="hidden sm:block sm:text-xs sm:text-gray-500">
-              Posted by{" "}
-              <span
-                className="font-medium"
-              >
-                {userName}{" "}
-              </span>
+              Posted by <span className="font-medium">{userName} </span>
             </p>
 
             <div className="flex items-center gap-1 text-gray-500">
@@ -91,7 +126,7 @@ export default function MyQueriesHorizontalCard({ query }) {
                 />
               </button>
             </a>
-            <button>
+            <button onClick={handleDeleteQuery}>
               <MyIconButton
                 icon={<RiDeleteBinLine />}
                 text={"Delete"}
