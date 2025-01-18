@@ -8,6 +8,7 @@ import Queries from "../pages/Queries";
 import QueryDetails from "../pages/QueryDetails";
 import Signup from "../pages/Signup";
 import UpdateQuery from "../pages/UpdateQuery";
+import PrivateRoute from "./PrivateRoute";
 
 export const router = createBrowserRouter([
   {
@@ -25,12 +26,20 @@ export const router = createBrowserRouter([
       },
       {
         path: "/my-queries",
-        element: <MyQueries />,
+        element: (
+          <PrivateRoute>
+            <MyQueries />
+          </PrivateRoute>
+        ),
         loader: () => fetch("http://localhost:3000/queries"),
       },
       {
         path: "/add-query",
-        element: <AddQuery />,
+        element: (
+          <PrivateRoute>
+            <AddQuery />
+          </PrivateRoute>
+        ),
       },
       {
         path: "/login",
