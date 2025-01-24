@@ -1,21 +1,55 @@
-import {
-  PiCalendarDotsDuotone,
-  PiChats,
-  PiPencilSimpleLineDuotone,
-} from "react-icons/pi";
+import axios from "axios";
+import { GrDocumentUpdate } from "react-icons/gr";
+import { PiCalendarDotsDuotone } from "react-icons/pi";
+import { RiDeleteBinLine } from "react-icons/ri";
+import { TbListDetails } from "react-icons/tb";
+import Swal from "sweetalert2";
 import MyIconButton from "./MyIconButton";
 
 /* eslint-disable react/prop-types */
-export default function MyQueriesVerticalCard({ query }) {
+export default function MyQueriesVerticalCard({ query, queries, setQueries }) {
   console.log(query);
   const {
+    _id,
     question,
     details,
     userName,
     productImage,
     uploadTime,
-    recommendationCount,
   } = query;
+
+  const handleDeleteQuery = () => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: question,
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#d33",
+      confirmButtonText: "Delete",
+      reverseButtons: true,
+    }).then((result) => {
+      if (result.isConfirmed) {
+        axios
+          .delete(`http://localhost:3000/queries/${_id}`)
+          .then((response) => {
+            if (response.data.deletedCount === 1) {
+              Swal.fire({
+                title: "Deleted!",
+                text: "Your file has been deleted.",
+                icon: "success",
+                confirmButtonColor: "#689f38",
+              });
+
+              const remainingQueries = queries.filter(
+                (query) => query._id !== _id
+              );
+              setQueries(remainingQueries);
+            }
+          })
+          .catch((error) => console.error(error));
+      }
+    });
+  };
 
   return (
     <div className="relative overflow-hidden rounded-lg border border-gray-300 p-4 sm:p-6 lg:p-8 flex flex-col">
@@ -49,22 +83,27 @@ export default function MyQueriesVerticalCard({ query }) {
         </p>
       </div>
 
-      <div className="mt-6 text-xs font-medium text-gray-500 flex gap-4  flex-grow">
-        <p className="flex items-center gap-1">
-          <PiPencilSimpleLineDuotone className="text-base" />
-          {recommendationCount} Recommendations
-        </p>
-
-        <p className="flex items-center gap-1">
-          <PiChats className="text-base" />0 Comments
-        </p>
-      </div>
-
-      <div className="mt-4">
-        <button>
+      <div className="mt-4 flex items-center gap-2">
+        <a href={`/query/details/${_id}`}>
+          <button>
+            <MyIconButton
+              icon={<TbListDetails />}
+              text={"Details"}
+            />
+          </button>
+        </a>
+        <a href={`/query/update/${_id}`}>
+          <button>
+            <MyIconButton
+              icon={<GrDocumentUpdate />}
+              text={"Update"}
+            />
+          </button>
+        </a>
+        <button onClick={handleDeleteQuery}>
           <MyIconButton
-            icon={""}
-            text={"Recommend"}
+            icon={<RiDeleteBinLine />}
+            text={"Delete"}
           />
         </button>
       </div>

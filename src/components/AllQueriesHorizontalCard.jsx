@@ -3,21 +3,6 @@
 import { PiCalendarDotsDuotone, PiChats } from "react-icons/pi";
 import MyIconButton from "./MyIconButton";
 
-/*
-{
-    "_id": "6783894c4ee67f025257bba4",
-    "productName": "Alienware m15 R7",
-    "productBrand": "Alienware",
-    "productImage": "https://i.ibb.co.com/48TdtXT/dell-xps-15.jpg",
-    "question": "What’s the best gaming laptop under $1500?",
-    "details": "I’m looking for a powerful gaming laptop that can handle the latest AAA games with high settings. It should have a fast refresh rate, good cooling, and a reliable GPU for long gaming sessions. Portability is a bonus, but I am okay with a slightly bulky design if the performance is worth it. Any recommendations for something that balances price and features?",
-    "userName": "Steve Smith",
-    "userEmail": "smith@yahoo.com",
-    "userImage": "https://i.ibb.co.com/2Wnfp7P/headshot.jpg",
-    "uploadTime": "1/12/2025, 3:20:12 PM",
-    "recommendationCount": 0
-}
-*/
 export default function AllQueriesHorizontalCard({ query }) {
   console.log(query);
   const {
@@ -55,12 +40,9 @@ export default function AllQueriesHorizontalCard({ query }) {
           <div className="mb-2 sm:flex sm:items-center sm:gap-4">
             <p className="hidden sm:block sm:text-xs sm:text-gray-500">
               Posted by{" "}
-              <a
-                href="#"
-                className="font-medium underline hover:text-gray-700"
-              >
+              <span className="font-medium underline hover:text-gray-700">
                 {userName}{" "}
-              </a>
+              </span>
             </p>
 
             <div className="flex items-center gap-1 text-gray-500">

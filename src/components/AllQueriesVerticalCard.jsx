@@ -9,6 +9,7 @@ import MyIconButton from "./MyIconButton";
 export default function AllQueriesVerticalCard({ query }) {
   console.log(query);
   const {
+    _id,
     question,
     details,
     userName,
@@ -54,20 +55,16 @@ export default function AllQueriesVerticalCard({ query }) {
           <PiPencilSimpleLineDuotone className="text-base" />
           {recommendationCount} Recommendations
         </p>
-
-        <p className="flex items-center gap-1">
-          <PiChats className="text-base" />0 Comments
-        </p>
       </div>
 
-      <div className="mt-4">
-        <button>
+      <a href={`/query/details/${_id}`}>
+        <button className="mt-4">
           <MyIconButton
-            icon={""}
-            text={"Recommend"}
+            icon={<PiChats />}
+            text={recommendationCount}
           />
         </button>
-      </div>
+      </a>
     </div>
   );
 }
