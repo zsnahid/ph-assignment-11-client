@@ -6,10 +6,10 @@ import Login from "../pages/Login";
 import MyQueries from "../pages/MyQueries";
 import Queries from "../pages/Queries";
 import QueryDetails from "../pages/QueryDetails";
+import RecommendationsForMe from "../pages/RecommendationsForMe";
 import Signup from "../pages/Signup";
 import UpdateQuery from "../pages/UpdateQuery";
 import PrivateRoute from "./PrivateRoute";
-import RecommendationsForMe from "../pages/RecommendationsForMe";
 
 export const router = createBrowserRouter([
   {
@@ -64,8 +64,12 @@ export const router = createBrowserRouter([
       },
       {
         path: "/recommendations-for-me",
-        element: <RecommendationsForMe/>
-      }
+        element: (
+          <PrivateRoute>
+            <RecommendationsForMe />
+          </PrivateRoute>
+        ),
+      },
     ],
   },
 ]);
