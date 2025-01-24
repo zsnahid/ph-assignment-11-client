@@ -70,7 +70,7 @@ export default function MyNavbar() {
         className="p-1 font-normal"
       >
         <a
-          href="/queries"
+          href="/recommendations-for-me"
           className="flex items-center"
         >
           Recommendations For Me
@@ -96,7 +96,7 @@ export default function MyNavbar() {
         className="p-1 font-normal"
       >
         <a
-          href="/queries"
+          href="/my-recommendations"
           className="flex items-center"
         >
           My Recommendations

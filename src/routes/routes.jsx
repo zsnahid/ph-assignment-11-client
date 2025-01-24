@@ -9,6 +9,7 @@ import QueryDetails from "../pages/QueryDetails";
 import Signup from "../pages/Signup";
 import UpdateQuery from "../pages/UpdateQuery";
 import PrivateRoute from "./PrivateRoute";
+import RecommendationsForMe from "../pages/RecommendationsForMe";
 
 export const router = createBrowserRouter([
   {
@@ -61,6 +62,10 @@ export const router = createBrowserRouter([
         loader: ({ params }) =>
           fetch(`http://localhost:3000/queries/${params.id}`),
       },
+      {
+        path: "/recommendations-for-me",
+        element: <RecommendationsForMe/>
+      }
     ],
   },
 ]);
