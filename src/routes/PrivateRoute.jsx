@@ -9,12 +9,12 @@ export default function PrivateRoute({ children }) {
 
   if (loading) {
     return (
-      <div className="flex-grow place-content-center">
-        <Spinner />
+      <div className="flex-grow flex place-content-center">
+        <Spinner className="m-20" />
       </div>
     );
   }
 
   if (user) return children;
-  else return <Navigate to={"/login"} />;
+  else return <Navigate to="/login" />;
 }

@@ -1,16 +1,14 @@
 import { Typography } from "@material-tailwind/react";
 import { useState } from "react";
 import { PiGridFourDuotone, PiRowsDuotone } from "react-icons/pi";
-import { useLoaderData } from "react-router-dom";
 import MyIconButton from "../components/MyIconButton";
 import AllQueriesHorizontalLayout from "../layouts/AllQueriesHorizontalLayout";
 import AllQueriesVerticalLayout from "../layouts/AllQueriesVerticalLayout";
 
 export default function Queries() {
-  const queries = useLoaderData();
   const [menuOpen, setMenuOpen] = useState(false);
   const [layout, setLayout] = useState("list");
-  console.log(queries);
+  // console.log(queries);
   const handleToggleDropdown = () => {
     setMenuOpen(!menuOpen);
   };

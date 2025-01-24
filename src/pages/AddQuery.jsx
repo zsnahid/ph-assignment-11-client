@@ -1,6 +1,7 @@
 import { Card, Input, Textarea, Typography } from "@material-tailwind/react";
 import axios from "axios";
 import { useContext } from "react";
+import Swal from "sweetalert2";
 import MySolidButton from "../components/MySolidButton";
 import { AuthContext } from "../contexts/AuthContext";
 
@@ -32,7 +33,14 @@ export default function AddQuery() {
 
     axios
       .post("http://localhost:3000/queries", query)
-      .then((response) => console.log(response.data))
+      .then((response) => {
+        if (response.data.insertedId) {
+          Swal.fire({
+            title: "Query Added",
+            icon: "success",
+          });
+        }
+      })
       .catch((error) => console.error(error));
   };
   return (
@@ -123,7 +131,9 @@ export default function AddQuery() {
           <Textarea
             id="details"
             name="details"
-            label="Please provide some description"
+            labelProps={{
+              className: "before:content-none after:content-none",
+            }}
           />
         </div>
         <div className="flex place-content-center mt-4">

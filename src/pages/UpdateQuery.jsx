@@ -1,6 +1,7 @@
 import { Card, Input, Textarea, Typography } from "@material-tailwind/react";
 import axios from "axios";
 import { useLoaderData } from "react-router-dom";
+import Swal from "sweetalert2";
 import MySolidButton from "../components/MySolidButton";
 
 export default function UpdateQuery() {
@@ -31,7 +32,14 @@ export default function UpdateQuery() {
 
     axios
       .patch(`http://localhost:3000/queries/update/${_id}`, updatedQuery)
-      .then((response) => console.log(response.data))
+      .then((response) => {
+        if (response.data.modifiedCount) {
+          Swal.fire({
+            title: "Query Updated",
+            icon: "success",
+          });
+        }
+      })
       .catch((error) => console.error(error));
   };
   return (
@@ -134,7 +142,7 @@ export default function UpdateQuery() {
         </div>
         <div className="flex place-content-end mt-4">
           <button type="submit">
-            <MySolidButton>Add Query</MySolidButton>
+            <MySolidButton>Update</MySolidButton>
           </button>
         </div>
       </form>
