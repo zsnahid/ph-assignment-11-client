@@ -48,7 +48,6 @@ export default function MyQueriesHorizontalCard({
       confirmButtonColor: "#d33",
       confirmButtonText: "Delete",
       reverseButtons: true,
-      width: "22rem"
     }).then((result) => {
       if (result.isConfirmed) {
         axios

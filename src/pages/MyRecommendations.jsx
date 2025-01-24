@@ -1,11 +1,14 @@
 import { Card, Typography } from "@material-tailwind/react";
 import axios from "axios";
 import { useContext, useEffect, useState } from "react";
+import { RiDeleteBinLine } from "react-icons/ri";
+import Swal from "sweetalert2";
+import MyIconButton from "../components/MyIconButton";
 import { AuthContext } from "../contexts/AuthContext";
 
-const TABLE_HEAD = ["Query", "Recommended Product", "Recommended By", ""];
+const TABLE_HEAD = ["Query", "Recommended Product", "Asked By", ""];
 
-export default function RecommendationsForMe() {
+export default function MyRecommendations() {
   const { user } = useContext(AuthContext);
   const [tableRows, setTableRows] = useState([]);
   // console.log(user);
@@ -13,7 +16,7 @@ export default function RecommendationsForMe() {
   useEffect(() => {
     axios
       .get(
-        `http://localhost:3000/recommendations/questioner/filter?email=${encodeURIComponent(
+        `http://localhost:3000/recommendations/recommender/filter?email=${encodeURIComponent(
           user.email
         )}`
       )
@@ -23,6 +26,45 @@ export default function RecommendationsForMe() {
       })
       .catch((error) => console.error(error));
   }, [user.email]);
+
+  const handleDeleteRecommendations = (_id, queryId) => {
+    Swal.fire({
+      title: "Are you sure?",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#d33",
+      confirmButtonText: "Delete",
+      reverseButtons: true,
+    }).then((result) => {
+      if (result.isConfirmed) {
+        axios
+          .delete(`http://localhost:3000/recommendations/delete/${_id}`)
+          .then((response) => {
+            if (response.data.deletedCount === 1) {
+              Swal.fire({
+                title: "Deleted!",
+                text: "Your recommendations has been deleted.",
+                icon: "success",
+                confirmButtonColor: "#689f38",
+              });
+
+              axios
+                .patch(`http://localhost:3000/queries/decrement/${queryId}`, {
+                  _id,
+                })
+                .then((res) => console.log(res.data))
+                .catch((error) => console.error(error));
+
+              const remainingRows = tableRows.filter(
+                (recommendation) => recommendation._id !== _id
+              );
+              setTableRows(remainingRows);
+            }
+          })
+          .catch((error) => console.error(error));
+      }
+    });
+  };
 
   return (
     <Card className="flex-grow h-full w-full rounded-none overflow-auto">
@@ -46,13 +88,13 @@ export default function RecommendationsForMe() {
           </tr>
         </thead>
         <tbody>
-          {tableRows.map(
+          {tableRows?.map(
             ({
               _id,
               queryTitle,
               queryId,
               recommendedProductName,
-              recommenderName,
+              questionerName,
             }) => (
               <tr
                 key={_id}
@@ -82,19 +124,18 @@ export default function RecommendationsForMe() {
                     color="blue-gray"
                     className="font-normal"
                   >
-                    {recommenderName}
+                    {questionerName}
                   </Typography>
                 </td>
                 <td className="p-4">
-                  <Typography
-                    as="a"
-                    href={`/query/details/${queryId}`}
-                    variant="small"
-                    color="blue-gray"
-                    className="font-medium underline"
+                  <button
+                    onClick={() => handleDeleteRecommendations(_id, queryId)}
                   >
-                    Details
-                  </Typography>
+                    <MyIconButton
+                      icon={<RiDeleteBinLine />}
+                      text={"Delete"}
+                    />
+                  </button>
                 </td>
               </tr>
             )

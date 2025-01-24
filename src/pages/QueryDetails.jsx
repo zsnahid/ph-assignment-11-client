@@ -21,7 +21,7 @@ export default function QueryDetails() {
     productName,
     productImage,
   } = query;
-  console.log(_id);
+  console.log(typeof _id, _id);
 
   useEffect(() => {
     axios
@@ -30,7 +30,7 @@ export default function QueryDetails() {
       .catch((error) => console.error(error));
   }, [_id]);
 
-  console.log(comments);
+  // console.log(comments);
 
   const handleAddRecommendation = (e) => {
     e.preventDefault();
@@ -65,7 +65,7 @@ export default function QueryDetails() {
       .catch((error) => console.error(error));
 
     axios
-      .patch(`http://localhost:3000/queries/${_id}`, { _id })
+      .patch(`http://localhost:3000/queries/increment/${_id}`, { _id })
       .then((response) => console.log(response.data))
       .catch((error) => console.error(error));
 
