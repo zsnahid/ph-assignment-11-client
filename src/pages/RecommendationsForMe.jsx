@@ -1,9 +1,9 @@
 import { Card, Typography } from "@material-tailwind/react";
 import axios from "axios";
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../contexts/AuthContext";
 
-const TABLE_HEAD = ["Query", "Recommended Product", "Product Image", ""];
+const TABLE_HEAD = ["Query", "Recommended Product", "Recommended By", ""];
 
 const TABLE_ROWS = [
   {
@@ -35,7 +35,8 @@ const TABLE_ROWS = [
 
 export default function RecommendationsForMe() {
   const { user } = useContext(AuthContext);
-  console.log(user);
+  const [tableRows, setTableRows] = useState([]);
+  // console.log(user);
 
   useEffect(() => {
     axios
@@ -46,6 +47,7 @@ export default function RecommendationsForMe() {
       )
       .then((res) => {
         console.log(res.data);
+        setTableRows(res.data);
       })
       .catch((error) => console.error(error));
   }, [user.email]);
@@ -72,51 +74,59 @@ export default function RecommendationsForMe() {
           </tr>
         </thead>
         <tbody>
-          {TABLE_ROWS.map(({ name, job, date }, index) => (
-            <tr
-              key={name}
-              className="even:bg-gray-300/50"
-            >
-              <td className="p-4">
-                <Typography
-                  variant="small"
-                  color="blue-gray"
-                  className="font-normal"
-                >
-                  {name}
-                </Typography>
-              </td>
-              <td className="p-4">
-                <Typography
-                  variant="small"
-                  color="blue-gray"
-                  className="font-normal"
-                >
-                  {job}
-                </Typography>
-              </td>
-              <td className="p-4">
-                <Typography
-                  variant="small"
-                  color="blue-gray"
-                  className="font-normal"
-                >
-                  {date}
-                </Typography>
-              </td>
-              <td className="p-4">
-                <Typography
-                  as="a"
-                  href="#"
-                  variant="small"
-                  color="blue-gray"
-                  className="font-medium underline"
-                >
-                  Details
-                </Typography>
-              </td>
-            </tr>
-          ))}
+          {tableRows.map(
+            ({
+              _id,
+              queryTitle,
+              queryId,
+              recommendedProductName,
+              recommenderName,
+            }) => (
+              <tr
+                key={_id}
+                className="even:bg-gray-300/50"
+              >
+                <td className="p-4">
+                  <Typography
+                    variant="small"
+                    color="blue-gray"
+                    className="font-normal"
+                  >
+                    {queryTitle}
+                  </Typography>
+                </td>
+                <td className="p-4">
+                  <Typography
+                    variant="small"
+                    color="blue-gray"
+                    className="font-normal"
+                  >
+                    {recommendedProductName}
+                  </Typography>
+                </td>
+                <td className="p-4">
+                  <Typography
+                    variant="small"
+                    color="blue-gray"
+                    className="font-normal"
+                  >
+                    {recommenderName}
+                  </Typography>
+                </td>
+                <td className="p-4">
+                  <Typography
+                    as="a"
+                    href={`/query/details/${queryId}`}
+                    variant="small"
+                    color="blue-gray"
+                    className="font-medium underline"
+                  >
+                    Details
+                  </Typography>
+                </td>
+              </tr>
+            )
+          )}
         </tbody>
       </table>
     </Card>
