@@ -1,10 +1,12 @@
+import { Button } from "@material-tailwind/react";
 import { useContext } from "react";
 import MySolidButton from "../components/MySolidButton";
 import { AuthContext } from "../contexts/AuthContext";
 import reg1 from "/src/assets/reg1.webp";
 
 export default function Signup() {
-  const { createUser, updateUserProfile } = useContext(AuthContext);
+  const { createUser, updateUserProfile, googleSignIn } =
+    useContext(AuthContext);
 
   const handleEmailSignIn = (e) => {
     e.preventDefault();
@@ -31,6 +33,10 @@ export default function Signup() {
       .catch((error) => {
         console.error("sign in error:", error.message);
       });
+  };
+
+  const handleGoogleSignIn = () => {
+    googleSignIn();
   };
 
   return (
@@ -178,20 +184,18 @@ export default function Signup() {
 
               <div className="col-span-6">
                 <p className="text-sm text-gray-500">
-                  By creating an account, you agree to our
+                  By creating an account, you agree to our{" "}
                   <a
                     href="#"
                     className="text-gray-700 underline"
                   >
-                    {" "}
-                    terms and conditions{" "}
-                  </a>
-                  and
+                    terms and conditions
+                  </a>{" "}
+                  and{" "}
                   <a
                     href="#"
                     className="text-gray-700 underline"
                   >
-                    {" "}
                     privacy policy
                   </a>
                 </p>
@@ -216,6 +220,27 @@ export default function Signup() {
                 </p>
               </div>
             </form>
+            <span className="relative flex justify-center my-2">
+              <div className="absolute inset-x-0 top-1/2 h-px -translate-y-1/2 bg-transparent bg-gradient-to-r from-transparent via-gray-500 to-transparent opacity-75"></div>
+
+              <span className="relative z-10 bg-white px-6">or</span>
+            </span>
+
+            <Button
+              size="md"
+              fullWidth
+              variant="outlined"
+              color="gray"
+              className="flex justify-center items-center gap-3 text-gray-600 border-gray-600 mb-2 lg:w-fit mx-auto"
+              onClick={handleGoogleSignIn}
+            >
+              <img
+                src="https://docs.material-tailwind.com/icons/google.svg"
+                alt="metamask"
+                className="size-4"
+              />
+              Continue with Google
+            </Button>
           </div>
         </main>
       </div>
