@@ -1,8 +1,8 @@
-import { useLoaderData } from "react-router-dom";
+/* eslint-disable react/prop-types */
 import AllQueriesHorizontalCard from "../components/AllQueriesHorizontalCard";
 
-export default function AllQueriesHorizontalLayout() {
-  const queries = useLoaderData();
+export default function AllQueriesHorizontalLayout({ queries, setQueries }) {
+  // const queries = useLoaderData();
   // console.log(queries);
 
   return (

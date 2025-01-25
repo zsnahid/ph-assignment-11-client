@@ -1,6 +1,8 @@
 import { Typography } from "@material-tailwind/react";
+import axios from "axios";
 import { useState } from "react";
 import { PiGridFourDuotone, PiRowsDuotone } from "react-icons/pi";
+import { useLoaderData } from "react-router-dom";
 import MyIconButton from "../components/MyIconButton";
 import AllQueriesHorizontalLayout from "../layouts/AllQueriesHorizontalLayout";
 import AllQueriesVerticalLayout from "../layouts/AllQueriesVerticalLayout";
@@ -8,6 +10,8 @@ import AllQueriesVerticalLayout from "../layouts/AllQueriesVerticalLayout";
 export default function Queries() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [layout, setLayout] = useState("list");
+  const data = useLoaderData();
+  const [queries, setQueries] = useState(data);
   // console.log(queries);
   const handleToggleDropdown = () => {
     setMenuOpen(!menuOpen);
@@ -16,8 +20,73 @@ export default function Queries() {
     setLayout(selectedLayout);
     setMenuOpen(false);
   };
+
+  const handleSearch = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const searchText = form.Search.value;
+    console.log(searchText);
+
+    axios
+      .get(
+        `http://localhost:3000/queries/search?product=${encodeURIComponent(
+          searchText
+        )}`,
+        { searchText }
+      )
+      .then((res) => {
+        setQueries(res.data);
+      })
+      .catch((error) => console.error(error));
+  };
+
   return (
     <div className="flex-grow max-w-screen-2xl w-11/12 mx-auto">
+      {/* search box */}
+
+      <div className="relative my-4 lg:w-3/5 mx-auto">
+        <form onSubmit={handleSearch}>
+          <label
+            htmlFor="Search"
+            className="sr-only"
+          >
+            {" "}
+            Search{" "}
+          </label>
+
+          <input
+            type="text"
+            id="Search"
+            placeholder="Search for..."
+            className="w-full rounded-md border-gray-200 py-2.5 pe-10 shadow-sm sm:text-sm"
+          />
+
+          <span className="absolute inset-y-0 end-0 grid w-10 place-content-center">
+            <button
+              type="submit"
+              className="text-gray-600 hover:text-gray-700"
+            >
+              <span className="sr-only">Search</span>
+
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth="1.5"
+                stroke="currentColor"
+                className="size-4"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"
+                />
+              </svg>
+            </button>
+          </span>
+        </form>
+      </div>
+
       <div className="border-b border-gray-300 py-2 flex justify-between items-center">
         <Typography variant="h3">All Queries</Typography>
 
@@ -83,9 +152,15 @@ export default function Queries() {
         </div>
       </div>
       {layout === "grid" ? (
-        <AllQueriesVerticalLayout />
+        <AllQueriesVerticalLayout
+          queries={queries}
+          setQueries={setQueries}
+        />
       ) : (
-        <AllQueriesHorizontalLayout />
+        <AllQueriesHorizontalLayout
+          queries={queries}
+          setQueries={setQueries}
+        />
       )}
     </div>
   );

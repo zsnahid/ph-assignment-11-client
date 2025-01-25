@@ -7,9 +7,10 @@ import MyIconButton from "./MyIconButton";
 
 /* eslint-disable react/prop-types */
 export default function AllQueriesVerticalCard({ query }) {
-  console.log(query);
+  // console.log(query);
   const {
     _id,
+    productName,
     question,
     details,
     userName,
@@ -43,6 +44,8 @@ export default function AllQueriesVerticalCard({ query }) {
           />
         </div>
       </div>
+
+      <p className="mb-2">Product in the image: {productName}</p>
 
       <div className="mt-4">
         <p className="text-pretty text-sm text-gray-600 line-clamp-2">

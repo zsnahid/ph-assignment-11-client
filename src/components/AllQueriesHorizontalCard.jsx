@@ -4,9 +4,10 @@ import { PiCalendarDotsDuotone, PiChats } from "react-icons/pi";
 import MyIconButton from "./MyIconButton";
 
 export default function AllQueriesHorizontalCard({ query }) {
-  console.log(query);
+  // console.log(query);
   const {
     _id,
+    productName,
     productImage,
     question,
     details,
@@ -50,6 +51,8 @@ export default function AllQueriesHorizontalCard({ query }) {
               <p className="text-xs">{uploadTime}</p>
             </div>
           </div>
+
+          <p className="mb-2">Product in the image: {productName}</p>
 
           <p className="line-clamp-2 text-sm text-gray-700 hidden lg:block">
             {details}
