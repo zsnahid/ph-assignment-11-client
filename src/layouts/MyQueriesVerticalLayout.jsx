@@ -15,7 +15,8 @@ export default function MyQueriesVerticalLayout() {
       .get(
         `http://localhost:3000/queries/filter?email=${encodeURIComponent(
           user.email
-        )}`
+        )}`,
+        { withCredentials: true }
       )
       .then((res) => {
         console.log(res.data);

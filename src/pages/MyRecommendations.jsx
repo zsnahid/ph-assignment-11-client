@@ -18,7 +18,8 @@ export default function MyRecommendations() {
       .get(
         `http://localhost:3000/recommendations/recommender/filter?email=${encodeURIComponent(
           user.email
-        )}`
+        )}`,
+        { withCredentials: true }
       )
       .then((res) => {
         console.log(res.data);

@@ -6,9 +6,11 @@ import MyIconButton from "../components/MyIconButton";
 import MySolidButton from "../components/MySolidButton";
 import MyQueriesHorizontalLayout from "../layouts/MyQueriesHorizontalLayout";
 import MyQueriesVerticalLayout from "../layouts/MyQueriesVerticalLayout";
+
 export default function MyQueries() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [layout, setLayout] = useState("list");
+
   const handleToggleDropdown = () => {
     setMenuOpen(!menuOpen);
   };

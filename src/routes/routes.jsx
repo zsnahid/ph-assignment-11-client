@@ -33,7 +33,6 @@ export const router = createBrowserRouter([
             <MyQueries />
           </PrivateRoute>
         ),
-        loader: () => fetch("http://localhost:3000/queries"),
       },
       {
         path: "/add-query",

@@ -15,7 +15,8 @@ export default function RecommendationsForMe() {
       .get(
         `http://localhost:3000/recommendations/questioner/filter?email=${encodeURIComponent(
           user.email
-        )}`
+        )}`,
+        { withCredentials: true }
       )
       .then((res) => {
         console.log(res.data);
