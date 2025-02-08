@@ -1,12 +1,10 @@
 import axios from "axios";
 import { useContext, useEffect, useState } from "react";
-import { useLoaderData } from "react-router-dom";
 import MyQueriesVerticalCard from "../components/MyQueriesVerticalCard";
 import { AuthContext } from "../contexts/AuthContext";
 
 export default function MyQueriesVerticalLayout() {
-  const data = useLoaderData();
-  const [queries, setQueries] = useState(data);
+  const [queries, setQueries] = useState([]);
   // console.log(queries);
   const { user } = useContext(AuthContext);
 
@@ -27,7 +25,7 @@ export default function MyQueriesVerticalLayout() {
 
   return (
     <div className="my-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-      {queries.map((query) => (
+      {queries?.map((query) => (
         <MyQueriesVerticalCard
           key={query._id}
           query={query}
