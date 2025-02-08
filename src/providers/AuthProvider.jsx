@@ -28,7 +28,17 @@ export default function AuthProvider({ children }) {
           .post("http://localhost:3000/jwt", user, {
             withCredentials: true,
           })
-          .then((res) => console.log(res.data));
+          .then((res) => console.log("token created", res.data));
+      } else {
+        axios
+          .post(
+            "http://localhost:3000/logout",
+            {},
+            {
+              withCredentials: true,
+            }
+          )
+          .then((res) => console.log("token deleted", res.data));
       }
       setLoading(false);
     });
