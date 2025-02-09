@@ -22,7 +22,7 @@ export default function Home() {
     axios
       .get("http://localhost:3000/queries/latest")
       .then((res) => {
-        console.log(res.data);
+        // console.log(res.data);
         setQueries(res.data);
       })
       .catch((err) => console.error(err));

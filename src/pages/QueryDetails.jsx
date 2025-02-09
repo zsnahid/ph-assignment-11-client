@@ -21,7 +21,7 @@ export default function QueryDetails() {
     productName,
     productImage,
   } = query;
-  console.log(typeof _id, _id);
+  // console.log(typeof _id, _id);
 
   useEffect(() => {
     axios
@@ -56,17 +56,17 @@ export default function QueryDetails() {
       questionerEmail: userEmail,
       questionerName: userName,
     };
-    console.log(recommendation);
-    console.log({ _id });
+    // console.log(recommendation);
+    // console.log({ _id });
 
     axios
       .post("http://localhost:3000/recommendations", recommendation)
-      .then((response) => console.log(response.data))
+      .then()
       .catch((error) => console.error(error));
 
     axios
       .patch(`http://localhost:3000/queries/increment/${_id}`, { _id })
-      .then((response) => console.log(response.data))
+      .then()
       .catch((error) => console.error(error));
 
     setComments([...comments, recommendation]);

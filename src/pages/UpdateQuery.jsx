@@ -6,7 +6,7 @@ import MySolidButton from "../components/MySolidButton";
 
 export default function UpdateQuery() {
   const query = useLoaderData();
-  console.log(query);
+  // console.log(query);
 
   const { _id, productName, productBrand, productImage, question, details } =
     query;

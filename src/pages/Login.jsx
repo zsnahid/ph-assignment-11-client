@@ -12,10 +12,10 @@ export default function Login() {
     const form = e.target;
     const email = form.login_email.value;
     const password = form.login_password.value;
-    console.log(email, password);
+    // console.log(email, password);
 
     logIn(email, password)
-      .then(() => console.log("login successful"))
+      .then()
       .catch((error) => console.error(error.message));
   };
 

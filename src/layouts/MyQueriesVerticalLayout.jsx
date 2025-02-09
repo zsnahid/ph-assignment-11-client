@@ -17,7 +17,7 @@ export default function MyQueriesVerticalLayout() {
         { withCredentials: true }
       )
       .then((res) => {
-        console.log(res.data);
+        // console.log(res.data);
         setQueries(res.data);
       })
       .catch((error) => console.error(error));

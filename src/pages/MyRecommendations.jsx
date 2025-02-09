@@ -22,7 +22,7 @@ export default function MyRecommendations() {
         { withCredentials: true }
       )
       .then((res) => {
-        console.log(res.data);
+        // console.log(res.data);
         setTableRows(res.data);
       })
       .catch((error) => console.error(error));
@@ -53,7 +53,7 @@ export default function MyRecommendations() {
                 .patch(`http://localhost:3000/queries/decrement/${queryId}`, {
                   _id,
                 })
-                .then((res) => console.log(res.data))
+                .then()
                 .catch((error) => console.error(error));
 
               const remainingRows = tableRows.filter(

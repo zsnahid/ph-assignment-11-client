@@ -8,7 +8,7 @@ import MyIconButton from "./MyIconButton";
 
 /* eslint-disable react/prop-types */
 export default function MyQueriesVerticalCard({ query, queries, setQueries }) {
-  console.log(query);
+  // console.log(query);
   const {
     _id,
     question,

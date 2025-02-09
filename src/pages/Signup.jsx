@@ -17,18 +17,18 @@ export default function Signup() {
     const password = form.password.value;
 
     const userInfo = { displayName: name, photoURL: photo };
-    console.log(userInfo);
+    // console.log(userInfo);
 
     createUser(email, password)
       .then((userCredential) => {
         updateUserProfile(userInfo)
-          .then(() => console.log("profile updated"))
+          .then()
           .catch((error) =>
             console.error("profile update error:", error.message)
           );
 
         const user = userCredential.user;
-        console.log(user);
+        // console.log(user);
       })
       .catch((error) => {
         console.error("sign in error:", error.message);

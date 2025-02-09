@@ -25,7 +25,7 @@ export default function Queries() {
     e.preventDefault();
     const form = e.target;
     const searchText = form.Search.value;
-    console.log(searchText);
+    // console.log(searchText);
 
     axios
       .get(
