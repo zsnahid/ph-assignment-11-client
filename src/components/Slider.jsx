@@ -1,4 +1,5 @@
-import { Button, Carousel, Typography } from "@material-tailwind/react";
+/* eslint-disable react/no-unescaped-entities */
+import { Carousel, Typography } from "@material-tailwind/react";
 
 export default function Slider() {
   return (
@@ -7,135 +8,131 @@ export default function Slider() {
       className="h-[40rem]"
     >
       <div className="relative h-full w-full">
-        <img
-          src={"/src/assets/blob-scene-haikei.svg"}
-          alt="image 1"
-          className="h-full w-full object-cover"
-        />
-        <div className="absolute inset-0 grid h-full w-full place-items-center bg-black/10">
-          <div className="w-3/4 text-center md:w-2/4">
-            <img
-              src="/src/assets/slider_img_1.webp"
-              alt=""
-              className="size-96 object-cover"
-            />
-            {/* <Typography
-              variant="h1"
-              color="white"
-              className="mb-4 text-3xl md:text-4xl lg:text-5xl"
-            >
-              The Beauty of Nature
-            </Typography>
-            <Typography
-              variant="lead"
-              color="white"
-              className="mb-12 opacity-80"
-            >
-              It is not so much for its beauty that the forest makes a claim
-              upon men&apos;s hearts, as for that subtle something, that quality
-              of air that emanation from old trees, that so wonderfully changes
-              and renews a weary spirit.
-            </Typography> */}
-            <div className="flex justify-center gap-2">
-              <Button
-                size="lg"
-                color="white"
-              >
-                Explore
-              </Button>
-              <Button
-                size="lg"
-                color="white"
-                variant="text"
-              >
-                Gallery
-              </Button>
-            </div>
-          </div>
+        <div className="absolute z-10 bottom-0 left-[50%] -translate-x-[50%] flex justify-evenly items-end w-full">
+          <img src="/src/assets/hero-img-1.png" />
+          <img
+            src="/src/assets/hero-img-2.png"
+            className="hidden md:block"
+          />
+          <img src="/src/assets/hero-img-3.png" />
+          <img src="/src/assets/hero-img-4.png" />
+          <img
+            src="/src/assets/hero-img-5.png"
+            className="hidden md:block"
+          />
+          <img src="/src/assets/hero-img-1.png" />
         </div>
-      </div>
-      <div className="relative h-full w-full">
-        <img
-          src="https://images.unsplash.com/photo-1493246507139-91e8fad9978e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2940&q=80"
-          alt="image 2"
-          className="h-full w-full object-cover"
-        />
-        <div className="absolute inset-0 grid h-full w-full items-center bg-black/75">
+        <div className="absolute inset-0 grid h-full w-full items-center bg-[#fab387]/70">
           <div className="w-3/4 pl-12 md:w-2/4 md:pl-20 lg:pl-32">
             <Typography
               variant="h1"
-              color="white"
               className="mb-4 text-3xl md:text-4xl lg:text-5xl"
             >
-              The Beauty of Nature
+              Join the world's biggest Q&A network
             </Typography>
-            <Typography
-              variant="lead"
-              color="white"
-              className="mb-12 opacity-80"
-            >
-              It is not so much for its beauty that the forest makes a claim
-              upon men&apos;s hearts, as for that subtle something, that quality
-              of air that emanation from old trees, that so wonderfully changes
-              and renews a weary spirit.
-            </Typography>
-            <div className="flex gap-2">
-              <Button
-                size="lg"
-                color="white"
-              >
-                Explore
-              </Button>
-              <Button
-                size="lg"
-                color="white"
-                variant="text"
-              >
-                Gallery
-              </Button>
-            </div>
           </div>
         </div>
       </div>
-      <div className="relative h-full w-full">
-        <img
-          src="https://images.unsplash.com/photo-1518623489648-a173ef7824f3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2762&q=80"
-          alt="image 3"
-          className="h-full w-full object-cover"
-        />
-        <div className="absolute inset-0 grid h-full w-full items-end bg-black/75">
-          <div className="w-3/4 pl-12 pb-12 md:w-2/4 md:pl-20 md:pb-20 lg:pl-32 lg:pb-32">
+
+      <div className="relative h-full w-full overflow-hidden">
+        <div className="absolute inset-0 z-10">
+          <img
+            src="/src/assets/img1.jpg"
+            className="hidden md:block absolute bottom-0 right-0 opacity-75 rounded-tl-xl"
+          />
+          <img
+            src="/src/assets/img4.jpg"
+            className="hidden md:block absolute top-[10%] right-[10%] rounded-xl opacity-75 size-32"
+          />
+          <img
+            src="/src/assets/img4.jpg"
+            className="hidden md:block absolute bottom-0 left-[10%] translate-y-[50%] rounded-xl opacity-50"
+          />
+          <img
+            src="/src/assets/img2.jpg"
+            className="hidden md:block absolute top-[35%] right-[15%] rounded-xl"
+          />
+          <img
+            src="/src/assets/img3.jpg"
+            className="hidden md:block absolute top-[20%] right-[35%] size-28 opacity-50 rounded-xl"
+          />
+        </div>
+
+        <div className="absolute inset-0 grid h-full w-full items-center bg-[#fab387]/70">
+          <div className="w-3/4 pl-12 md:w-2/4 md:pl-20 lg:pl-32">
             <Typography
               variant="h1"
-              color="white"
               className="mb-4 text-3xl md:text-4xl lg:text-5xl"
             >
-              The Beauty of Nature
+              Share and Grow the World's Knowledge
             </Typography>
             <Typography
               variant="lead"
-              color="white"
+              color="gray"
               className="mb-12 opacity-80"
             >
-              It is not so much for its beauty that the forest makes a claim
-              upon men&apos;s hearts, as for that subtle something, that quality
-              of air that emanation from old trees, that so wonderfully changes
-              and renews a weary spirit.
+              We want to connect the people who have knowledge to the people who
+              need it, to bring together people.
             </Typography>
-            <div className="flex gap-2">
-              <Button
-                size="lg"
-                color="white"
+          </div>
+        </div>
+      </div>
+
+      <div className="relative h-full w-full">
+        <div className="absolute inset-0 grid h-full w-full items-center bg-[#fab387]/70">
+          <div className="md:w-full text-center pb-12 md:pb-20 lg:pb-32">
+            <Typography
+              variant="h1"
+              className="mb-4 text-3xl md:text-4xl lg:text-5xl"
+            >
+              The Social Q&A Community
+            </Typography>
+            <Typography
+              variant="lead"
+              color="gray"
+              className="mb-12 opacity-80"
+            >
+              The question and answer site designed to help people, to help each
+              other: To ask, to learn, to share, to grow.
+            </Typography>
+          </div>
+        </div>
+
+        <div className="w-11/12 mx-auto absolute bottom-[10%] left-[50%] -translate-x-[50%] z-10 hidden md:flex justify-between">
+          <div className="flex gap-5 items-center">
+            <img src="/src/assets/qa.svg" />
+            <div>
+              <Typography variant="h5">Ask Questions</Typography>
+              <Typography
+                color="gray"
+                className="font-medium"
               >
-                Explore
-              </Button>
-              <Button
-                size="lg"
-                color="white"
-                variant="text"
+                Get the right answers first
+              </Typography>
+            </div>
+          </div>
+          <div className="flex gap-5 items-center">
+            <img src="/src/assets/form.svg" />
+            <div>
+              <Typography variant="h5">Answer Questions</Typography>
+              <Typography
+                color="gray"
+                className="font-medium"
               >
-                Gallery
-              </Button>
+                Spend five minutes feeling smart
+              </Typography>
+            </div>
+          </div>
+          <div className="flex gap-5 items-center">
+            <img src="/src/assets/hero.svg" />
+            <div>
+              <Typography variant="h5">Be Somebody's Hero</Typography>
+              <Typography
+                color="gray"
+                className="font-medium"
+              >
+                Pat yourself on the back. You deserve it.
+              </Typography>
             </div>
           </div>
         </div>

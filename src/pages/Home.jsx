@@ -22,7 +22,9 @@ export default function Home() {
   return (
     <>
       <Slider />
-      <div className="grid lg:grid-cols-3 gap-10 my-10 w-11/12 mx-auto">
+
+      <Typography variant="h2" className="w-11/12 mx-auto mb-5 mt-32">Recent Queries</Typography>
+      <div className="grid lg:grid-cols-3 gap-10 mb-10 w-11/12 mx-auto">
         {queries.map((query) => (
           <HomePageQueryCard
             key={query._id}
@@ -59,7 +61,7 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="mt-32 w-11/12 mx-auto grid lg:grid-cols-2 gap-10">
+      <div className="my-20 w-11/12 mx-auto grid lg:grid-cols-2 gap-10">
         <div className="container">
           <img
             src="/src/assets/daily-notification-bg.png"
@@ -97,7 +99,7 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="w-11/12 mx-auto grid lg:grid-cols-2 gap-10">
+      <div className="mb-20 w-11/12 mx-auto grid lg:grid-cols-2 gap-10">
         <div className="space-y-5 self-center">
           <Typography variant="h2">
             Activate daily notifications and never miss a thing
