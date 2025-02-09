@@ -26,7 +26,8 @@ export const router = createBrowserRouter([
       {
         path: "/queries",
         element: <Queries />,
-        loader: () => fetch("http://localhost:3000/queries"),
+        loader: () =>
+          fetch("https://ph-assignment-11-server-ten.vercel.app/queries"),
       },
       {
         path: "/my-queries",
@@ -60,13 +61,17 @@ export const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:3000/queries/${params.id}`),
+          fetch(
+            `https://ph-assignment-11-server-ten.vercel.app/queries/${params.id}`
+          ),
       },
       {
         path: "/query/update/:id",
         element: <UpdateQuery />,
         loader: ({ params }) =>
-          fetch(`http://localhost:3000/queries/${params.id}`),
+          fetch(
+            `https://ph-assignment-11-server-ten.vercel.app/queries/${params.id}`
+          ),
       },
       {
         path: "/recommendations-for-me",

@@ -9,14 +9,7 @@ import MyIconButton from "./MyIconButton";
 /* eslint-disable react/prop-types */
 export default function MyQueriesVerticalCard({ query, queries, setQueries }) {
   // console.log(query);
-  const {
-    _id,
-    question,
-    details,
-    userName,
-    productImage,
-    uploadTime,
-  } = query;
+  const { _id, question, details, userName, productImage, uploadTime } = query;
 
   const handleDeleteQuery = () => {
     Swal.fire({
@@ -30,7 +23,9 @@ export default function MyQueriesVerticalCard({ query, queries, setQueries }) {
     }).then((result) => {
       if (result.isConfirmed) {
         axios
-          .delete(`http://localhost:3000/queries/${_id}`)
+          .delete(
+            `https://ph-assignment-11-server-ten.vercel.app/queries/${_id}`
+          )
           .then((response) => {
             if (response.data.deletedCount === 1) {
               Swal.fire({

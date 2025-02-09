@@ -8,7 +8,6 @@ import { TbListDetails } from "react-icons/tb";
 import Swal from "sweetalert2";
 import MyIconButton from "./MyIconButton";
 
-
 export default function MyQueriesHorizontalCard({
   query,
   queries,
@@ -37,7 +36,9 @@ export default function MyQueriesHorizontalCard({
     }).then((result) => {
       if (result.isConfirmed) {
         axios
-          .delete(`http://localhost:3000/queries/${_id}`)
+          .delete(
+            `https://ph-assignment-11-server-ten.vercel.app/queries/${_id}`
+          )
           .then((response) => {
             if (response.data.deletedCount === 1) {
               Swal.fire({

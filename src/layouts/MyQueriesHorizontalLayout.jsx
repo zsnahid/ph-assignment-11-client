@@ -11,10 +11,10 @@ export default function MyQueriesHorizontalLayout() {
   useEffect(() => {
     axios
       .get(
-        `http://localhost:3000/queries/filter?email=${encodeURIComponent(
+        `https://ph-assignment-11-server-ten.vercel.app/queries/filter?email=${encodeURIComponent(
           user.email
         )}`,
-        { withCredentials: true}
+        { withCredentials: true }
       )
       .then((res) => {
         // console.log(res.data);

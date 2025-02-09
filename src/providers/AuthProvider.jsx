@@ -25,14 +25,14 @@ export default function AuthProvider({ children }) {
         const user = { email: currentUser.email };
 
         axios
-          .post("http://localhost:3000/jwt", user, {
+          .post("https://ph-assignment-11-server-ten.vercel.app/jwt", user, {
             withCredentials: true,
           })
           .then();
       } else {
         axios
           .post(
-            "http://localhost:3000/logout",
+            "https://ph-assignment-11-server-ten.vercel.app/logout",
             {},
             {
               withCredentials: true,

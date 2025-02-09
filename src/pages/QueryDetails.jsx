@@ -25,7 +25,9 @@ export default function QueryDetails() {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:3000/recommendations/${_id}`)
+      .get(
+        `https://ph-assignment-11-server-ten.vercel.app/recommendations/${_id}`
+      )
       .then((response) => setComments(response.data))
       .catch((error) => console.error(error));
   }, [_id]);
@@ -60,12 +62,18 @@ export default function QueryDetails() {
     // console.log({ _id });
 
     axios
-      .post("http://localhost:3000/recommendations", recommendation)
+      .post(
+        "https://ph-assignment-11-server-ten.vercel.app/recommendations",
+        recommendation
+      )
       .then()
       .catch((error) => console.error(error));
 
     axios
-      .patch(`http://localhost:3000/queries/increment/${_id}`, { _id })
+      .patch(
+        `https://ph-assignment-11-server-ten.vercel.app/queries/increment/${_id}`,
+        { _id }
+      )
       .then()
       .catch((error) => console.error(error));
 

@@ -29,7 +29,7 @@ export default function Queries() {
 
     axios
       .get(
-        `http://localhost:3000/queries/search?product=${encodeURIComponent(
+        `https://ph-assignment-11-server-ten.vercel.app/queries/search?product=${encodeURIComponent(
           searchText
         )}`,
         { searchText }

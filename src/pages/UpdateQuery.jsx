@@ -31,7 +31,10 @@ export default function UpdateQuery() {
     };
 
     axios
-      .patch(`http://localhost:3000/queries/update/${_id}`, updatedQuery)
+      .patch(
+        `https://ph-assignment-11-server-ten.vercel.app/queries/update/${_id}`,
+        updatedQuery
+      )
       .then((response) => {
         if (response.data.modifiedCount) {
           Swal.fire({

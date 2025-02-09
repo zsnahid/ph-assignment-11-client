@@ -16,7 +16,7 @@ export default function MyRecommendations() {
   useEffect(() => {
     axios
       .get(
-        `http://localhost:3000/recommendations/recommender/filter?email=${encodeURIComponent(
+        `https://ph-assignment-11-server-ten.vercel.app/recommendations/recommender/filter?email=${encodeURIComponent(
           user.email
         )}`,
         { withCredentials: true }
@@ -39,7 +39,9 @@ export default function MyRecommendations() {
     }).then((result) => {
       if (result.isConfirmed) {
         axios
-          .delete(`http://localhost:3000/recommendations/delete/${_id}`)
+          .delete(
+            `https://ph-assignment-11-server-ten.vercel.app/recommendations/delete/${_id}`
+          )
           .then((response) => {
             if (response.data.deletedCount === 1) {
               Swal.fire({
@@ -50,9 +52,12 @@ export default function MyRecommendations() {
               });
 
               axios
-                .patch(`http://localhost:3000/queries/decrement/${queryId}`, {
-                  _id,
-                })
+                .patch(
+                  `https://ph-assignment-11-server-ten.vercel.app/queries/decrement/${queryId}`,
+                  {
+                    _id,
+                  }
+                )
                 .then()
                 .catch((error) => console.error(error));
 

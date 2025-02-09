@@ -32,7 +32,7 @@ export default function AddQuery() {
     };
 
     axios
-      .post("http://localhost:3000/queries", query)
+      .post("https://ph-assignment-11-server-ten.vercel.app/queries", query)
       .then((response) => {
         if (response.data.insertedId) {
           Swal.fire({

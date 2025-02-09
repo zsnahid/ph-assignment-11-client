@@ -11,7 +11,7 @@ export default function MyQueriesVerticalLayout() {
   useEffect(() => {
     axios
       .get(
-        `http://localhost:3000/queries/filter?email=${encodeURIComponent(
+        `https://ph-assignment-11-server-ten.vercel.app/queries/filter?email=${encodeURIComponent(
           user.email
         )}`,
         { withCredentials: true }

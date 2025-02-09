@@ -13,7 +13,7 @@ export default function RecommendationsForMe() {
   useEffect(() => {
     axios
       .get(
-        `http://localhost:3000/recommendations/questioner/filter?email=${encodeURIComponent(
+        `https://ph-assignment-11-server-ten.vercel.app/recommendations/questioner/filter?email=${encodeURIComponent(
           user.email
         )}`,
         { withCredentials: true }

@@ -20,7 +20,7 @@ export default function Home() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3000/queries/latest")
+      .get("https://ph-assignment-11-server-ten.vercel.app/queries/latest")
       .then((res) => {
         // console.log(res.data);
         setQueries(res.data);
