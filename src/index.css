@@ -3,3 +3,12 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.container {
+  display: grid;
+}
+
+.element {
+  grid-row: 1;
+  grid-column: 1;
+}

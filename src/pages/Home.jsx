@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 import { Typography } from "@material-tailwind/react";
 import axios from "axios";
 import { useEffect, useState } from "react";
@@ -58,9 +59,77 @@ export default function Home() {
         </div>
       </div>
 
+      <div className="mt-32 w-11/12 mx-auto grid lg:grid-cols-2 gap-10">
+        <div className="container">
+          <img
+            src="/src/assets/daily-notification-bg.png"
+            className="element"
+          />
+          <img
+            src="/src/assets/Post.png"
+            className="element"
+          />
+          <img
+            src="/src/assets/Comment.png"
+            className="element relative top-[50%] left-[50%] -translate-x-[50%]"
+          />
+        </div>
 
-      <div>
-        
+        <div className="space-y-5 self-center">
+          <Typography variant="h2">
+            Discover a great collection of post variations
+          </Typography>
+          <Typography
+            variant="lead"
+            className="text-gray-700"
+          >
+            The Forum activity allows qustioners and answerers to exchange ideas
+            by posting comments as part of a 'thread'. Files such as images and
+            media maybe included in forum posts. The answerers can choose to
+            grade and/or rate forum posts.
+          </Typography>
+          <Typography
+            variant="h5"
+            className="pt-5 border-t-2 border-black"
+          >
+            This is an incredible forum
+          </Typography>
+        </div>
+      </div>
+
+      <div className="w-11/12 mx-auto grid lg:grid-cols-2 gap-10">
+        <div className="space-y-5 self-center">
+          <Typography variant="h2">
+            Activate daily notifications and never miss a thing
+          </Typography>
+          <Typography
+            variant="lead"
+            className="text-gray-700"
+          >
+            Please make sure you read the forum guidelines and Frequently Asked
+            Questions before contributing to WordPress support, both when asking
+            for and giving support, this helps maintain a friendly and welcoming
+            atmosphere for all involved. I asked this writer for a guest post,
+            which he seemed happy to write for me.
+          </Typography>
+          <Typography
+            variant="h5"
+            className="pt-5 border-t-2 border-black"
+          >
+            Interested in our network?
+          </Typography>
+        </div>
+
+        <div className="container place-items-center">
+          <img
+            src="/src/assets/daily-notification-bg.png"
+            className="element"
+          />
+          <img
+            src="/src/assets/daily-notification.png"
+            className="element"
+          />
+        </div>
       </div>
     </>
   );
