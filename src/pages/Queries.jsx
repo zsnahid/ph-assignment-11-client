@@ -57,7 +57,7 @@ export default function Queries() {
           <input
             type="text"
             id="Search"
-            placeholder="Search for..."
+            placeholder="Search by title or product name"
             className="w-full rounded-md border-gray-200 py-2.5 pe-10 shadow-sm sm:text-sm"
           />
 

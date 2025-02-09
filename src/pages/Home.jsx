@@ -23,7 +23,12 @@ export default function Home() {
     <>
       <Slider />
 
-      <Typography variant="h2" className="w-11/12 mx-auto mb-5 mt-32">Recent Queries</Typography>
+      <Typography
+        variant="h2"
+        className="w-11/12 mx-auto mb-5 mt-32"
+      >
+        Recent Queries
+      </Typography>
       <div className="grid lg:grid-cols-3 gap-10 mb-10 w-11/12 mx-auto">
         {queries.map((query) => (
           <HomePageQueryCard
@@ -109,10 +114,9 @@ export default function Home() {
             className="text-gray-700"
           >
             Please make sure you read the forum guidelines and Frequently Asked
-            Questions before contributing to WordPress support, both when asking
-            for and giving support, this helps maintain a friendly and welcoming
-            atmosphere for all involved. I asked this writer for a guest post,
-            which he seemed happy to write for me.
+            Questions before contributing, both when asking for and giving
+            support, this helps maintain a friendly and welcoming atmosphere for
+            all involved.
           </Typography>
           <Typography
             variant="h5"
