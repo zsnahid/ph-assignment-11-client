@@ -1,5 +1,19 @@
 /* eslint-disable react/no-unescaped-entities */
 import { Carousel, Typography } from "@material-tailwind/react";
+import hero_img_1 from "/src/assets/hero_img_1.png";
+import hero_img_2 from "/src/assets/hero_img_2.png";
+import hero_img_3 from "/src/assets/hero_img_3.png";
+import hero_img_4 from "/src/assets/hero_img_4.png";
+import hero_img_5 from "/src/assets/hero_img_5.png";
+
+import img1 from "/src/assets/img1.jpg";
+import img2 from "/src/assets/img2.jpg";
+import img3 from "/src/assets/img3.jpg";
+import img4 from "/src/assets/img4.jpg";
+
+import form from "/src/assets/form.svg";
+import hero from "/src/assets/hero.svg";
+import qa from "/src/assets/qa.svg";
 
 export default function Slider() {
   return (
@@ -9,18 +23,18 @@ export default function Slider() {
     >
       <div className="relative h-full w-full">
         <div className="absolute z-10 bottom-0 left-[50%] -translate-x-[50%] flex justify-evenly items-end w-full">
-          <img src="/src/assets/hero-img-1.png" />
+          <img src={hero_img_1} />
           <img
-            src="/src/assets/hero-img-2.png"
+            src={hero_img_2}
             className="hidden md:block"
           />
-          <img src="/src/assets/hero-img-3.png" />
-          <img src="/src/assets/hero-img-4.png" />
+          <img src={hero_img_3} />
+          <img src={hero_img_4} />
           <img
-            src="/src/assets/hero-img-5.png"
+            src={hero_img_5}
             className="hidden md:block"
           />
-          <img src="/src/assets/hero-img-1.png" />
+          <img src={hero_img_1} />
         </div>
         <div className="absolute inset-0 grid h-full w-full items-center bg-[#fab387]/70">
           <div className="w-3/4 pl-12 md:w-2/4 md:pl-20 lg:pl-32">
@@ -37,23 +51,23 @@ export default function Slider() {
       <div className="relative h-full w-full overflow-hidden">
         <div className="absolute inset-0 z-10">
           <img
-            src="/src/assets/img1.jpg"
+            src={img1}
             className="hidden md:block absolute bottom-0 right-0 opacity-75 rounded-tl-xl"
           />
           <img
-            src="/src/assets/img4.jpg"
+            src={img4}
             className="hidden md:block absolute top-[10%] right-[10%] rounded-xl opacity-75 size-32"
           />
           <img
-            src="/src/assets/img4.jpg"
+            src={img4}
             className="hidden md:block absolute bottom-0 left-[10%] translate-y-[50%] rounded-xl opacity-50"
           />
           <img
-            src="/src/assets/img2.jpg"
+            src={img2}
             className="hidden md:block absolute top-[35%] right-[15%] rounded-xl"
           />
           <img
-            src="/src/assets/img3.jpg"
+            src={img3}
             className="hidden md:block absolute top-[20%] right-[35%] size-28 opacity-50 rounded-xl"
           />
         </div>
@@ -100,7 +114,7 @@ export default function Slider() {
 
         <div className="w-11/12 mx-auto absolute bottom-[10%] left-[50%] -translate-x-[50%] z-10 hidden md:flex justify-between">
           <div className="flex gap-5 items-center">
-            <img src="/src/assets/qa.svg" />
+            <img src={qa} />
             <div>
               <Typography variant="h5">Ask Questions</Typography>
               <Typography
@@ -112,7 +126,7 @@ export default function Slider() {
             </div>
           </div>
           <div className="flex gap-5 items-center">
-            <img src="/src/assets/form.svg" />
+            <img src={form} />
             <div>
               <Typography variant="h5">Answer Questions</Typography>
               <Typography
@@ -124,7 +138,7 @@ export default function Slider() {
             </div>
           </div>
           <div className="flex gap-5 items-center">
-            <img src="/src/assets/hero.svg" />
+            <img src={hero} />
             <div>
               <Typography variant="h5">Be Somebody's Hero</Typography>
               <Typography

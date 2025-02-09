@@ -6,6 +6,15 @@ import HomePageQueryCard from "../components/HomePageQueryCard";
 import MySolidButton from "../components/MySolidButton";
 import Slider from "../components/Slider";
 
+import icon_1 from "/src/assets/icon_1.svg";
+import icon_2 from "/src/assets/icon_2.svg";
+import icon_3 from "/src/assets/icon_3.svg";
+
+import Comment from "/src/assets/Comment.png";
+import daily_notification from "/src/assets/daily_notification.png";
+import daily_notification_bg from "/src/assets/daily_notification_bg.png";
+import Post from "/src/assets/Post.png";
+
 export default function Home() {
   const [queries, setQueries] = useState([]);
 
@@ -37,24 +46,25 @@ export default function Home() {
           />
         ))}
       </div>
+
       <div className="my-10 w-11/12 mx-auto grid lg:grid-cols-2 gap-5 lg:gap-20 items-center">
         <div className="flex justify-between items-center">
           <div className="grid lg:grid-cols-2 gap-5 items-center">
-            <img src="/src/assets/icon-1.svg" />
+            <img src={icon_1} />
             <div>
               <Typography variant="h4">1M+</Typography>
               <Typography>Members</Typography>
             </div>
           </div>
           <div className="grid lg:grid-cols-2 gap-5 items-center">
-            <img src="/src/assets/icon-2.svg" />
+            <img src={icon_2} />
             <div>
               <Typography variant="h4">100+</Typography>
               <Typography>Forums</Typography>
             </div>
           </div>
           <div className="grid lg:grid-cols-2 gap-5 items-center">
-            <img src="/src/assets/icon-3.svg" />
+            <img src={icon_3} />
             <div>
               <Typography variant="h4">110+</Typography>
               <Typography>Countries</Typography>
@@ -69,15 +79,15 @@ export default function Home() {
       <div className="my-20 w-11/12 mx-auto grid lg:grid-cols-2 gap-10">
         <div className="container">
           <img
-            src="/src/assets/daily-notification-bg.png"
+            src={daily_notification_bg}
             className="element"
           />
           <img
-            src="/src/assets/Post.png"
+            src={Post}
             className="element"
           />
           <img
-            src="/src/assets/Comment.png"
+            src={Comment}
             className="element relative top-[50%] left-[50%] -translate-x-[50%]"
           />
         </div>
@@ -128,11 +138,11 @@ export default function Home() {
 
         <div className="container place-items-center">
           <img
-            src="/src/assets/daily-notification-bg.png"
+            src={daily_notification_bg}
             className="element"
           />
           <img
-            src="/src/assets/daily-notification.png"
+            src={daily_notification}
             className="element"
           />
         </div>
