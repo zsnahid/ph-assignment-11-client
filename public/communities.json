@@ -1,0 +1,152 @@
+[
+  {
+    "id": 1,
+    "name": "Technology",
+    "icon": "/src/assets/communities_icons/group-icon1.svg",
+    "followers": 12369,
+    "answered": "75%",
+    "users": "2M",
+    "answers": "12k",
+    "questions_per_day": "1.2k"
+  },
+  {
+    "id": 2,
+    "name": "Education",
+    "icon": "/src/assets/communities_icons/group-icon2.svg",
+    "followers": 12369,
+    "answered": "75%",
+    "users": "1M",
+    "answers": "2k",
+    "questions_per_day": "1.2k"
+  },
+  {
+    "id": 3,
+    "name": "Development",
+    "icon": "/src/assets/communities_icons/group-icon3.svg",
+    "followers": 12369,
+    "answered": "75%",
+    "users": "177K",
+    "answers": "14k",
+    "questions_per_day": "1.2k"
+  },
+  {
+    "id": 4,
+    "name": "Graphic Design",
+    "icon": "/src/assets/communities_icons/group-icon4.svg",
+    "followers": 12369,
+    "answered": "75%",
+    "users": "55K",
+    "answers": "29k",
+    "questions_per_day": "1.2k"
+  },
+  {
+    "id": 5,
+    "name": "Health",
+    "icon": "/src/assets/communities_icons/group-icon5.svg",
+    "followers": 12369,
+    "answered": "75%",
+    "users": "1.5M",
+    "answers": "12k",
+    "questions_per_day": "1.2k"
+  },
+  {
+    "id": 6,
+    "name": "Fashion",
+    "icon": "/src/assets/communities_icons/group-icon6.svg",
+    "followers": 12369,
+    "answered": "75%",
+    "users": "77K",
+    "answers": "10k",
+    "questions_per_day": "1.2k"
+  },
+  {
+    "id": 7,
+    "name": "Animal",
+    "icon": "/src/assets/communities_icons/group-icon7.svg",
+    "followers": 12369,
+    "answered": "75%",
+    "users": "2M",
+    "answers": "27k",
+    "questions_per_day": "1.2k"
+  },
+  {
+    "id": 8,
+    "name": "Politics",
+    "icon": "/src/assets/communities_icons/group-icon8.svg",
+    "followers": 12369,
+    "answered": "75%",
+    "users": "1.5M",
+    "answers": "17k",
+    "questions_per_day": "1.2k"
+  },
+  {
+    "id": 9,
+    "name": "Sports",
+    "icon": "/src/assets/communities_icons/group-icon9.svg",
+    "followers": 12369,
+    "answered": "75%",
+    "users": "654K",
+    "answers": "12k",
+    "questions_per_day": "1.2k"
+  },
+  {
+    "id": 10,
+    "name": "Food",
+    "icon": "/src/assets/communities_icons/group-icon10.svg",
+    "followers": 12369,
+    "answered": "75%",
+    "users": "2M",
+    "answers": "5k",
+    "questions_per_day": "1.2k"
+  },
+  {
+    "id": 11,
+    "name": "Business",
+    "icon": "/src/assets/communities_icons/group-icon11.svg",
+    "followers": 12369,
+    "answered": "75%",
+    "users": "1.7M",
+    "answers": "18k",
+    "questions_per_day": "1.2k"
+  },
+  {
+    "id": 12,
+    "name": "Entertainment",
+    "icon": "/src/assets/communities_icons/group-icon12.svg",
+    "followers": 12369,
+    "answered": "75%",
+    "users": "2M",
+    "answers": "19k",
+    "questions_per_day": "1.2k"
+  },
+  {
+    "id": 13,
+    "name": "Technology",
+    "icon": "/src/assets/communities_icons/group-icon13.svg",
+    "followers": 12369,
+    "answered": "75%",
+    "users": "99K",
+    "answers": "30k",
+    "questions_per_day": "1.2k"
+  },
+  {
+    "id": 14,
+    "name": "Education",
+    "icon": "/src/assets/communities_icons/group-icon14.svg",
+    "followers": 12369,
+    "answered": "75%",
+    "users": "46K",
+    "answers": "2k",
+    "questions_per_day": "1.2k"
+  },
+  {
+    "id": 15,
+    "name": "Development",
+    "icon": "/src/assets/communities_icons/group-icon15.svg",
+    "followers": 12369,
+    "answered": "75%",
+    "users": "100K",
+    "answers": "12k",
+    "questions_per_day": "1.2k"
+  }
+]

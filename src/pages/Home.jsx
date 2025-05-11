@@ -11,6 +11,7 @@ import icon_2 from "/src/assets/icon_2.svg";
 import icon_3 from "/src/assets/icon_3.svg";
 
 import Chart from "../components/Chart";
+import Communities from "../components/Communities";
 import Comment from "/src/assets/Comment.png";
 import daily_notification from "/src/assets/daily_notification.png";
 import daily_notification_bg from "/src/assets/daily_notification_bg.png";
@@ -32,6 +33,8 @@ export default function Home() {
   return (
     <>
       <Slider />
+
+      <Communities />
 
       <Typography variant="h2" className="w-11/12 mx-auto mb-5 mt-32">
         Recent Queries

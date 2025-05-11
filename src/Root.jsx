@@ -4,7 +4,7 @@ import MyNavbar from "./components/Navbar";
 
 export default function Root() {
   return (
-    <div className="min-h-screen max-w-screen-2xl mx-auto bg-white flex flex-col">
+    <div className="min-h-screen max-w-screen-2xl mx-auto bg-gray-50 flex flex-col">
       <MyNavbar />
       <Outlet />
       <Footer />
