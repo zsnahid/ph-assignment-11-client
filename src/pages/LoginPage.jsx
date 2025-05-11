@@ -26,15 +26,15 @@ const LoginPage = () => {
   };
 
   return (
-    <div className="flex flex-col lg:flex-row min-h-screen mt-36 mb-20 w-11/12 mx-auto">
+    <div className="flex flex-col-reverse lg:flex-row lg:min-h-screen mt-36 mb-20 w-11/12 mx-auto">
       {/* Left side - Hero content */}
-      <div className="w-full lg:w-1/2 p-8 pb-0 flex flex-col justify-center text-center">
+      <div className="lg:w-1/2 p-8 pb-0 hidden lg:flex flex-col justify-center text-center">
         {/* Main heading section */}
         <div className="max-w-lg">
           <span className="text-sm font-semibold uppercase text-gray-800">
             LARGEST Q&A PLATFORM
           </span>
-          <h1 className="mt-4 text-5xl sm:text-6xl font-bold text-black tracking-tight leading-loose">
+          <h1 className="mt-4 text-5xl sm:text-6xl font-bold text-black tracking-tight">
             POWERED BY ENTHUSIASTS AROUND THE WORLD.
             <span className="inline-flex items-center">
               {/* Green dots with increasing opacity */}
@@ -46,7 +46,7 @@ const LoginPage = () => {
           </h1>
 
           {/* Account creation section */}
-          <div className="mt-16">
+          <div className="mt-16 hidden lg:block">
             <p className="text-gray-600">Don't have account?</p>
             <a
               href="/signup"
@@ -99,8 +99,11 @@ const LoginPage = () => {
         ></div>
 
         {/* Login modal */}
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white rounded-2xl p-6 w-80">
-          <form className="space-y-4 bg-white" onSubmit={handleLogIn}>
+        <div className="lg:absolute top-1/2 left-1/2 transform lg:-translate-x-1/2 lg:-translate-y-1/2 bg-transparent lg:bg-white backdrop-blur-sm rounded-2xl p-6 w-full lg:w-80 h-full lg:h-fit mx-auto">
+          <form
+            className="space-y-4 bg-transparent lg:bg-white"
+            onSubmit={handleLogIn}
+          >
             <p className="text-center text-lg font-medium">
               Log in to your account
             </p>
@@ -184,15 +187,16 @@ const LoginPage = () => {
           <span className="relative flex justify-center my-2">
             <div className="absolute inset-x-0 top-1/2 h-px -translate-y-1/2 bg-transparent bg-gradient-to-r from-transparent via-gray-500 to-transparent opacity-75"></div>
 
-            <span className="relative z-10 bg-white px-6">or</span>
+            <span className="relative z-10 bg-transparent lg:bg-white text-white lg:text-black px-6">
+              or
+            </span>
           </span>
 
           <Button
             size="md"
             fullWidth
             variant="outlined"
-            color="gray"
-            className="flex justify-center items-center gap-3 text-gray-600 border-gray-600 mb-2"
+            className="flex justify-center items-center gap-3 text-white lg:text-gray-600 border-white lg:border-gray-600 mb-2"
             onClick={handleGoogleSignIn}
           >
             <img
@@ -202,6 +206,32 @@ const LoginPage = () => {
             />
             Continue with Google
           </Button>
+
+          <div className="mt-4 text-center lg:hidden">
+            <p className="text-gray-300 lg:text-gray-600">
+              Don't have account?
+            </p>
+            <a
+              href="/signup"
+              className="mt-2 inline-flex items-center text-primary font-medium"
+            >
+              Create account
+              <svg
+                className="ml-2 w-4 h-4"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M14 5l7 7m0 0l-7 7m7-7H3"
+                />
+              </svg>
+            </a>
+          </div>
         </div>
       </div>
     </div>
