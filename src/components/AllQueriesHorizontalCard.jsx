@@ -7,7 +7,6 @@ export default function AllQueriesHorizontalCard({ query }) {
   // console.log(query);
   const {
     _id,
-    productName,
     productImage,
     question,
     details,
@@ -30,10 +29,7 @@ export default function AllQueriesHorizontalCard({ query }) {
 
         <div className="mr-8">
           <h3 className="font-medium sm:text-lg">
-            <a
-              href={`/query-details/${_id}`}
-              className="hover:underline"
-            >
+            <a href={`/query-details/${_id}`} className="hover:underline">
               {question}
             </a>
           </h3>
@@ -52,18 +48,13 @@ export default function AllQueriesHorizontalCard({ query }) {
             </div>
           </div>
 
-          <p className="mb-2">Product in the image: {productName}</p>
-
           <p className="line-clamp-2 text-sm text-gray-700 hidden lg:block">
             {details}
           </p>
 
           <a href={`/query/details/${_id}`}>
             <button className="mt-4">
-              <MyIconButton
-                icon={<PiChats />}
-                text={recommendationCount}
-              />
+              <MyIconButton icon={<PiChats />} text={recommendationCount} />
             </button>
           </a>
         </div>

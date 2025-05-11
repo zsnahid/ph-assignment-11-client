@@ -1,8 +1,9 @@
+/* eslint-disable no-unused-vars */
 import { Button } from "@material-tailwind/react";
 import { useContext } from "react";
 import MySolidButton from "../components/MySolidButton";
 import { AuthContext } from "../contexts/AuthContext";
-import reg1 from "/src/assets/reg1.webp";
+import fwg from "/src/assets/auth/FWG.jpg";
 
 export default function Signup() {
   const { createUser, updateUserProfile, googleSignIn } =
@@ -27,7 +28,7 @@ export default function Signup() {
             console.error("profile update error:", error.message)
           );
 
-        const user = userCredential.user;
+        //const user = userCredential.user;
         // console.log(user);
       })
       .catch((error) => {
@@ -43,23 +44,20 @@ export default function Signup() {
     <section className="bg-white">
       <div className="lg:grid lg:min-h-screen lg:grid-cols-12">
         {/* large device layout */}
-        <section className="relative flex h-32 items-end bg-gray-900 lg:col-span-5 lg:h-full xl:col-span-6">
+        <section className="relative flex h-32 items-end bg-gray-900 lg:col-span-6 lg:h-full xl:col-span-6">
           <img
-            src={reg1}
+            src={fwg}
             className="absolute inset-0 h-full w-full object-cover brightness-90 "
           />
 
           <div className="hidden lg:relative lg:block lg:p-12">
-            <img
-              src="/logo.png"
-              className="size-20"
-            />
+            <img src="/social.png" className="size-20" />
 
-            <h2 className="mt-6 text-2xl font-bold text-black sm:text-3xl md:text-4xl">
-              Welcome to Better Buy
+            <h2 className="mt-6 text-2xl font-bold text-white sm:text-3xl md:text-4xl">
+              Welcome to <span className="font-serif">Qrius</span>
             </h2>
 
-            <p className="mt-4 leading-relaxed text-black/90 w-4/5">
+            <p className="mt-4 leading-relaxed text-white/90 w-4/5">
               Join the Community of Smart Shoppers! Get personalized
               recommendations, share your insights, and explore the best
               products
@@ -68,21 +66,18 @@ export default function Signup() {
         </section>
 
         {/* small and medium device layout */}
-        <main className="flex items-center justify-center px-8 py-8 sm:px-12 lg:col-span-7 lg:px-16 lg:py-12 xl:col-span-6">
+        <main className="flex items-center justify-center px-8 py-8 sm:px-12 lg:col-span-6 lg:px-16 lg:py-12 xl:col-span-6">
           <div className="max-w-xl lg:max-w-3xl">
             <div className="relative -mt-16 block lg:hidden">
               <a
                 className="inline-flex size-16 items-center justify-center rounded-full bg-white text-blue-600 sm:size-20"
                 href="/"
               >
-                <img
-                  src="/logo.png"
-                  className="size-10"
-                />
+                <img src="/social.png" className="size-10" />
               </a>
 
               <h1 className="mt-2 text-2xl font-bold text-gray-900 sm:text-3xl md:text-4xl">
-                Welcome to Better Buy
+                Welcome to <span className="font-serif">Qrius</span>
               </h1>
 
               <p className="mt-4 leading-relaxed text-gray-500">
@@ -164,10 +159,7 @@ export default function Signup() {
               </div>
 
               <div className="col-span-6">
-                <label
-                  htmlFor="MarketingAccept"
-                  className="flex gap-4"
-                >
+                <label htmlFor="MarketingAccept" className="flex gap-4">
                   <input
                     type="checkbox"
                     id="MarketingAccept"
@@ -185,36 +177,24 @@ export default function Signup() {
               <div className="col-span-6">
                 <p className="text-sm text-gray-500">
                   By creating an account, you agree to our{" "}
-                  <a
-                    href="#"
-                    className="text-gray-700 underline"
-                  >
+                  <a href="#" className="text-gray-700 underline">
                     terms and conditions
                   </a>{" "}
                   and{" "}
-                  <a
-                    href="#"
-                    className="text-gray-700 underline"
-                  >
+                  <a href="#" className="text-gray-700 underline">
                     privacy policy
                   </a>
                 </p>
               </div>
 
               <div className="col-span-6 sm:flex sm:items-center sm:gap-4">
-                <button
-                  type="submit"
-                  className="w-full md:w-80"
-                >
+                <button type="submit" className="w-full md:w-80">
                   <MySolidButton>Create an account</MySolidButton>
                 </button>
 
                 <p className="mt-4 text-sm text-gray-500 text-center sm:mt-0">
                   Already have an account?{" "}
-                  <a
-                    href="/login"
-                    className="text-gray-700 underline"
-                  >
+                  <a href="/loginpage" className="text-gray-700 underline">
                     Log in
                   </a>
                 </p>

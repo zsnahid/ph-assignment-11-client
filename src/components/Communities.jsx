@@ -26,7 +26,7 @@ export default function Communities() {
         Find Your Communities
       </Typography>
 
-      <div className="grid grid-cols-5 place-items-center gap-8">
+      <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-5 place-items-center gap-8">
         {displayedCommunities.map((community) => (
           <Community key={community.id} community={community} />
         ))}

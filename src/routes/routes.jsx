@@ -1,9 +1,10 @@
 import { createBrowserRouter } from "react-router-dom";
 import Root from "../Root";
+
 import AddQuery from "../pages/AddQuery";
 import ErrorPage from "../pages/ErrorPage";
 import Home from "../pages/Home";
-import Login from "../pages/Login";
+import LoginPage from "../pages/LoginPage";
 import MyQueries from "../pages/MyQueries";
 import MyRecommendations from "../pages/MyRecommendations";
 import Queries from "../pages/Queries";
@@ -46,8 +47,8 @@ export const router = createBrowserRouter([
         ),
       },
       {
-        path: "/login",
-        element: <Login />,
+        path: "/loginpage",
+        element: <LoginPage />,
       },
       {
         path: "/signup",

@@ -1,0 +1,211 @@
+/* eslint-disable react/no-unescaped-entities */
+import { Button } from "@material-tailwind/react";
+import { useContext } from "react";
+import MySolidButton from "../components/MySolidButton";
+import { AuthContext } from "../contexts/AuthContext";
+import fwg from "/src/assets/auth/FWG.jpg";
+import lwg from "/src/assets/auth/NWD.jpg";
+
+const LoginPage = () => {
+  const { logIn, googleSignIn } = useContext(AuthContext);
+
+  const handleLogIn = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const email = form.login_email.value;
+    const password = form.login_password.value;
+    // console.log(email, password);
+
+    logIn(email, password)
+      .then()
+      .catch((error) => console.error(error.message));
+  };
+
+  const handleGoogleSignIn = () => {
+    googleSignIn();
+  };
+
+  return (
+    <div className="flex flex-col lg:flex-row min-h-screen mt-36 mb-20 w-11/12 mx-auto">
+      {/* Left side - Hero content */}
+      <div className="w-full lg:w-1/2 p-8 pb-0 flex flex-col justify-center text-center">
+        {/* Main heading section */}
+        <div className="max-w-lg">
+          <span className="text-sm font-semibold uppercase text-gray-800">
+            LARGEST Q&A PLATFORM
+          </span>
+          <h1 className="mt-4 text-5xl sm:text-6xl font-bold text-black tracking-tight leading-loose">
+            POWERED BY ENTHUSIASTS AROUND THE WORLD.
+            <span className="inline-flex items-center">
+              {/* Green dots with increasing opacity */}
+              <span className="ml-2 h-8 w-8 rounded-full bg-green-300"></span>
+              <span className="-ml-3 h-8 w-8 rounded-full bg-green-500"></span>
+              <span className="-ml-3 h-8 w-8 rounded-full bg-green-700"></span>
+              <span className="-ml-3 h-8 w-8 rounded-full bg-green-900"></span>
+            </span>
+          </h1>
+
+          {/* Account creation section */}
+          <div className="mt-16">
+            <p className="text-gray-600">Don't have account?</p>
+            <a
+              href="/signup"
+              className="mt-2 inline-flex items-center text-primary font-medium"
+            >
+              Create account
+              <svg
+                className="ml-2 w-4 h-4"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M14 5l7 7m0 0l-7 7m7-7H3"
+                />
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        {/* About section at bottom */}
+        <div
+          style={{
+            backgroundImage: `url(${lwg})`,
+            backgroundRepeat: "no-repeat",
+            backgroundPosition: "center center",
+          }}
+          className="mt-auto text-white p-6 rounded-2xl"
+        >
+          <h3 className="font-medium">About us</h3>
+          <p className="mt-2 text-sm text-gray-300">
+            Over <span className="font-semibold">3 million</span> free answers
+            brought to you by the world's most generous community of consumers.
+          </p>
+        </div>
+      </div>
+
+      {/* Right side - Image with login overlay */}
+      <div className="lg:w-1/2 relative">
+        {/* Background image */}
+        <div
+          className="absolute inset-0 bg-cover bg-center rounded-3xl"
+          style={{
+            backgroundImage: `url(${fwg})`,
+          }}
+        ></div>
+
+        {/* Login modal */}
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white rounded-2xl p-6 w-80">
+          <form className="space-y-4 bg-white" onSubmit={handleLogIn}>
+            <p className="text-center text-lg font-medium">
+              Log in to your account
+            </p>
+
+            <div>
+              <label htmlFor="login_email" className="sr-only">
+                Email
+              </label>
+
+              <div className="relative">
+                <input
+                  type="email"
+                  id="login_email"
+                  name="login_email"
+                  className="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
+                  placeholder="Enter email"
+                />
+
+                <span className="absolute inset-y-0 end-0 grid place-content-center px-4">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="size-4 text-gray-400"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 8.959 0 01-4.5 1.207"
+                    />
+                  </svg>
+                </span>
+              </div>
+            </div>
+
+            <div>
+              <label htmlFor="login_password" className="sr-only">
+                Password
+              </label>
+
+              <div className="relative">
+                <input
+                  type="password"
+                  id="login_password"
+                  name="login_password"
+                  className="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
+                  placeholder="Enter password"
+                />
+
+                <span className="absolute inset-y-0 end-0 grid place-content-center px-4">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="size-4 text-gray-400"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
+                    />
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
+                    />
+                  </svg>
+                </span>
+              </div>
+            </div>
+
+            <button type="submit" className="w-full">
+              <MySolidButton>{"Log In"}</MySolidButton>
+            </button>
+          </form>
+          <span className="relative flex justify-center my-2">
+            <div className="absolute inset-x-0 top-1/2 h-px -translate-y-1/2 bg-transparent bg-gradient-to-r from-transparent via-gray-500 to-transparent opacity-75"></div>
+
+            <span className="relative z-10 bg-white px-6">or</span>
+          </span>
+
+          <Button
+            size="md"
+            fullWidth
+            variant="outlined"
+            color="gray"
+            className="flex justify-center items-center gap-3 text-gray-600 border-gray-600 mb-2"
+            onClick={handleGoogleSignIn}
+          >
+            <img
+              src="https://docs.material-tailwind.com/icons/google.svg"
+              alt="metamask"
+              className="size-4"
+            />
+            Continue with Google
+          </Button>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default LoginPage;

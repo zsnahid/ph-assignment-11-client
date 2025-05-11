@@ -2,16 +2,11 @@
 import { Typography } from "@material-tailwind/react";
 import axios from "axios";
 import { useEffect, useState } from "react";
-import HomePageQueryCard from "../components/HomePageQueryCard";
-import MySolidButton from "../components/MySolidButton";
 import Slider from "../components/Slider";
-
-import icon_1 from "/src/assets/icon_1.svg";
-import icon_2 from "/src/assets/icon_2.svg";
-import icon_3 from "/src/assets/icon_3.svg";
 
 import Chart from "../components/Chart";
 import Communities from "../components/Communities";
+import ForumStats from "../components/ForumStats";
 import Comment from "/src/assets/Comment.png";
 import daily_notification from "/src/assets/daily_notification.png";
 import daily_notification_bg from "/src/assets/daily_notification_bg.png";
@@ -36,7 +31,7 @@ export default function Home() {
 
       <Communities />
 
-      <Typography variant="h2" className="w-11/12 mx-auto mb-5 mt-32">
+      {/* <Typography variant="h2" className="w-11/12 mx-auto mb-5 mt-32">
         Recent Queries
       </Typography>
 
@@ -44,38 +39,11 @@ export default function Home() {
         {queries.map((query) => (
           <HomePageQueryCard key={query._id} query={query} />
         ))}
-      </div>
+      </div> */}
 
       <Chart />
 
-      <div className="my-10 w-11/12 mx-auto grid lg:grid-cols-2 gap-5 lg:gap-20 items-center">
-        <div className="flex justify-between items-center">
-          <div className="grid lg:grid-cols-2 gap-5 items-center">
-            <img src={icon_1} />
-            <div>
-              <Typography variant="h4">1M+</Typography>
-              <Typography>Members</Typography>
-            </div>
-          </div>
-          <div className="grid lg:grid-cols-2 gap-5 items-center">
-            <img src={icon_2} />
-            <div>
-              <Typography variant="h4">100+</Typography>
-              <Typography>Forums</Typography>
-            </div>
-          </div>
-          <div className="grid lg:grid-cols-2 gap-5 items-center">
-            <img src={icon_3} />
-            <div>
-              <Typography variant="h4">110+</Typography>
-              <Typography>Countries</Typography>
-            </div>
-          </div>
-        </div>
-        <div>
-          <MySolidButton>Start a discussion</MySolidButton>
-        </div>
-      </div>
+      <ForumStats />
 
       <div className="my-20 w-11/12 mx-auto grid lg:grid-cols-2 gap-10">
         <div className="container">

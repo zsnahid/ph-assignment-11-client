@@ -99,7 +99,7 @@ export default function Chart() {
   );
 
   return (
-    <div className="w-11/12 mx-auto my-8">
+    <div className="w-11/12 mx-auto mt-16">
       <Typography variant="h3" className="text-center mb-3">
         How useful was our forum
       </Typography>

@@ -150,7 +150,7 @@ export default function MyNavbar() {
           ) : (
             <div className="hidden lg:flex place-items-center">
               <UserCircleIcon className="mr-4 size-10" />
-              <Link to="/login">
+              <Link to="/loginpage">
                 <button className="w-44">
                   <MySolidButton>Log In</MySolidButton>
                 </button>
@@ -182,7 +182,7 @@ export default function MyNavbar() {
               <MyOutlinedButton>Log Out</MyOutlinedButton>
             </button>
           ) : (
-            <Link to="/login">
+            <Link to="/loginpage">
               <button className="lg:hidden w-full">
                 <MySolidButton>Log In</MySolidButton>
               </button>
