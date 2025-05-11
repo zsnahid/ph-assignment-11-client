@@ -37,68 +37,48 @@ export default function MyNavbar() {
 
   const navList = (
     <ul className="mb-4 mt-2 flex flex-col gap-2 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-6">
-      <Typography
-        as="li"
-        variant="small"
-        color="gray"
-        className="p-1 font-normal"
-      >
-        <a
-          href="/"
-          className="flex items-center"
-        >
+      <Typography as="li" color="white" className="p-1 font-medium">
+        <a href="/" className="flex items-center">
           Home
         </a>
       </Typography>
       <Typography
         as="li"
-        variant="small"
-        color="gray"
-        className="p-1 font-normal"
+        variant="h6"
+        color="white"
+        className="p-1 font-medium"
       >
-        <a
-          href="/queries"
-          className="flex items-center"
-        >
+        <a href="/queries" className="flex items-center">
           Queries
         </a>
       </Typography>
       <Typography
         as="li"
-        variant="small"
-        color="gray"
-        className="p-1 font-normal"
+        variant="h6"
+        color="white"
+        className="p-1 font-medium"
       >
-        <a
-          href="/recommendations-for-me"
-          className="flex items-center"
-        >
+        <a href="/recommendations-for-me" className="flex items-center">
           Recommendations For Me
         </a>
       </Typography>
       <Typography
         as="li"
-        variant="small"
-        color="gray"
-        className="p-1 font-normal"
+        variant="h6"
+        color="white"
+        className="p-1 font-medium"
       >
-        <a
-          href="/my-queries"
-          className="flex items-center"
-        >
+        <a href="/my-queries" className="flex items-center">
           My Queries
         </a>
       </Typography>
       <Typography
         as="li"
-        variant="small"
-        color="gray"
-        className="p-1 font-normal"
+        variant="h6"
+        color="white"
+        className="p-1 font-medium"
       >
-        <a
-          href="/my-recommendations"
-          className="flex items-center"
-        >
+        <a href="/my-recommendations" className="flex items-center">
           My Recommendations
         </a>
       </Typography>
@@ -109,27 +89,21 @@ export default function MyNavbar() {
     <ul className="mb-4 mt-2 flex flex-col gap-2 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-6">
       <Typography
         as="li"
-        variant="small"
-        color="gray"
-        className="p-1 font-normal"
+        variant="h6"
+        color="black"
+        className="p-1 font-medium"
       >
-        <a
-          href="/"
-          className="flex items-center"
-        >
+        <a href="/" className="flex items-center">
           Home
         </a>
       </Typography>
       <Typography
         as="li"
-        variant="small"
-        color="gray"
-        className="p-1 font-normal"
+        variant="h6"
+        color="black"
+        className="p-1 font-medium"
       >
-        <a
-          href="/queries"
-          className="flex items-center"
-        >
+        <a href="/queries" className="flex items-center">
           Queries
         </a>
       </Typography>
@@ -138,20 +112,20 @@ export default function MyNavbar() {
 
   return (
     <div>
-      <Navbar className="sticky top-0 z-10 h-max max-w-full rounded-none px-4 py-2 lg:px-8 lg:py-4 shadow-none border-none bg-gray-50">
-        <div className="flex items-center justify-between text-gray-900">
+      <Navbar className="fixed top-0 left-0 right-0 z-[60] h-max max-w-full rounded-none px-4 py-2 lg:px-8 lg:py-4 shadow-none border-none bg-white bg-opacity-100">
+        <div className="flex items-center justify-between text-black">
           <div className="flex items-center gap-x-2">
             <img
-              src="/logo.png"
+              src="/social.png"
               alt="logo of better buy"
               className="size-8"
             />
             <Typography
               as="a"
               href="/"
-              className="mr-4 cursor-pointer py-1.5 font-bold text-lg"
+              className="mr-4 cursor-pointer py-1.5 font-medium text-2xl font-serif"
             >
-              Better Buy
+              Qrius
             </Typography>
           </div>
 
@@ -169,10 +143,7 @@ export default function MyNavbar() {
                   className="mr-4"
                 />
               </Tooltip>
-              <button
-                className="w-44"
-                onClick={handleLogOut}
-              >
+              <button className="w-44" onClick={handleLogOut}>
                 <MyOutlinedButton>Log Out</MyOutlinedButton>
               </button>
             </div>
@@ -190,29 +161,16 @@ export default function MyNavbar() {
           <div className="lg:hidden flex place-items-center">
             {user ? (
               <Tooltip content={user.displayName}>
-                <Avatar
-                  size="xs"
-                  src={user.photoURL}
-                  variant="rounded"
-                />
+                <Avatar size="xs" src={user.photoURL} variant="rounded" />
               </Tooltip>
             ) : (
               <UserCircleIcon className="size-8" />
             )}
-            <IconButton
-              variant="text"
-              onClick={() => setOpenNav(!openNav)}
-            >
+            <IconButton variant="text" onClick={() => setOpenNav(!openNav)}>
               {openNav ? (
-                <XMarkIcon
-                  className="h-6 w-6"
-                  strokeWidth={2}
-                />
+                <XMarkIcon className="h-6 w-6" strokeWidth={2} />
               ) : (
-                <Bars3Icon
-                  className="h-6 w-6"
-                  strokeWidth={2}
-                />
+                <Bars3Icon className="h-6 w-6" strokeWidth={2} />
               )}
             </IconButton>
           </div>
@@ -220,10 +178,7 @@ export default function MyNavbar() {
         <Collapse open={openNav}>
           {user ? navList : loggedOutNavList}
           {user ? (
-            <button
-              className="lg:hidden w-full"
-              onClick={handleLogOut}
-            >
+            <button className="lg:hidden w-full" onClick={handleLogOut}>
               <MyOutlinedButton>Log Out</MyOutlinedButton>
             </button>
           ) : (

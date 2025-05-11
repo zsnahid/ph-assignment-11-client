@@ -12,10 +12,17 @@ export default withMT({
       "2xl": "1536px",
     },
     fontFamily: {
-      sans: ["Reddit Sans", "sans-serif"],
+      sans: ["Geist", "sans-serif"],
       serif: ["Merriweather", "serif"],
     },
-    extend: {},
+    extend: {
+      colors: {
+        background: "rgb(255, 250, 250)",
+        primary: "rgb(7, 134, 105)",
+        secondary: "rgb(253, 188, 180)",
+        accent: "rgb(174, 139, 153)",
+      },
+    },
   },
   plugins: [forms],
 });

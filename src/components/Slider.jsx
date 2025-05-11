@@ -17,29 +17,20 @@ import qa from "/src/assets/qa.svg";
 
 export default function Slider() {
   return (
-    <Carousel
-      loop={true}
-      className="h-[40rem]"
-    >
+    <Carousel loop={true} className="h-[40rem]">
       <div className="relative h-full w-full">
         <div className="absolute z-10 bottom-0 left-[50%] -translate-x-[50%] flex justify-evenly items-end w-full">
           <img src={hero_img_1} />
-          <img
-            src={hero_img_2}
-            className="hidden md:block"
-          />
+          <img src={hero_img_2} className="hidden md:block" />
           <img src={hero_img_3} />
           <img src={hero_img_4} />
-          <img
-            src={hero_img_5}
-            className="hidden md:block"
-          />
+          <img src={hero_img_5} className="hidden md:block" />
           <img src={hero_img_1} />
         </div>
-        <div className="absolute inset-0 grid h-full w-full items-center bg-[#fab387]/70">
+        <div className="absolute inset-0 grid h-full w-full items-center bg-secondary">
           <div className="w-3/4 pl-12 md:w-2/4 md:pl-20 lg:pl-32">
             <Typography
-              variant="h1"
+              variant="h3"
               className="mb-4 text-3xl md:text-4xl lg:text-5xl"
             >
               Join the world's biggest Q&A network
@@ -72,10 +63,10 @@ export default function Slider() {
           />
         </div>
 
-        <div className="absolute inset-0 grid h-full w-full items-center bg-[#fab387]/70">
+        <div className="absolute inset-0 grid h-full w-full items-center bg-secondary">
           <div className="w-3/4 pl-12 md:w-2/4 md:pl-20 lg:pl-32">
             <Typography
-              variant="h1"
+              variant="h3"
               className="mb-4 text-3xl md:text-4xl lg:text-5xl"
             >
               Share and Grow the World's Knowledge
@@ -93,10 +84,10 @@ export default function Slider() {
       </div>
 
       <div className="relative h-full w-full">
-        <div className="absolute inset-0 grid h-full w-full items-center bg-[#fab387]/70">
+        <div className="absolute inset-0 grid h-full w-full items-center bg-secondary">
           <div className="md:w-full text-center pb-12 md:pb-20 lg:pb-32">
             <Typography
-              variant="h1"
+              variant="h3"
               className="mb-4 text-3xl md:text-4xl lg:text-5xl"
             >
               The Social Q&A Community
@@ -117,10 +108,7 @@ export default function Slider() {
             <img src={qa} />
             <div>
               <Typography variant="h5">Ask Questions</Typography>
-              <Typography
-                color="gray"
-                className="font-medium"
-              >
+              <Typography color="gray" className="font-medium">
                 Get the right answers first
               </Typography>
             </div>
@@ -129,10 +117,7 @@ export default function Slider() {
             <img src={form} />
             <div>
               <Typography variant="h5">Answer Questions</Typography>
-              <Typography
-                color="gray"
-                className="font-medium"
-              >
+              <Typography color="gray" className="font-medium">
                 Spend five minutes feeling smart
               </Typography>
             </div>
@@ -141,10 +126,7 @@ export default function Slider() {
             <img src={hero} />
             <div>
               <Typography variant="h5">Be Somebody's Hero</Typography>
-              <Typography
-                color="gray"
-                className="font-medium"
-              >
+              <Typography color="gray" className="font-medium">
                 Pat yourself on the back. You deserve it.
               </Typography>
             </div>
