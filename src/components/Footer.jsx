@@ -1,5 +1,6 @@
-import { Typography } from "@material-tailwind/react";
+import { Button, Typography } from "@material-tailwind/react";
 import { FaLinkedin } from "react-icons/fa6";
+import v from "/src/assets/footer_svg/v.svg";
 
 const LINKS = [
   {
@@ -20,30 +21,50 @@ const currentYear = new Date().getFullYear();
 
 export default function Footer() {
   return (
-    <footer className="relative w-full bg-deep-orange-900 pt-8">
+    <footer
+      className="relative w-full bg-primary bg-opacity-5 pt-16"
+      style={{
+        backgroundImage: `url(${v})`,
+        backgroundRepeat: "no-repeat",
+        backgroundPosition: "right bottom",
+      }}
+    >
       <div className="mx-auto w-full max-w-screen-2xl px-8">
         <div className="grid grid-cols-1 justify-between gap-8 md:grid-cols-2">
           <div>
-            <Typography
-              variant="h3"
-              color="white"
-              className="mb-6"
-            >
-              Better Buy
+            <Typography variant="h3" color="black" className="mb-3 font-serif">
+              Qrius
             </Typography>
-            <img
-              src="/logo.png"
-              className="size-32"
-            />
+            <Typography variant="lead" className="font-semibold">
+              Subscribe to our Newsletter
+            </Typography>
+            <form className="mt-6">
+              <div className="relative max-w-lg">
+                <label className="sr-only" htmlFor="email">
+                  {" "}
+                  Email{" "}
+                </label>
+
+                <input
+                  className="w-full rounded-md border-white bg-white p-4 pe-32 text-sm font-medium"
+                  id="email"
+                  type="email"
+                  placeholder="john@doe.com"
+                />
+
+                <Button className="absolute end-1 top-1/2 -translate-y-1/2 rounded-md bg-primary bg-opacity-90 px-5 py-3 text-sm font-medium text-white transition hover:bg-primary hover:bg-opacity-100">
+                  Subscribe
+                </Button>
+              </div>
+            </form>
           </div>
-          {/* links */}
           <div className="grid grid-cols-3 justify-between gap-4">
             {LINKS.map(({ title, items }) => (
               <ul key={title}>
                 <Typography
-                  variant="small"
-                  color="white"
-                  className="mb-3 font-medium opacity-60"
+                  variant="lead"
+                  color="black"
+                  className="mb-3 font-medium"
                 >
                   {title}
                 </Typography>
@@ -52,8 +73,8 @@ export default function Footer() {
                     <Typography
                       as="a"
                       href="#"
-                      color="white"
-                      className="py-1.5 font-normal transition-colors hover:text-gray-900"
+                      color="gray"
+                      className="py-1.5 font-normal transition-colors hover:text-primary"
                     >
                       {link}
                     </Typography>
@@ -64,17 +85,19 @@ export default function Footer() {
           </div>
         </div>
         {/* copyright text and social link */}
-        <div className="mt-12 flex w-full flex-col items-center justify-center border-t border-white/50 py-4 md:flex-row md:justify-between">
+        <div className="mt-12 flex w-full flex-col items-center justify-center border-t border-black/50 py-4 md:flex-row md:justify-between">
           <Typography
             variant="small"
-            className="mb-4 text-center font-normal text-white/80 md:mb-0"
+            color="gray"
+            className="mb-4 text-center font-normal md:mb-0"
           >
-            &copy; {currentYear} Better Buy. All Rights Reserved.
+            &copy; {currentYear} <span className="font-serif">Qrius</span>. All
+            Rights Reserved.
           </Typography>
           <div className="flex items-center gap-4 sm:justify-center">
             <Typography className="opacity-80 transition-opacity hover:opacity-100">
               <svg
-                className="h-5 w-5 text-white"
+                className="h-5 w-5 text-black"
                 fill="currentColor"
                 viewBox="0 0 24 24"
                 aria-hidden="true"
@@ -87,7 +110,7 @@ export default function Footer() {
               </svg>
             </Typography>
             <Typography className="opacity-80 transition-opacity hover:opacity-100">
-              <FaLinkedin className="size-5 text-white" />
+              <FaLinkedin className="size-5 text-black" />
             </Typography>
           </div>
         </div>
