@@ -3,11 +3,13 @@ import { Button } from "@material-tailwind/react";
 import { useContext } from "react";
 import MySolidButton from "../components/MySolidButton";
 import { AuthContext } from "../contexts/AuthContext";
+import { useTheme } from "../contexts/ThemeContext";
 import fwg from "/src/assets/auth/FWG.jpg";
 import lwg from "/src/assets/auth/NWD.jpg";
 
 const LoginPage = () => {
   const { logIn, googleSignIn } = useContext(AuthContext);
+  const { isDarkMode } = useTheme();
 
   const handleLogIn = (e) => {
     e.preventDefault();
@@ -31,10 +33,18 @@ const LoginPage = () => {
       <div className="lg:w-1/2 p-8 pb-0 hidden lg:flex flex-col justify-center text-center">
         {/* Main heading section */}
         <div className="max-w-lg">
-          <span className="text-sm font-semibold uppercase text-gray-800">
+          <span
+            className={`text-sm font-semibold uppercase ${
+              isDarkMode ? "text-gray-300" : "text-gray-800"
+            }`}
+          >
             LARGEST Q&A PLATFORM
           </span>
-          <h1 className="mt-4 text-5xl sm:text-6xl font-bold text-black tracking-tight">
+          <h1
+            className={`mt-4 text-5xl sm:text-6xl font-bold tracking-tight ${
+              isDarkMode ? "text-white" : "text-black"
+            }`}
+          >
             POWERED BY ENTHUSIASTS AROUND THE WORLD.
             <span className="inline-flex items-center">
               {/* Green dots with increasing opacity */}
@@ -47,10 +57,12 @@ const LoginPage = () => {
 
           {/* Account creation section */}
           <div className="mt-16 hidden lg:block">
-            <p className="text-gray-600">Don't have account?</p>
+            <p className={`${isDarkMode ? "text-gray-300" : "text-gray-600"}`}>
+              Don't have account?
+            </p>
             <a
               href="/signup"
-              className="mt-2 inline-flex items-center text-primary font-medium"
+              className="mt-2 inline-flex items-center text-primary font-medium hover:text-primary/80"
             >
               Create account
               <svg
@@ -99,12 +111,22 @@ const LoginPage = () => {
         ></div>
 
         {/* Login modal */}
-        <div className="lg:absolute top-1/2 left-1/2 transform lg:-translate-x-1/2 lg:-translate-y-1/2 bg-transparent lg:bg-white backdrop-blur-sm rounded-2xl p-6 w-full lg:w-80 h-full lg:h-fit mx-auto">
+        <div
+          className={`lg:absolute top-1/2 left-1/2 transform lg:-translate-x-1/2 lg:-translate-y-1/2 ${
+            isDarkMode ? "lg:bg-gray-800" : "lg:bg-white"
+          } backdrop-blur-sm rounded-2xl p-6 w-full lg:w-80 h-full lg:h-fit mx-auto transition-colors`}
+        >
           <form
-            className="space-y-4 bg-transparent lg:bg-white"
+            className={`space-y-4 bg-transparent ${
+              isDarkMode ? "lg:bg-gray-800" : "lg:bg-white"
+            }`}
             onSubmit={handleLogIn}
           >
-            <p className="text-center text-lg font-medium">
+            <p
+              className={`text-center text-lg font-medium ${
+                isDarkMode ? "text-white" : "text-gray-900"
+              }`}
+            >
               Log in to your account
             </p>
 
@@ -118,14 +140,20 @@ const LoginPage = () => {
                   type="email"
                   id="login_email"
                   name="login_email"
-                  className="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
+                  className={`w-full rounded-lg p-4 pe-12 text-sm shadow-sm ${
+                    isDarkMode
+                      ? "bg-gray-700 border-gray-600 text-white placeholder-gray-400"
+                      : "bg-white border-gray-200 text-gray-900 placeholder-gray-500"
+                  }`}
                   placeholder="Enter email"
                 />
 
                 <span className="absolute inset-y-0 end-0 grid place-content-center px-4">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    className="size-4 text-gray-400"
+                    className={`size-4 ${
+                      isDarkMode ? "text-gray-400" : "text-gray-500"
+                    }`}
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
@@ -151,14 +179,20 @@ const LoginPage = () => {
                   type="password"
                   id="login_password"
                   name="login_password"
-                  className="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
+                  className={`w-full rounded-lg p-4 pe-12 text-sm shadow-sm ${
+                    isDarkMode
+                      ? "bg-gray-700 border-gray-600 text-white placeholder-gray-400"
+                      : "bg-white border-gray-200 text-gray-900 placeholder-gray-500"
+                  }`}
                   placeholder="Enter password"
                 />
 
                 <span className="absolute inset-y-0 end-0 grid place-content-center px-4">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    className="size-4 text-gray-400"
+                    className={`size-4 ${
+                      isDarkMode ? "text-gray-400" : "text-gray-500"
+                    }`}
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
@@ -185,9 +219,17 @@ const LoginPage = () => {
             </button>
           </form>
           <span className="relative flex justify-center my-2">
-            <div className="absolute inset-x-0 top-1/2 h-px -translate-y-1/2 bg-transparent bg-gradient-to-r from-transparent via-gray-500 to-transparent opacity-75"></div>
+            <div
+              className={`absolute inset-x-0 top-1/2 h-px -translate-y-1/2 bg-transparent bg-gradient-to-r from-transparent ${
+                isDarkMode ? "via-gray-400" : "via-gray-500"
+              } to-transparent opacity-75`}
+            ></div>
 
-            <span className="relative z-10 bg-transparent lg:bg-white text-white lg:text-black px-6">
+            <span
+              className={`relative z-10 ${
+                isDarkMode ? "lg:bg-gray-800" : "lg:bg-white"
+              } text-white lg:text-inherit px-6`}
+            >
               or
             </span>
           </span>
@@ -196,7 +238,11 @@ const LoginPage = () => {
             size="md"
             fullWidth
             variant="outlined"
-            className="flex justify-center items-center gap-3 text-white lg:text-gray-600 border-white lg:border-gray-600 mb-2"
+            className={`flex justify-center items-center gap-3 ${
+              isDarkMode
+                ? "text-white border-gray-500"
+                : "lg:text-gray-600 lg:border-gray-600"
+            } mb-2`}
             onClick={handleGoogleSignIn}
           >
             <img
@@ -208,12 +254,12 @@ const LoginPage = () => {
           </Button>
 
           <div className="mt-4 text-center lg:hidden">
-            <p className="text-gray-300 lg:text-gray-600">
+            <p className={`${isDarkMode ? "text-gray-300" : "text-gray-600"}`}>
               Don't have account?
             </p>
             <a
               href="/signup"
-              className="mt-2 inline-flex items-center text-primary font-medium"
+              className="mt-2 inline-flex items-center text-primary font-medium hover:text-primary/80"
             >
               Create account
               <svg
