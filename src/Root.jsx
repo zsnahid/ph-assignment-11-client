@@ -10,10 +10,10 @@ export default function Root() {
     <div
       className={`min-h-screen max-w-screen-2xl mx-auto flex flex-col ${
         isDarkMode ? "bg-gray-900 text-white" : "bg-gray-50 text-black"
-      } transition-colors`}
+      } `}
     >
       <MyNavbar />
-      <div className="pt-20 lg:pt-16">
+      <div className="pt-20 lg:pt-16 flex-1 min-h-[calc(100vh-80px)]">
         <Outlet />
       </div>
       <Footer />

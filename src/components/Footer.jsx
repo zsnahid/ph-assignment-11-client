@@ -27,7 +27,7 @@ export default function Footer() {
     <footer
       className={`relative w-full ${
         isDarkMode ? "bg-gray-800 bg-opacity-50" : "bg-primary bg-opacity-5"
-      } pt-16 transition-colors`}
+      } pt-16 `}
       style={{
         backgroundImage: `url(${v})`,
         backgroundRepeat: "no-repeat",
@@ -92,7 +92,7 @@ export default function Footer() {
                     <Typography
                       as="a"
                       href="#"
-                      className={`py-1.5 font-normal transition-colors hover:text-primary ${
+                      className={`py-1.5 font-normal  hover:text-primary ${
                         isDarkMode ? "text-gray-300" : "text-gray-700"
                       }`}
                     >

@@ -1,6 +1,7 @@
 /* eslint-disable react/no-unescaped-entities */
 import { Button } from "@material-tailwind/react";
 import { useContext } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../contexts/AuthContext";
 import { useTheme } from "../contexts/ThemeContext";
 import fwg from "/src/assets/auth/FWG.jpg";
@@ -9,21 +10,29 @@ import lwg from "/src/assets/auth/NWD.jpg";
 const LoginPage = () => {
   const { logIn, googleSignIn } = useContext(AuthContext);
   const { isDarkMode } = useTheme();
+  const location = useLocation();
+  const navigate = useNavigate();
+  const from = location.state?.from?.pathname || "/";
 
   const handleLogIn = (e) => {
     e.preventDefault();
     const form = e.target;
     const email = form.login_email.value;
     const password = form.login_password.value;
-    // console.log(email, password);
 
     logIn(email, password)
-      .then()
+      .then(() => {
+        navigate(from, { replace: true });
+      })
       .catch((error) => console.error(error.message));
   };
 
   const handleGoogleSignIn = () => {
-    googleSignIn();
+    googleSignIn()
+      .then(() => {
+        navigate(from, { replace: true });
+      })
+      .catch((error) => console.error(error));
   };
 
   return (
@@ -113,7 +122,7 @@ const LoginPage = () => {
         <div
           className={`lg:absolute top-1/2 left-1/2 transform lg:-translate-x-1/2 lg:-translate-y-1/2 ${
             isDarkMode ? "lg:bg-gray-800" : "lg:bg-white"
-          } backdrop-blur-sm rounded-2xl p-6 w-full lg:w-80 h-full lg:h-fit mx-auto transition-colors`}
+          } backdrop-blur-sm rounded-3xl p-6 w-full lg:w-80 h-full lg:h-fit mx-auto`}
         >
           <form
             className={`space-y-4 bg-transparent ${

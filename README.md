@@ -1,4 +1,4 @@
-# Better Buy - A Product Recommendation System
+# Qrius - A Product Recommendation System
 
 ## 🚀 Overview
 
