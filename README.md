@@ -1,71 +1,108 @@
 # Qrius - A Product Recommendation System
 
-## 🚀 Overview
+## 🌐 Live Demo
 
-This is a **MERN Stack**-based **Product Recommendation Platform** where users can:
+Visit the live site: [Qrius](https://ph-assignment-11-94a71.web.app/)
 
-- Add, update, and delete queries regarding products.
-- View and interact with other users' queries.
-- Add and remove recommendations for specific products.
-- Modify and delete their comments.
-- Browse recommendations tailored specifically for them.
+## 🚀 Project Overview
 
-## 🌍 Live Demo
+Qrius is a modern MERN Stack-based Product Recommendation Platform that connects users seeking product recommendations. Users can create queries about products, share experiences, and get recommendations from the community. The platform features a robust authentication system, real-time updates, and a responsive design that works seamlessly across all devices.
 
-🔗 [Live Website URL](#) _(https://ph-assignment-11-94a71.web.app/)_
+## 🎯 Key Features
 
-## 🏗 Tech Stack
+- **📱 Responsive Design**
 
-- **Frontend**: React.js (Vite), Material Tailwind, Axios
-- **Backend**: Express.js, Node.js, MongoDB (Mongoose ODM)
-- **Authentication**: Firebase Authentication, JWT
-- **Deployment**: Vercel (Frontend), Render/Heroku (Backend)
-- **Database**: MongoDB Atlas
+  - Fully responsive across mobile, tablet, and desktop devices
+  - Intuitive layout with optimal color contrast
+  - Grid/List view toggle for query displays
+
+- **🔐 Authentication & Security**
+
+  - Email/Password and Google OAuth sign-in
+  - JWT-based session management
+  - Protected routes for authenticated users
+  - Secure credential handling
+
+- **💬 Query Management**
+
+  - Create, read, update, and delete queries
+  - Rich query content with product details and images
+  - Dynamic recommendation count updates
+  - Search and filter functionality
+
+- **👥 Community Features**
+
+  - Add recommendations to queries
+  - View and manage personal recommendations
+  - Interactive community sections
+  - Real-time updates for user interactions
+
+- **🎨 UI/UX Features**
+  - Dark/Light theme support
+  - Animated transitions and loading states
+  - Intuitive navigation system
+  - Error handling with user feedback
+
+## 🛠 Tech Stack
+
+### Frontend
+
+- **Framework**: React.js (Vite)
+- **UI Libraries**:
+  - Material Tailwind
+  - TailwindCSS
+  - React Icons
 - **State Management**: React Context API
+- **HTTP Client**: Axios
 
-## 🔑 Key Features
+### Backend
 
-### 🔹 User Authentication
+- **Server**: Node.js + Express.js
+- **Database**: MongoDB
+- **Authentication**: Firebase Auth + JWT
 
-- Email/password-based login
-- Google OAuth authentication
-- JWT-based session management (tokens stored client-side)
+### Deployment
 
-### 🔹 Query Management
+- **Frontend**: Firebase Hosting
+- **Backend**: Vercel
+- **Database**: MongoDB Atlas
 
-- Users can create, update, and delete their queries.
-- Each query contains a **product name, brand, image URL, query title, and reason for boycotting.**
-- Query data includes **user info, timestamp, and recommendation count**.
+## 🚀 Local Setup
 
-### 🔹 Recommendations System
+1. **Clone the repository**
 
-- Users can recommend alternative products for queries.
-- Recommendations include **title, product name, image, and reasoning**.
-- Each query's recommendation count updates dynamically.
+   ```bash
+   git clone <repository-url>
+   cd ph-assignment-11-client
+   ```
 
-### 🔹 Query Details Page
+2. **Install dependencies**
 
-- Displays full query information.
-- Users can add recommendations.
-- Displays all recommendations as comments.
+   ```bash
+   npm install
+   ```
 
-### 🔹 Search & Filtering
+3. **Set up environment variables**
+   Create a `.env` file in the root directory:
 
-- **Search functionality** to filter queries by product name.
-- **Toggle grid layout** (1/2/3-column view) for the queries page.
+   ```env
+   VITE_apiKey=your-firebase-api-key
+   VITE_authDomain=your-firebase-auth-domain
+   VITE_projectId=your-firebase-project-id
+   VITE_storageBucket=your-firebase-storage-bucket
+   VITE_messagingSenderId=your-firebase-messaging-sender-id
+   VITE_appId=your-firebase-app-id
+   ```
 
-### 🔹 Protected Routes & Authorization
+4. **Start the development server**
 
-- Private pages protected using JWT authentication.
-- Prevents unauthorized access to critical routes.
+   ```bash
+   npm run dev
+   ```
 
-### 🔹 Responsive Design
+5. **Build for production**
+   ```bash
+   npm run build
+   ```
 
-- Fully responsive across **mobile, tablet, and desktop**.
-- Eye-pleasing color contrast and intuitive layout.
-
-### 🔹 Error Handling & Security
-
-- Secure environment variables for Firebase and MongoDB credentials.
-- Proper error messages for failed login/registration.
-- Custom **404 page** with a redirect to home.
+Visit `http://localhost:5173` to see the application running locally.
