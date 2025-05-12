@@ -2,6 +2,7 @@
 import { Button } from "@material-tailwind/react";
 import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 import { AuthContext } from "../contexts/AuthContext";
 import { useTheme } from "../contexts/ThemeContext";
 import fwg from "/src/assets/auth/FWG.jpg";
@@ -29,13 +30,14 @@ export default function Signup() {
         updateUserProfile(userInfo)
           .then(() => {
             navigate("/", { replace: true });
+            toast.success("Account created successfully!");
           })
-          .catch((error) =>
-            console.error("profile update error:", error.message)
-          );
+          .catch((error) => {
+            toast.error("Failed to update profile: " + error.message);
+          });
       })
       .catch((error) => {
-        console.error("sign in error:", error.message);
+        toast.error("Sign up failed: " + error.message);
       });
   };
 
@@ -43,8 +45,11 @@ export default function Signup() {
     googleSignIn()
       .then(() => {
         navigate("/", { replace: true });
+        toast.success("Successfully signed up with Google!");
       })
-      .catch((error) => console.error(error));
+      .catch((error) => {
+        toast.error(error.message);
+      });
   };
 
   return (

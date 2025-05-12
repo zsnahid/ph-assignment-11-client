@@ -2,6 +2,7 @@
 import { Button } from "@material-tailwind/react";
 import { useContext, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 import { AuthContext } from "../contexts/AuthContext";
 import { useTheme } from "../contexts/ThemeContext";
 import fwg from "/src/assets/auth/FWG.jpg";
@@ -24,16 +25,22 @@ const LoginPage = () => {
     logIn(email, password)
       .then(() => {
         navigate(from, { replace: true });
+        toast.success("Successfully logged in!");
       })
-      .catch((error) => console.error(error.message));
+      .catch((error) => {
+        toast.error(error.message);
+      });
   };
 
   const handleGoogleSignIn = () => {
     googleSignIn()
       .then(() => {
         navigate(from, { replace: true });
+        toast.success("Successfully logged in with Google!");
       })
-      .catch((error) => console.error(error));
+      .catch((error) => {
+        toast.error(error.message);
+      });
   };
 
   return (

@@ -19,6 +19,7 @@ import {
 } from "@material-tailwind/react";
 import React, { useContext } from "react";
 import { Link, useLocation } from "react-router-dom";
+import { toast } from "react-toastify";
 import { AuthContext } from "../contexts/AuthContext";
 import { useTheme } from "../contexts/ThemeContext.jsx";
 
@@ -30,8 +31,12 @@ export default function MyNavbar() {
 
   const handleLogOut = () => {
     logOut()
-      .then(() => {})
-      .catch(() => {});
+      .then(() => {
+        toast.success("Successfully logged out!");
+      })
+      .catch((error) => {
+        toast.error(error.message);
+      });
   };
 
   React.useEffect(() => {
