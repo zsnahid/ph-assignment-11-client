@@ -37,7 +37,7 @@ export default function MyNavbar() {
 
   const navList = (
     <ul className="mb-4 mt-2 flex flex-col gap-2 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-6">
-      <Typography as="li" color="white" className="p-1 font-medium">
+      <Typography as="li" color="black" className="p-1 font-medium">
         <a href="/" className="flex items-center">
           Home
         </a>
@@ -45,7 +45,7 @@ export default function MyNavbar() {
       <Typography
         as="li"
         variant="h6"
-        color="white"
+        color="black"
         className="p-1 font-medium"
       >
         <a href="/queries" className="flex items-center">
@@ -55,7 +55,7 @@ export default function MyNavbar() {
       <Typography
         as="li"
         variant="h6"
-        color="white"
+        color="black"
         className="p-1 font-medium"
       >
         <a href="/recommendations-for-me" className="flex items-center">
@@ -65,7 +65,7 @@ export default function MyNavbar() {
       <Typography
         as="li"
         variant="h6"
-        color="white"
+        color="black"
         className="p-1 font-medium"
       >
         <a href="/my-queries" className="flex items-center">
@@ -75,7 +75,7 @@ export default function MyNavbar() {
       <Typography
         as="li"
         variant="h6"
-        color="white"
+        color="black"
         className="p-1 font-medium"
       >
         <a href="/my-recommendations" className="flex items-center">
