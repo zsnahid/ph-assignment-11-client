@@ -1,38 +1,46 @@
+import { lazy, Suspense } from "react";
 import { createBrowserRouter } from "react-router-dom";
 import Root from "../Root";
-
-import AddQuery from "../pages/AddQuery";
-import ErrorPage from "../pages/ErrorPage";
-import Home from "../pages/Home";
-import LoginPage from "../pages/LoginPage";
-import MyQueries from "../pages/MyQueries";
-import MyRecommendations from "../pages/MyRecommendations";
-import Queries from "../pages/Queries";
-import QueryDetails from "../pages/QueryDetails";
-import RecommendationsForMe from "../pages/RecommendationsForMe";
-import Signup from "../pages/Signup";
-import UpdateQuery from "../pages/UpdateQuery";
+import LoadingSpinner from "../components/LoadingSpinner";
 import PrivateRoute from "./PrivateRoute";
+
+const AddQuery = lazy(() => import("../pages/AddQuery"));
+const ErrorPage = lazy(() => import("../pages/ErrorPage"));
+const Home = lazy(() => import("../pages/Home"));
+const LoginPage = lazy(() => import("../pages/LoginPage"));
+const MyQueries = lazy(() => import("../pages/MyQueries"));
+const MyRecommendations = lazy(() => import("../pages/MyRecommendations"));
+const Queries = lazy(() => import("../pages/Queries"));
+const QueryDetails = lazy(() => import("../pages/QueryDetails"));
+const RecommendationsForMe = lazy(() =>
+  import("../pages/RecommendationsForMe")
+);
+const Signup = lazy(() => import("../pages/Signup"));
+const UpdateQuery = lazy(() => import("../pages/UpdateQuery"));
+
+const withSuspense = (Component) => (
+  <Suspense fallback={<LoadingSpinner />}>{Component}</Suspense>
+);
 
 export const router = createBrowserRouter([
   {
     path: "/",
     element: <Root />,
-    errorElement: <ErrorPage />,
+    errorElement: withSuspense(<ErrorPage />),
     children: [
       {
         path: "/",
-        element: <Home />,
+        element: withSuspense(<Home />),
       },
       {
         path: "/queries",
-        element: <Queries />,
+        element: withSuspense(<Queries />),
         loader: () =>
           fetch("https://ph-assignment-11-server-ten.vercel.app/queries"),
       },
       {
         path: "/my-queries",
-        element: (
+        element: withSuspense(
           <PrivateRoute>
             <MyQueries />
           </PrivateRoute>
@@ -40,7 +48,7 @@ export const router = createBrowserRouter([
       },
       {
         path: "/add-query",
-        element: (
+        element: withSuspense(
           <PrivateRoute>
             <AddQuery />
           </PrivateRoute>
@@ -48,15 +56,15 @@ export const router = createBrowserRouter([
       },
       {
         path: "/loginpage",
-        element: <LoginPage />,
+        element: withSuspense(<LoginPage />),
       },
       {
         path: "/signup",
-        element: <Signup />,
+        element: withSuspense(<Signup />),
       },
       {
         path: "/query/details/:id",
-        element: (
+        element: withSuspense(
           <PrivateRoute>
             <QueryDetails />
           </PrivateRoute>
@@ -68,7 +76,7 @@ export const router = createBrowserRouter([
       },
       {
         path: "/query/update/:id",
-        element: <UpdateQuery />,
+        element: withSuspense(<UpdateQuery />),
         loader: ({ params }) =>
           fetch(
             `https://ph-assignment-11-server-ten.vercel.app/queries/${params.id}`
@@ -76,7 +84,7 @@ export const router = createBrowserRouter([
       },
       {
         path: "/recommendations-for-me",
-        element: (
+        element: withSuspense(
           <PrivateRoute>
             <RecommendationsForMe />
           </PrivateRoute>
@@ -84,7 +92,7 @@ export const router = createBrowserRouter([
       },
       {
         path: "/my-recommendations",
-        element: (
+        element: withSuspense(
           <PrivateRoute>
             <MyRecommendations />
           </PrivateRoute>
