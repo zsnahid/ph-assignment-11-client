@@ -8,10 +8,11 @@ import {
 import axios from "axios";
 import { useLoaderData } from "react-router-dom";
 import Swal from "sweetalert2";
+import { useTheme } from "../contexts/ThemeContext";
 
 export default function UpdateQuery() {
   const query = useLoaderData();
-  // console.log(query);
+  const { isDarkMode } = useTheme();
 
   const { _id, productName, productBrand, productImage, question, details } =
     query;
@@ -51,8 +52,13 @@ export default function UpdateQuery() {
       .catch((error) => console.error(error));
   };
   return (
-    <Card className="my-10 w-fit mx-auto p-8">
-      <Typography variant="h4" color="blue-gray">
+    <Card
+      className={`my-10 w-fit mx-auto p-8 ${isDarkMode ? "bg-gray-800" : ""}`}
+    >
+      <Typography
+        variant="h4"
+        className={isDarkMode ? "text-white" : "text-blue-gray-900"}
+      >
         Make New Changes
       </Typography>
       <form
@@ -60,7 +66,12 @@ export default function UpdateQuery() {
         onSubmit={handleUpdateQuery}
       >
         <div className="mb-1 flex flex-col gap-6">
-          <Typography variant="h6" color="blue-gray" className="-mb-3">
+          <Typography
+            variant="h6"
+            className={`-mb-3 ${
+              isDarkMode ? "text-gray-300" : "text-blue-gray-900"
+            }`}
+          >
             Product Name
           </Typography>
           <Input
@@ -68,12 +79,19 @@ export default function UpdateQuery() {
             id="product_name"
             name="product_name"
             defaultValue={productName}
-            className="rounded-full !border-t-blue-gray-200 focus:!border-t-gray-900"
+            className={`rounded-full !border-t-blue-gray-200 focus:!border-t-gray-900 ${
+              isDarkMode ? "!text-white" : ""
+            }`}
             labelProps={{
               className: "before:content-none after:content-none",
             }}
           />
-          <Typography variant="h6" color="blue-gray" className="-mb-3">
+          <Typography
+            variant="h6"
+            className={`-mb-3 ${
+              isDarkMode ? "text-gray-300" : "text-blue-gray-900"
+            }`}
+          >
             Brand
           </Typography>
           <Input
@@ -81,12 +99,19 @@ export default function UpdateQuery() {
             id="product_brand"
             name="product_brand"
             defaultValue={productBrand}
-            className="rounded-full !border-t-blue-gray-200 focus:!border-t-gray-900"
+            className={`rounded-full !border-t-blue-gray-200 focus:!border-t-gray-900 ${
+              isDarkMode ? "!text-white" : ""
+            }`}
             labelProps={{
               className: "before:content-none after:content-none",
             }}
           />
-          <Typography variant="h6" color="blue-gray" className="-mb-3">
+          <Typography
+            variant="h6"
+            className={`-mb-3 ${
+              isDarkMode ? "text-gray-300" : "text-blue-gray-900"
+            }`}
+          >
             Image
           </Typography>
           <Input
@@ -94,12 +119,19 @@ export default function UpdateQuery() {
             id="product_image"
             name="product_image"
             defaultValue={productImage}
-            className="rounded-full !border-t-blue-gray-200 focus:!border-t-gray-900"
+            className={`rounded-full !border-t-blue-gray-200 focus:!border-t-gray-900 ${
+              isDarkMode ? "!text-white" : ""
+            }`}
             labelProps={{
               className: "before:content-none after:content-none",
             }}
           />
-          <Typography variant="h6" color="blue-gray" className="-mb-3">
+          <Typography
+            variant="h6"
+            className={`-mb-3 ${
+              isDarkMode ? "text-gray-300" : "text-blue-gray-900"
+            }`}
+          >
             Question
           </Typography>
           <Input
@@ -107,19 +139,28 @@ export default function UpdateQuery() {
             id="question"
             name="question"
             defaultValue={question}
-            className="rounded-full !border-t-blue-gray-200 focus:!border-t-gray-900"
+            className={`rounded-full !border-t-blue-gray-200 focus:!border-t-gray-900 ${
+              isDarkMode ? "!text-white" : ""
+            }`}
             labelProps={{
               className: "before:content-none after:content-none",
             }}
           />
-          <Typography variant="h6" color="blue-gray" className="-mb-3">
+          <Typography
+            variant="h6"
+            className={`-mb-3 ${
+              isDarkMode ? "text-gray-300" : "text-blue-gray-900"
+            }`}
+          >
             Details
           </Typography>
           <Textarea
             id="details"
             name="details"
             defaultValue={details}
-            className="rounded-xl !border-t-blue-gray-200 focus:!border-t-gray-900"
+            className={`rounded-xl !border-t-blue-gray-200 focus:!border-t-gray-900 ${
+              isDarkMode ? "!text-white" : ""
+            }`}
             labelProps={{
               className: "before:content-none after:content-none",
             }}
@@ -128,7 +169,7 @@ export default function UpdateQuery() {
         <div className="flex place-content-end mt-4">
           <Button
             type="submit"
-            color="green"
+            color={isDarkMode ? "white" : "green"}
             className="text-sm font-medium normal-case rounded-full"
             size="lg"
           >
