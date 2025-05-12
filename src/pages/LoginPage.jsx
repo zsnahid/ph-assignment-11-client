@@ -1,7 +1,6 @@
 /* eslint-disable react/no-unescaped-entities */
 import { Button } from "@material-tailwind/react";
 import { useContext } from "react";
-import MySolidButton from "../components/MySolidButton";
 import { AuthContext } from "../contexts/AuthContext";
 import { useTheme } from "../contexts/ThemeContext";
 import fwg from "/src/assets/auth/FWG.jpg";
@@ -28,7 +27,7 @@ const LoginPage = () => {
   };
 
   return (
-    <div className="flex flex-col-reverse lg:flex-row lg:min-h-screen mt-36 mb-20 w-11/12 mx-auto">
+    <div className="flex flex-col-reverse lg:flex-row lg:min-h-screen mt-20 mb-20 w-11/12 mx-auto">
       {/* Left side - Hero content */}
       <div className="lg:w-1/2 p-8 pb-0 hidden lg:flex flex-col justify-center text-center">
         {/* Main heading section */}
@@ -140,7 +139,7 @@ const LoginPage = () => {
                   type="email"
                   id="login_email"
                   name="login_email"
-                  className={`w-full rounded-lg p-4 pe-12 text-sm shadow-sm ${
+                  className={`w-full rounded-full p-4 pe-12 text-sm shadow-sm ${
                     isDarkMode
                       ? "bg-gray-700 border-gray-600 text-white placeholder-gray-400"
                       : "bg-white border-gray-200 text-gray-900 placeholder-gray-500"
@@ -179,7 +178,7 @@ const LoginPage = () => {
                   type="password"
                   id="login_password"
                   name="login_password"
-                  className={`w-full rounded-lg p-4 pe-12 text-sm shadow-sm ${
+                  className={`w-full rounded-full p-4 pe-12 text-sm shadow-sm ${
                     isDarkMode
                       ? "bg-gray-700 border-gray-600 text-white placeholder-gray-400"
                       : "bg-white border-gray-200 text-gray-900 placeholder-gray-500"
@@ -215,7 +214,13 @@ const LoginPage = () => {
             </div>
 
             <button type="submit" className="w-full">
-              <MySolidButton>{"Log In"}</MySolidButton>
+              <Button
+                color="green"
+                className="w-full text-sm font-medium normal-case rounded-full"
+                size="lg"
+              >
+                Log In
+              </Button>
             </button>
           </form>
           <span className="relative flex justify-center my-2">
@@ -238,10 +243,10 @@ const LoginPage = () => {
             size="md"
             fullWidth
             variant="outlined"
-            className={`flex justify-center items-center gap-3 ${
+            className={`flex justify-center items-center gap-3 rounded-full ${
               isDarkMode
                 ? "text-white border-gray-500"
-                : "lg:text-gray-600 lg:border-gray-600"
+                : "text-white border-gray-500 lg:text-gray-600 lg:border-gray-600"
             } mb-2`}
             onClick={handleGoogleSignIn}
           >
@@ -254,9 +259,7 @@ const LoginPage = () => {
           </Button>
 
           <div className="mt-4 text-center lg:hidden">
-            <p className={`${isDarkMode ? "text-gray-300" : "text-gray-600"}`}>
-              Don't have account?
-            </p>
+            <p className="text-gray-300">Don't have account?</p>
             <a
               href="/signup"
               className="mt-2 inline-flex items-center text-primary font-medium hover:text-primary/80"

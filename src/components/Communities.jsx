@@ -11,7 +11,7 @@ export default function Communities() {
     axios
       .get("/communities.json")
       .then((res) => {
-        console.log(res.data);
+        // console.log(res.data);
 
         setCommunities(res.data);
       })
@@ -38,7 +38,7 @@ export default function Communities() {
             variant="text"
             size="lg"
             onClick={() => setShowAll(!showAll)}
-            className="text-primary border-b-2"
+            className="text-primary border-b-2 rounded-full"
           >
             {showAll ? "Hide Communities -" : "More Communities +"}
           </Button>

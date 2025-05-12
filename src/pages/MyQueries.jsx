@@ -1,9 +1,7 @@
-import { Typography } from "@material-tailwind/react";
+import { Button, Typography } from "@material-tailwind/react";
 import { useState } from "react";
 import { PiGridFourDuotone, PiRowsDuotone } from "react-icons/pi";
 import { Link } from "react-router-dom";
-import MyIconButton from "../components/MyIconButton";
-import MySolidButton from "../components/MySolidButton";
 import MyQueriesHorizontalLayout from "../layouts/MyQueriesHorizontalLayout";
 import MyQueriesVerticalLayout from "../layouts/MyQueriesVerticalLayout";
 
@@ -28,17 +26,18 @@ export default function MyQueries() {
           <Typography className="font-bold text-black text-3xl">
             Ask the Community
           </Typography>
-          <Typography
-            variant="paragraph"
-            className="text-gray-900"
-          >
+          <Typography variant="paragraph" className="text-gray-900">
             Meet other Better Buy users like you. Get answers & discover new
             ways to use Better Buy.
           </Typography>
           <Link to={"/add-query"}>
-            <button className="w-44 mt-4">
-              <MySolidButton>Add Query</MySolidButton>
-            </button>
+            <Button
+              className="w-44 mt-4 normal-case rounded-md"
+              size="lg"
+              color="green"
+            >
+              Add Query
+            </Button>
           </Link>
         </div>
       </section>
@@ -82,26 +81,24 @@ export default function MyQueries() {
                 role="menu"
               >
                 <div className="p-2 space-y-2">
-                  <button
-                    role="menuitem"
-                    className="w-full"
+                  <Button
+                    variant="outlined"
+                    className="flex items-center gap-2 normal-case w-full"
+                    color="gray"
+                    size="sm"
                     onClick={() => handleLayoutChange("grid")}
                   >
-                    <MyIconButton
-                      icon={<PiGridFourDuotone />}
-                      text={"Grid"}
-                    />
-                  </button>
-                  <button
-                    role="menuitem"
-                    className="w-full"
+                    <PiGridFourDuotone className="h-4 w-4" /> Grid
+                  </Button>
+                  <Button
+                    variant="outlined"
+                    className="flex items-center gap-2 normal-case w-full"
+                    color="gray"
+                    size="sm"
                     onClick={() => handleLayoutChange("list")}
                   >
-                    <MyIconButton
-                      icon={<PiRowsDuotone />}
-                      text={"List"}
-                    />
-                  </button>
+                    <PiRowsDuotone className="h-4 w-4" /> List
+                  </Button>
                 </div>
               </div>
             )}

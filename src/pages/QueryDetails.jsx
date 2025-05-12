@@ -1,13 +1,21 @@
-import { Avatar, Input, Textarea, Typography } from "@material-tailwind/react";
+import {
+  Avatar,
+  Button,
+  Input,
+  Textarea,
+  Typography,
+} from "@material-tailwind/react";
 import axios from "axios";
 import { useContext, useEffect, useState } from "react";
 import { PiCalendarDotsDuotone } from "react-icons/pi";
 import { useLoaderData } from "react-router-dom";
-import MySolidButton from "../components/MySolidButton";
 import { AuthContext } from "../contexts/AuthContext";
+import { useTheme } from "../contexts/ThemeContext";
+
 export default function QueryDetails() {
   const query = useLoaderData();
   const { user } = useContext(AuthContext);
+  const { isDarkMode } = useTheme();
   const [comments, setComments] = useState([]);
   // console.log(query);
   const {
@@ -87,10 +95,16 @@ export default function QueryDetails() {
         <div className="flex items-center gap-4 mb-8">
           <Avatar src={userImage} />
           <div>
-            <Typography variant="lead">{userName}</Typography>
             <Typography
-              color="gray"
-              className="flex items-center gap-2 text-xs"
+              variant="lead"
+              className={isDarkMode ? "text-white" : ""}
+            >
+              {userName}
+            </Typography>
+            <Typography
+              className={`flex items-center gap-2 text-xs ${
+                isDarkMode ? "text-gray-400" : "text-gray-500"
+              }`}
             >
               <PiCalendarDotsDuotone />
               {uploadTime}
@@ -102,33 +116,39 @@ export default function QueryDetails() {
         <div className="mb-12">
           <Typography
             variant="h4"
-            className="mb-2"
+            className={`mb-2 ${isDarkMode ? "text-white" : ""}`}
           >
             {question}
           </Typography>
           <Typography
             variant="paragraph"
-            color="gray"
-            className="font-medium mb-4"
+            className={`font-medium mb-4 ${
+              isDarkMode ? "text-gray-300" : "text-gray-600"
+            }`}
           >
             {details}
           </Typography>
           <img
             src={productImage}
-            className="w-full h-[20rem] lg:h-[32rem] object-contain bg-white"
+            className={`w-full h-[20rem] lg:h-[32rem] object-contain ${
+              isDarkMode ? "bg-gray-800" : "bg-white"
+            }`}
           />
         </div>
 
         <div>
           <Typography
             variant="h6"
-            className="border-b border-gray-300 py-2 mb-4"
+            className={`border-b py-2 mb-4 ${
+              isDarkMode
+                ? "border-gray-700 text-white"
+                : "border-gray-300 text-gray-900"
+            }`}
           >
             All Replies
           </Typography>
 
           {/* comments */}
-
           {comments?.map(
             ({
               _id,
@@ -140,31 +160,38 @@ export default function QueryDetails() {
               recommendationReason,
               recommendingTime,
             }) => (
-              <div
-                key={_id}
-                className="flex gap-2 mt-4"
-              >
+              <div key={_id} className="flex gap-2 mt-4">
                 <Avatar
                   src={recommenderImage}
                   size="sm"
                   className="flex-none"
                 />
-                <div className="bg-gray-300 rounded-xl p-4">
+                <div
+                  className={`rounded-xl p-4 ${
+                    isDarkMode ? "bg-gray-800" : "bg-gray-300"
+                  }`}
+                >
                   <Typography
                     variant="small"
-                    color="gray"
-                    className="font-normal tracking-wide"
+                    className={`font-normal tracking-wide ${
+                      isDarkMode ? "text-gray-300" : "text-gray-700"
+                    }`}
                   >
                     {recommenderName}
-                    <span className="font-normal text-xs">
+                    <span
+                      className={`font-normal text-xs ${
+                        isDarkMode ? "text-gray-400" : "text-gray-600"
+                      }`}
+                    >
                       {" "}
                       . {recommendingTime}{" "}
                     </span>
                   </Typography>
                   <Typography
                     variant="paragraph"
-                    color="gray"
-                    className="font-bold tracking-wide"
+                    className={`font-bold tracking-wide ${
+                      isDarkMode ? "text-white" : "text-gray-800"
+                    }`}
                   >
                     {recommendationTitle}
                     {": "}
@@ -172,8 +199,9 @@ export default function QueryDetails() {
                   </Typography>
                   <Typography
                     variant="small"
-                    color="gray"
-                    className="font-normal"
+                    className={`font-normal ${
+                      isDarkMode ? "text-gray-300" : "text-gray-700"
+                    }`}
                   >
                     {recommendationReason}
                   </Typography>
@@ -189,18 +217,23 @@ export default function QueryDetails() {
           )}
         </div>
       </div>
+
       {/* form */}
-      <div className="lg:col-span-5 bg-white px-6 py-4 rounded-lg h-fit">
-        <Typography variant="h4">Recommend a product</Typography>
-        <form
-          className="mt-8 mb-2"
-          onSubmit={handleAddRecommendation}
-        >
+      <div
+        className={`lg:col-span-5 px-6 py-4 rounded-lg h-fit ${
+          isDarkMode ? "bg-gray-800" : "bg-white"
+        }`}
+      >
+        <Typography variant="h4" className={isDarkMode ? "text-white" : ""}>
+          Recommend a product
+        </Typography>
+        <form className="mt-8 mb-2" onSubmit={handleAddRecommendation}>
           <div className="mb-1 flex flex-col gap-6">
             <Typography
               variant="h6"
-              color="blue-gray"
-              className="-mb-3"
+              className={`-mb-3 ${
+                isDarkMode ? "text-gray-300" : "text-blue-gray-900"
+              }`}
             >
               Recommendation Title
             </Typography>
@@ -208,15 +241,18 @@ export default function QueryDetails() {
               size="lg"
               id="reco_title"
               name="reco_title"
-              className=" !border-t-blue-gray-200 focus:!border-t-gray-900"
+              className={`rounded-full !border-t-blue-gray-200 focus:!border-t-gray-900 ${
+                isDarkMode ? "!text-white" : ""
+              }`}
               labelProps={{
                 className: "before:content-none after:content-none",
               }}
             />
             <Typography
               variant="h6"
-              color="blue-gray"
-              className="-mb-3"
+              className={`-mb-3 ${
+                isDarkMode ? "text-gray-300" : "text-blue-gray-900"
+              }`}
             >
               Product name
             </Typography>
@@ -224,15 +260,18 @@ export default function QueryDetails() {
               size="lg"
               id="reco_product_name"
               name="reco_product_name"
-              className=" !border-t-blue-gray-200 focus:!border-t-gray-900"
+              className={`rounded-full !border-t-blue-gray-200 focus:!border-t-gray-900 ${
+                isDarkMode ? "!text-white" : ""
+              }`}
               labelProps={{
                 className: "before:content-none after:content-none",
               }}
             />
             <Typography
               variant="h6"
-              color="blue-gray"
-              className="-mb-3"
+              className={`-mb-3 ${
+                isDarkMode ? "text-gray-300" : "text-blue-gray-900"
+              }`}
             >
               Product image
             </Typography>
@@ -240,31 +279,42 @@ export default function QueryDetails() {
               size="lg"
               id="reco_product_image"
               name="reco_product_image"
-              className=" !border-t-blue-gray-200 focus:!border-t-gray-900"
+              className={`rounded-full !border-t-blue-gray-200 focus:!border-t-gray-900 ${
+                isDarkMode ? "!text-white" : ""
+              }`}
               labelProps={{
                 className: "before:content-none after:content-none",
               }}
             />
             <Typography
               variant="h6"
-              color="blue-gray"
-              className="-mb-3"
+              className={`-mb-3 ${
+                isDarkMode ? "text-gray-300" : "text-blue-gray-900"
+              }`}
             >
               Reason for recommendation
             </Typography>
             <Textarea
               id="reco_details"
               name="reco_details"
-              className=" !border-t-blue-gray-200 focus:!border-t-gray-900"
+              className={`rounded-xl !border-t-blue-gray-200 focus:!border-t-gray-900 ${
+                isDarkMode ? "!text-white" : ""
+              }`}
               labelProps={{
                 className: "before:content-none after:content-none",
               }}
             />
           </div>
           <div className="flex place-content-end mt-4">
-            <button type="submit">
-              <MySolidButton>Recommend</MySolidButton>
-            </button>
+            <Button
+              type="submit"
+              className="normal-case rounded-full"
+              color={isDarkMode ? "white" : "black"}
+              variant="filled"
+              size="lg"
+            >
+              Recommend
+            </Button>
           </div>
         </form>
       </div>

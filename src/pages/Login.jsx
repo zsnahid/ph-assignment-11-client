@@ -1,7 +1,6 @@
 /* eslint-disable react/no-unescaped-entities */
 import { Button } from "@material-tailwind/react";
 import { useContext } from "react";
-import MySolidButton from "../components/MySolidButton";
 import { AuthContext } from "../contexts/AuthContext";
 import fwg from "/src/assets/auth/FWG.jpg";
 
@@ -77,7 +76,7 @@ export default function Login() {
                     type="email"
                     id="login_email"
                     name="login_email"
-                    className="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
+                    className="w-full rounded-full border-gray-200 p-4 pe-12 text-sm shadow-sm"
                     placeholder="Enter email"
                   />
 
@@ -110,7 +109,7 @@ export default function Login() {
                     type="password"
                     id="login_password"
                     name="login_password"
-                    className="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
+                    className="w-full rounded-full border-gray-200 p-4 pe-12 text-sm shadow-sm"
                     placeholder="Enter password"
                   />
 
@@ -140,7 +139,13 @@ export default function Login() {
               </div>
 
               <button type="submit" className="w-full">
-                <MySolidButton>{"Log In"}</MySolidButton>
+                <Button
+                  color="green"
+                  className="w-full text-sm font-medium normal-case rounded-md"
+                  size="lg"
+                >
+                  Log In
+                </Button>
               </button>
             </form>
             <span className="relative flex justify-center my-2">

@@ -6,6 +6,7 @@ import {
 } from "@heroicons/react/24/outline";
 import {
   Avatar,
+  Button,
   Collapse,
   IconButton,
   Menu,
@@ -149,7 +150,7 @@ export default function MyNavbar() {
   return (
     <div>
       <Navbar
-        className={`fixed top-0 z-[60] border-none rounded-none px-4 lg:px-10 ${
+        className={`fixed top-0 z-[60] max-w-full border-none rounded-none shadow-none px-4 lg:px-10 ${
           isDarkMode ? "bg-gray-800 text-white" : "bg-white text-black"
         } transition-all duration-300`}
       >
@@ -185,7 +186,7 @@ export default function MyNavbar() {
               onClick={toggleTheme}
             >
               {isDarkMode ? (
-                <SunIcon className="h-5 w-5" />
+                <SunIcon className="h-5 w-5 text-white" />
               ) : (
                 <MoonIcon className="h-5 w-5" />
               )}
@@ -216,15 +217,9 @@ export default function MyNavbar() {
               </div>
             ) : (
               <Link to="/loginpage">
-                <button
-                  className={`px-6 py-2 rounded-full text-sm font-medium ${
-                    isDarkMode
-                      ? "bg-primary hover:bg-primary/90 text-white"
-                      : "bg-gray-900 hover:bg-gray-800 text-white"
-                  } transition-all`}
-                >
+                <Button color="green" className="rounded-full">
                   Log In
-                </button>
+                </Button>
               </Link>
             )}
           </div>

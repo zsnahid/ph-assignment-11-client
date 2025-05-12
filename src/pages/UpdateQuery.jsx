@@ -1,8 +1,13 @@
-import { Card, Input, Textarea, Typography } from "@material-tailwind/react";
+import {
+  Button,
+  Card,
+  Input,
+  Textarea,
+  Typography,
+} from "@material-tailwind/react";
 import axios from "axios";
 import { useLoaderData } from "react-router-dom";
 import Swal from "sweetalert2";
-import MySolidButton from "../components/MySolidButton";
 
 export default function UpdateQuery() {
   const query = useLoaderData();
@@ -47,10 +52,7 @@ export default function UpdateQuery() {
   };
   return (
     <Card className="my-10 w-fit mx-auto p-8">
-      <Typography
-        variant="h4"
-        color="blue-gray"
-      >
+      <Typography variant="h4" color="blue-gray">
         Make New Changes
       </Typography>
       <form
@@ -58,11 +60,7 @@ export default function UpdateQuery() {
         onSubmit={handleUpdateQuery}
       >
         <div className="mb-1 flex flex-col gap-6">
-          <Typography
-            variant="h6"
-            color="blue-gray"
-            className="-mb-3"
-          >
+          <Typography variant="h6" color="blue-gray" className="-mb-3">
             Product Name
           </Typography>
           <Input
@@ -70,16 +68,12 @@ export default function UpdateQuery() {
             id="product_name"
             name="product_name"
             defaultValue={productName}
-            className=" !border-t-blue-gray-200 focus:!border-t-gray-900"
+            className="rounded-full !border-t-blue-gray-200 focus:!border-t-gray-900"
             labelProps={{
               className: "before:content-none after:content-none",
             }}
           />
-          <Typography
-            variant="h6"
-            color="blue-gray"
-            className="-mb-3"
-          >
+          <Typography variant="h6" color="blue-gray" className="-mb-3">
             Brand
           </Typography>
           <Input
@@ -87,16 +81,12 @@ export default function UpdateQuery() {
             id="product_brand"
             name="product_brand"
             defaultValue={productBrand}
-            className=" !border-t-blue-gray-200 focus:!border-t-gray-900"
+            className="rounded-full !border-t-blue-gray-200 focus:!border-t-gray-900"
             labelProps={{
               className: "before:content-none after:content-none",
             }}
           />
-          <Typography
-            variant="h6"
-            color="blue-gray"
-            className="-mb-3"
-          >
+          <Typography variant="h6" color="blue-gray" className="-mb-3">
             Image
           </Typography>
           <Input
@@ -104,16 +94,12 @@ export default function UpdateQuery() {
             id="product_image"
             name="product_image"
             defaultValue={productImage}
-            className=" !border-t-blue-gray-200 focus:!border-t-gray-900"
+            className="rounded-full !border-t-blue-gray-200 focus:!border-t-gray-900"
             labelProps={{
               className: "before:content-none after:content-none",
             }}
           />
-          <Typography
-            variant="h6"
-            color="blue-gray"
-            className="-mb-3"
-          >
+          <Typography variant="h6" color="blue-gray" className="-mb-3">
             Question
           </Typography>
           <Input
@@ -121,32 +107,33 @@ export default function UpdateQuery() {
             id="question"
             name="question"
             defaultValue={question}
-            className=" !border-t-blue-gray-200 focus:!border-t-gray-900"
+            className="rounded-full !border-t-blue-gray-200 focus:!border-t-gray-900"
             labelProps={{
               className: "before:content-none after:content-none",
             }}
           />
-          <Typography
-            variant="h6"
-            color="blue-gray"
-            className="-mb-3"
-          >
+          <Typography variant="h6" color="blue-gray" className="-mb-3">
             Details
           </Typography>
           <Textarea
             id="details"
-            ame="details"
+            name="details"
             defaultValue={details}
-            className=" !border-t-blue-gray-200 focus:!border-t-gray-900"
+            className="rounded-xl !border-t-blue-gray-200 focus:!border-t-gray-900"
             labelProps={{
               className: "before:content-none after:content-none",
             }}
           />
         </div>
         <div className="flex place-content-end mt-4">
-          <button type="submit">
-            <MySolidButton>Update</MySolidButton>
-          </button>
+          <Button
+            type="submit"
+            color="green"
+            className="text-sm font-medium normal-case rounded-full"
+            size="lg"
+          >
+            Update
+          </Button>
         </div>
       </form>
     </Card>

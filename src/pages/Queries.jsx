@@ -1,9 +1,8 @@
-import { Typography } from "@material-tailwind/react";
+import { Button, Typography } from "@material-tailwind/react";
 import axios from "axios";
 import { useState } from "react";
 import { PiGridFourDuotone, PiRowsDuotone } from "react-icons/pi";
 import { useLoaderData } from "react-router-dom";
-import MyIconButton from "../components/MyIconButton";
 import AllQueriesHorizontalLayout from "../layouts/AllQueriesHorizontalLayout";
 import AllQueriesVerticalLayout from "../layouts/AllQueriesVerticalLayout";
 
@@ -46,10 +45,7 @@ export default function Queries() {
 
       <div className="relative my-4 lg:w-3/5 mx-auto">
         <form onSubmit={handleSearch}>
-          <label
-            htmlFor="Search"
-            className="sr-only"
-          >
+          <label htmlFor="Search" className="sr-only">
             {" "}
             Search{" "}
           </label>
@@ -58,14 +54,11 @@ export default function Queries() {
             type="text"
             id="Search"
             placeholder="Search by title or product name"
-            className="w-full rounded-md border-gray-200 py-2.5 pe-10 shadow-sm sm:text-sm"
+            className="w-full rounded-full border-gray-200 py-2.5 pe-10 shadow-sm sm:text-sm"
           />
 
           <span className="absolute inset-y-0 end-0 grid w-10 place-content-center">
-            <button
-              type="submit"
-              className="text-gray-600 hover:text-gray-700"
-            >
+            <button type="submit" className="text-gray-600 hover:text-gray-700">
               <span className="sr-only">Search</span>
 
               <svg
@@ -126,41 +119,33 @@ export default function Queries() {
               role="menu"
             >
               <div className="p-2 space-y-2">
-                <button
-                  role="menuitem"
-                  className="w-full"
+                <Button
+                  variant="outlined"
+                  className="flex items-center gap-2 normal-case w-full"
+                  color="gray"
+                  size="sm"
                   onClick={() => handleLayoutChange("grid")}
                 >
-                  <MyIconButton
-                    icon={<PiGridFourDuotone />}
-                    text={"Grid"}
-                  />
-                </button>
-                <button
-                  role="menuitem"
-                  className="w-full"
+                  <PiGridFourDuotone className="h-4 w-4" /> Grid
+                </Button>
+                <Button
+                  variant="outlined"
+                  className="flex items-center gap-2 normal-case w-full"
+                  color="gray"
+                  size="sm"
                   onClick={() => handleLayoutChange("list")}
                 >
-                  <MyIconButton
-                    icon={<PiRowsDuotone />}
-                    text={"List"}
-                  />
-                </button>
+                  <PiRowsDuotone className="h-4 w-4" /> List
+                </Button>
               </div>
             </div>
           )}
         </div>
       </div>
       {layout === "grid" ? (
-        <AllQueriesVerticalLayout
-          queries={queries}
-          setQueries={setQueries}
-        />
+        <AllQueriesVerticalLayout queries={queries} setQueries={setQueries} />
       ) : (
-        <AllQueriesHorizontalLayout
-          queries={queries}
-          setQueries={setQueries}
-        />
+        <AllQueriesHorizontalLayout queries={queries} setQueries={setQueries} />
       )}
     </div>
   );

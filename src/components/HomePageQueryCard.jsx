@@ -1,9 +1,9 @@
+import { Button } from "@material-tailwind/react";
 import {
   PiCalendarDotsDuotone,
   PiChats,
   PiPencilSimpleLineDuotone,
 } from "react-icons/pi";
-import MyIconButton from "./MyIconButton";
 
 /* eslint-disable react/prop-types */
 export default function HomePageQueryCard({ query }) {
@@ -58,9 +58,14 @@ export default function HomePageQueryCard({ query }) {
       </div>
 
       <a href={`/query/details/${_id}`}>
-        <button className="mt-4">
-          <MyIconButton icon={<PiChats />} text={recommendationCount} />
-        </button>
+        <Button
+          variant="outlined"
+          className="flex items-center gap-2 normal-case rounded-full"
+          color="gray"
+          size="sm"
+        >
+          <PiChats className="h-4 w-4" /> {recommendationCount}
+        </Button>
       </a>
     </div>
   );

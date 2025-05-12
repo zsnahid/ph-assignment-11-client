@@ -13,7 +13,9 @@ export default function Root() {
       } transition-colors`}
     >
       <MyNavbar />
-      <Outlet />
+      <div className="pt-20 lg:pt-16">
+        <Outlet />
+      </div>
       <Footer />
     </div>
   );

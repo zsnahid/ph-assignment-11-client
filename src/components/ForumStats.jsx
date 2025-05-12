@@ -16,7 +16,11 @@ export default function ForumStats() {
         </Typography>
         <div className="flex flex-wrap gap-8 justify-between mt-14">
           <div className="bg-white w-36 h-44 place-content-center rounded-lg drop-shadow-2xl">
-            <img src={funfact1} alt="" className="mx-auto" />
+            <img
+              src={funfact1}
+              alt="Users statistics icon"
+              className="mx-auto"
+            />
             <Typography
               variant="h3"
               className="text-center text-[#26BBDB] mt-3"
@@ -28,7 +32,11 @@ export default function ForumStats() {
             </Typography>
           </div>
           <div className="bg-white w-36 h-44 place-content-center rounded-lg drop-shadow-2xl">
-            <img src={funfact2} alt="" className="mx-auto" />
+            <img
+              src={funfact2}
+              alt="Topics statistics icon"
+              className="mx-auto"
+            />
             <Typography
               variant="h3"
               className="text-center text-[#FBC45A] mt-3"
@@ -40,7 +48,11 @@ export default function ForumStats() {
             </Typography>
           </div>
           <div className="bg-white w-36 h-44 place-content-center rounded-lg drop-shadow-2xl">
-            <img src={funfact3} alt="" className="mx-auto" />
+            <img
+              src={funfact3}
+              alt="Forums statistics icon"
+              className="mx-auto"
+            />
             <Typography
               variant="h3"
               className="text-center text-[#FD65B4] mt-3"
@@ -52,7 +64,11 @@ export default function ForumStats() {
             </Typography>
           </div>
           <div className="bg-white w-36 h-44 place-content-center rounded-lg drop-shadow-2xl">
-            <img src={funfact4} alt="" className="mx-auto" />
+            <img
+              src={funfact4}
+              alt="Replies statistics icon"
+              className="mx-auto"
+            />
             <Typography
               variant="h3"
               className="text-center text-[#23C99B] mt-3"

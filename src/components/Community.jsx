@@ -6,7 +6,7 @@ export default function Community({ community }) {
 
   const { name, icon, users } = community;
 
-  console.log(name, icon, users);
+  // console.log(name, icon, users);
 
   return (
     <div>

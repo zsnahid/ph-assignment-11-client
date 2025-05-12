@@ -1,7 +1,6 @@
 /* eslint-disable no-unused-vars */
 import { Button } from "@material-tailwind/react";
 import { useContext } from "react";
-import MySolidButton from "../components/MySolidButton";
 import { AuthContext } from "../contexts/AuthContext";
 import { useTheme } from "../contexts/ThemeContext";
 import fwg from "/src/assets/auth/FWG.jpg";
@@ -123,7 +122,7 @@ export default function Signup() {
                   type="text"
                   id="user_name"
                   name="user_name"
-                  className={`mt-1 w-full rounded-md shadow-sm ${
+                  className={`mt-1 w-full rounded-full shadow-sm ${
                     isDarkMode
                       ? "bg-gray-700 border-gray-600 text-white placeholder-gray-400"
                       : "bg-white border-gray-200 text-gray-700"
@@ -146,7 +145,7 @@ export default function Signup() {
                   id="user_photo"
                   name="user_photo"
                   placeholder="Image URL"
-                  className={`mt-1 w-full rounded-md shadow-sm ${
+                  className={`mt-1 w-full rounded-full shadow-sm ${
                     isDarkMode
                       ? "bg-gray-700 border-gray-600 text-white placeholder-gray-400"
                       : "bg-white border-gray-200 text-gray-700"
@@ -168,7 +167,7 @@ export default function Signup() {
                   type="email"
                   id="email"
                   name="email"
-                  className={`mt-1 w-full rounded-md shadow-sm ${
+                  className={`mt-1 w-full rounded-full shadow-sm ${
                     isDarkMode
                       ? "bg-gray-700 border-gray-600 text-white placeholder-gray-400"
                       : "bg-white border-gray-200 text-gray-700"
@@ -190,7 +189,7 @@ export default function Signup() {
                   type="password"
                   id="password"
                   name="password"
-                  className={`mt-1 w-full rounded-md shadow-sm ${
+                  className={`mt-1 w-full rounded-full shadow-sm ${
                     isDarkMode
                       ? "bg-gray-700 border-gray-600 text-white placeholder-gray-400"
                       : "bg-white border-gray-200 text-gray-700"
@@ -250,9 +249,14 @@ export default function Signup() {
               </div>
 
               <div className="col-span-6 sm:flex sm:items-center sm:gap-4">
-                <button type="submit" className="w-full md:w-80">
-                  <MySolidButton>Create an account</MySolidButton>
-                </button>
+                <Button
+                  type="submit"
+                  color="green"
+                  className="w-full lg:w-1/2 text-sm font-medium normal-case rounded-full"
+                  size="lg"
+                >
+                  Sign Up
+                </Button>
 
                 <p
                   className={`mt-4 text-sm ${
@@ -291,7 +295,7 @@ export default function Signup() {
               size="md"
               fullWidth
               variant="outlined"
-              className={`flex justify-center items-center gap-3 ${
+              className={`flex justify-center items-center gap-3 rounded-full ${
                 isDarkMode
                   ? "text-gray-300 border-gray-600"
                   : "text-gray-600 border-gray-600"

@@ -19,7 +19,7 @@ export default withMT({
     extend: {
       colors: {
         background: "rgb(255, 250, 250)",
-        primary: "rgb(7, 134, 105)",
+        primary: "rgb(76, 175, 80)",
         secondary: "rgb(253, 188, 180)",
         accent: "rgb(174, 139, 153)",
       },

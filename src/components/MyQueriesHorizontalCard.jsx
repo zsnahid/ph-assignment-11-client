@@ -1,19 +1,21 @@
 /* eslint-disable react/prop-types */
 
+import { Button } from "@material-tailwind/react";
 import axios from "axios";
 import { GrDocumentUpdate } from "react-icons/gr";
 import { PiCalendarDotsDuotone } from "react-icons/pi";
 import { RiDeleteBinLine } from "react-icons/ri";
 import { TbListDetails } from "react-icons/tb";
 import Swal from "sweetalert2";
-import MyIconButton from "./MyIconButton";
+import { useTheme } from "../contexts/ThemeContext";
 
 export default function MyQueriesHorizontalCard({
   query,
   queries,
   setQueries,
 }) {
-  // console.log(query);
+  const { isDarkMode } = useTheme();
+
   const {
     _id,
     productImage,
@@ -60,7 +62,11 @@ export default function MyQueriesHorizontalCard({
   };
 
   return (
-    <article className="rounded-xl border-2 border-gray-100 bg-white">
+    <article
+      className={`rounded-xl border-2 ${
+        isDarkMode ? "border-gray-700 bg-gray-800" : "border-gray-100 bg-white"
+      }`}
+    >
       <div className="flex items-start gap-4 p-4 sm:p-6 lg:p-8">
         <span className="block shrink-0">
           <img
@@ -71,53 +77,73 @@ export default function MyQueriesHorizontalCard({
         </span>
 
         <div className="mr-8">
-          <h3 className="font-medium sm:text-lg">
-            <a
-              href={`/query-details/${_id}`}
-              className="hover:underline"
-            >
+          <h3
+            className={`font-medium sm:text-lg ${
+              isDarkMode ? "text-white" : "text-gray-900"
+            }`}
+          >
+            <a href={`/query-details/${_id}`} className="hover:underline">
               {question}
             </a>
           </h3>
 
           <div className="mb-2 sm:flex sm:items-center sm:gap-4">
-            <p className="hidden sm:block sm:text-xs sm:text-gray-500">
+            <p
+              className={`hidden sm:block sm:text-xs ${
+                isDarkMode ? "text-gray-400" : "text-gray-500"
+              }`}
+            >
               Posted by <span className="font-medium">{userName} </span>
             </p>
 
-            <div className="flex items-center gap-1 text-gray-500">
+            <div
+              className={`flex items-center gap-1 ${
+                isDarkMode ? "text-gray-400" : "text-gray-500"
+              }`}
+            >
               <PiCalendarDotsDuotone />
               <p className="text-xs">{uploadTime}</p>
             </div>
           </div>
 
-          <p className="line-clamp-2 text-sm text-gray-700 hidden lg:block">
+          <p
+            className={`line-clamp-2 text-sm hidden lg:block ${
+              isDarkMode ? "text-gray-300" : "text-gray-700"
+            }`}
+          >
             {details}
           </p>
 
-          <div className="mt-4 flex items-center gap-2">
+          <div className="mt-4 flex flex-col lg:flex-row items-center gap-2">
             <a href={`/query/details/${_id}`}>
-              <button>
-                <MyIconButton
-                  icon={<TbListDetails />}
-                  text={"Details"}
-                />
-              </button>
+              <Button
+                variant="outlined"
+                className="flex items-center gap-2 normal-case rounded-full"
+                color={isDarkMode ? "white" : "gray"}
+                size="sm"
+              >
+                <TbListDetails className="h-4 w-4" /> Details
+              </Button>
             </a>
             <a href={`/query/update/${_id}`}>
-              <button>
-                <MyIconButton
-                  icon={<GrDocumentUpdate />}
-                  text={"Update"}
-                />
-              </button>
+              <Button
+                variant="outlined"
+                className="flex items-center gap-2 normal-case rounded-full"
+                color={isDarkMode ? "white" : "gray"}
+                size="sm"
+              >
+                <GrDocumentUpdate className="h-4 w-4" /> Update
+              </Button>
             </a>
-            <button onClick={handleDeleteQuery}>
-              <MyIconButton
-                icon={<RiDeleteBinLine />}
-                text={"Delete"}
-              />
-            </button>
+            <Button
+              variant="outlined"
+              className="flex items-center gap-2 normal-case rounded-full"
+              color="red"
+              size="sm"
+              onClick={handleDeleteQuery}
+            >
+              <RiDeleteBinLine className="h-4 w-4" /> Delete
+            </Button>
           </div>
         </div>
 

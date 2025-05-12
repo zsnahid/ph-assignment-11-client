@@ -60,7 +60,7 @@ export default function Footer() {
                 </label>
 
                 <input
-                  className={`w-full rounded-md p-4 pe-32 text-sm font-medium ${
+                  className={`w-full rounded-full p-4 pe-32 text-sm font-medium ${
                     isDarkMode
                       ? "bg-gray-700 border-gray-600 text-white"
                       : "bg-white border-white text-black"
@@ -70,7 +70,7 @@ export default function Footer() {
                   placeholder="Enter your email"
                 />
 
-                <Button className="absolute end-1 top-1/2 -translate-y-1/2 rounded-md bg-primary bg-opacity-90 px-5 py-3 text-sm font-medium text-white transition hover:bg-primary hover:bg-opacity-100">
+                <Button className="absolute end-1 top-1/2 -translate-y-1/2 rounded-full bg-primary bg-opacity-90 px-5 py-3 text-sm font-medium text-white transition hover:bg-primary hover:bg-opacity-100">
                   Subscribe
                 </Button>
               </div>
