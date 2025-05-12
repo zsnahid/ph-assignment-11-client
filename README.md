@@ -8,6 +8,16 @@ Visit the live site: [Qrius](https://ph-assignment-11-94a71.web.app/)
 
 Qrius is a modern MERN Stack-based Product Recommendation Platform that connects users seeking product recommendations. Users can create queries about products, share experiences, and get recommendations from the community. The platform features a robust authentication system, real-time updates, and a responsive design that works seamlessly across all devices.
 
+## 📸 Screenshots
+
+### Dark Mode
+
+![Dark Mode Home Page](./public/readme-images/home-dark.png)
+
+### Light Mode
+
+![Light Mode Home Page](./public/readme-images/home-light.png)
+
 ## 🎯 Key Features
 
 - **📱 Responsive Design**
