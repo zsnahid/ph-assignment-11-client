@@ -3,6 +3,7 @@ import forms from "@tailwindcss/forms";
 /** @type {import('tailwindcss').Config} */
 export default withMT({
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
+  darkMode: "class",
   theme: {
     screens: {
       sm: "640px",

@@ -1,5 +1,7 @@
 import {
   Bars3Icon,
+  MoonIcon,
+  SunIcon,
   UserCircleIcon,
   XMarkIcon,
 } from "@heroicons/react/24/outline";
@@ -14,13 +16,14 @@ import {
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../contexts/AuthContext";
+import { useTheme } from "../contexts/ThemeContext.jsx";
 import MyOutlinedButton from "./MyOutlinedButton";
 import MySolidButton from "./MySolidButton";
 
 export default function MyNavbar() {
   const [openNav, setOpenNav] = React.useState(false);
   const { user, logOut } = useContext(AuthContext);
-  // console.log(user);
+  const { isDarkMode, toggleTheme } = useTheme();
 
   const handleLogOut = () => {
     logOut()
@@ -37,51 +40,61 @@ export default function MyNavbar() {
 
   const navList = (
     <ul className="mb-4 mt-2 flex flex-col gap-2 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-6">
-      <Typography as="li" color="black" className="p-1 font-medium">
-        <a href="/" className="flex items-center">
+      <Typography
+        as="li"
+        color={isDarkMode ? "white" : "black"}
+        className="p-1 font-medium"
+      >
+        <a
+          href="/"
+          className="flex items-center hover:text-primary transition-colors"
+        >
           Home
         </a>
       </Typography>
       <Typography
         as="li"
         variant="h6"
-        color="black"
+        color={isDarkMode ? "white" : "black"}
         className="p-1 font-medium"
       >
-        <a href="/queries" className="flex items-center">
+        <a
+          href="/queries"
+          className="flex items-center hover:text-primary transition-colors"
+        >
           Queries
         </a>
       </Typography>
-      <Typography
-        as="li"
-        variant="h6"
-        color="black"
-        className="p-1 font-medium"
-      >
-        <a href="/recommendations-for-me" className="flex items-center">
-          Recommendations For Me
-        </a>
-      </Typography>
-      <Typography
-        as="li"
-        variant="h6"
-        color="black"
-        className="p-1 font-medium"
-      >
-        <a href="/my-queries" className="flex items-center">
-          My Queries
-        </a>
-      </Typography>
-      <Typography
-        as="li"
-        variant="h6"
-        color="black"
-        className="p-1 font-medium"
-      >
-        <a href="/my-recommendations" className="flex items-center">
-          My Recommendations
-        </a>
-      </Typography>
+      {user && (
+        <>
+          <Typography
+            as="li"
+            variant="h6"
+            color={isDarkMode ? "white" : "black"}
+            className="p-1 font-medium"
+          >
+            <Link
+              to="/my-queries"
+              className="flex items-center hover:text-primary transition-colors"
+            >
+              My Queries
+            </Link>
+          </Typography>
+          <Typography
+            as="li"
+            variant="h6"
+            color={isDarkMode ? "white" : "black"}
+            className="p-1 font-medium"
+          >
+            <Link
+              to="/my-recommendations"
+              className="flex items-center hover:text-primary transition-colors"
+            >
+              My Recommendations
+            </Link>
+          </Typography>
+        </>
+      )}
     </ul>
   );
 
@@ -90,20 +103,26 @@ export default function MyNavbar() {
       <Typography
         as="li"
         variant="h6"
-        color="black"
+        color={isDarkMode ? "white" : "black"}
         className="p-1 font-medium"
       >
-        <a href="/" className="flex items-center">
+        <a
+          href="/"
+          className="flex items-center hover:text-primary transition-colors"
+        >
           Home
         </a>
       </Typography>
       <Typography
         as="li"
         variant="h6"
-        color="black"
+        color={isDarkMode ? "white" : "black"}
         className="p-1 font-medium"
       >
-        <a href="/queries" className="flex items-center">
+        <a
+          href="/queries"
+          className="flex items-center hover:text-primary transition-colors"
+        >
           Queries
         </a>
       </Typography>
@@ -112,8 +131,12 @@ export default function MyNavbar() {
 
   return (
     <div>
-      <Navbar className="fixed top-0 left-0 right-0 z-[60] h-max max-w-full rounded-none px-4 py-2 lg:px-8 lg:py-4 shadow-none border-none bg-white bg-opacity-100">
-        <div className="flex items-center justify-between text-black">
+      <Navbar
+        className={`fixed top-0 left-0 right-0 z-[60] h-max max-w-full rounded-none px-4 py-2 lg:px-8 lg:py-4 shadow-none border-none ${
+          isDarkMode ? "bg-gray-800 text-white" : "bg-white text-black"
+        }`}
+      >
+        <div className="flex items-center justify-between">
           <div className="flex items-center gap-x-2">
             <img
               src="/social.png"
@@ -174,6 +197,13 @@ export default function MyNavbar() {
               )}
             </IconButton>
           </div>
+          <IconButton variant="text" onClick={toggleTheme}>
+            {isDarkMode ? (
+              <SunIcon className="h-6 w-6" strokeWidth={2} />
+            ) : (
+              <MoonIcon className="h-6 w-6" strokeWidth={2} />
+            )}
+          </IconButton>
         </div>
         <Collapse open={openNav}>
           {user ? navList : loggedOutNavList}

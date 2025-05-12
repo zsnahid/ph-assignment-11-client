@@ -1,5 +1,6 @@
 import { Button, Typography } from "@material-tailwind/react";
 import { FaLinkedin } from "react-icons/fa6";
+import { useTheme } from "../contexts/ThemeContext.jsx";
 import v from "/src/assets/footer_svg/v.svg";
 
 const LINKS = [
@@ -20,9 +21,13 @@ const LINKS = [
 const currentYear = new Date().getFullYear();
 
 export default function Footer() {
+  const { isDarkMode } = useTheme();
+
   return (
     <footer
-      className="relative w-full bg-primary bg-opacity-5 pt-16"
+      className={`relative w-full ${
+        isDarkMode ? "bg-gray-800 bg-opacity-50" : "bg-primary bg-opacity-5"
+      } pt-16 transition-colors`}
       style={{
         backgroundImage: `url(${v})`,
         backgroundRepeat: "no-repeat",
@@ -32,24 +37,37 @@ export default function Footer() {
       <div className="mx-auto w-full max-w-screen-2xl px-8">
         <div className="grid grid-cols-1 justify-between gap-8 md:grid-cols-2">
           <div>
-            <Typography variant="h3" color="black" className="mb-3 font-serif">
+            <Typography
+              variant="h3"
+              className={`mb-3 font-serif ${
+                isDarkMode ? "text-white" : "text-black"
+              }`}
+            >
               Qrius
             </Typography>
-            <Typography variant="lead" className="font-semibold">
+            <Typography
+              variant="lead"
+              className={`font-semibold ${
+                isDarkMode ? "text-gray-300" : "text-gray-900"
+              }`}
+            >
               Subscribe to our Newsletter
             </Typography>
             <form className="mt-6">
               <div className="relative max-w-lg">
                 <label className="sr-only" htmlFor="email">
-                  {" "}
-                  Email{" "}
+                  Email
                 </label>
 
                 <input
-                  className="w-full rounded-md border-white bg-white p-4 pe-32 text-sm font-medium"
+                  className={`w-full rounded-md p-4 pe-32 text-sm font-medium ${
+                    isDarkMode
+                      ? "bg-gray-700 border-gray-600 text-white"
+                      : "bg-white border-white text-black"
+                  }`}
                   id="email"
                   type="email"
-                  placeholder="john@doe.com"
+                  placeholder="Enter your email"
                 />
 
                 <Button className="absolute end-1 top-1/2 -translate-y-1/2 rounded-md bg-primary bg-opacity-90 px-5 py-3 text-sm font-medium text-white transition hover:bg-primary hover:bg-opacity-100">
@@ -63,8 +81,9 @@ export default function Footer() {
               <ul key={title}>
                 <Typography
                   variant="lead"
-                  color="black"
-                  className="mb-3 font-medium"
+                  className={`mb-3 font-medium ${
+                    isDarkMode ? "text-white" : "text-black"
+                  }`}
                 >
                   {title}
                 </Typography>
@@ -73,8 +92,9 @@ export default function Footer() {
                     <Typography
                       as="a"
                       href="#"
-                      color="gray"
-                      className="py-1.5 font-normal transition-colors hover:text-primary"
+                      className={`py-1.5 font-normal transition-colors hover:text-primary ${
+                        isDarkMode ? "text-gray-300" : "text-gray-700"
+                      }`}
                     >
                       {link}
                     </Typography>
@@ -88,16 +108,21 @@ export default function Footer() {
         <div className="mt-12 flex w-full flex-col items-center justify-center border-t border-black/50 py-4 md:flex-row md:justify-between">
           <Typography
             variant="small"
-            color="gray"
-            className="mb-4 text-center font-normal md:mb-0"
+            className={`mb-4 text-center font-normal md:mb-0 ${
+              isDarkMode ? "text-gray-300" : "text-gray-700"
+            }`}
           >
             &copy; {currentYear} <span className="font-serif">Qrius</span>. All
             Rights Reserved.
           </Typography>
           <div className="flex items-center gap-4 sm:justify-center">
-            <Typography className="opacity-80 transition-opacity hover:opacity-100">
+            <Typography
+              className={`opacity-80 transition-opacity hover:opacity-100 ${
+                isDarkMode ? "text-white" : "text-black"
+              }`}
+            >
               <svg
-                className="h-5 w-5 text-black"
+                className="h-5 w-5"
                 fill="currentColor"
                 viewBox="0 0 24 24"
                 aria-hidden="true"
@@ -109,8 +134,12 @@ export default function Footer() {
                 />
               </svg>
             </Typography>
-            <Typography className="opacity-80 transition-opacity hover:opacity-100">
-              <FaLinkedin className="size-5 text-black" />
+            <Typography
+              className={`opacity-80 transition-opacity hover:opacity-100 ${
+                isDarkMode ? "text-white" : "text-black"
+              }`}
+            >
+              <FaLinkedin className="size-5" />
             </Typography>
           </div>
         </div>
