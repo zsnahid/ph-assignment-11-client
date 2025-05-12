@@ -220,7 +220,7 @@ export default function QueryDetails() {
 
       {/* form */}
       <div
-        className={`lg:col-span-5 px-6 py-4 rounded-lg h-fit ${
+        className={`lg:col-span-5 px-6 py-4 rounded-2xl h-fit ${
           isDarkMode ? "bg-gray-800" : "bg-white"
         }`}
       >

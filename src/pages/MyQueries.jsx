@@ -2,12 +2,14 @@ import { Button, Typography } from "@material-tailwind/react";
 import { useState } from "react";
 import { PiGridFourDuotone, PiRowsDuotone } from "react-icons/pi";
 import { Link } from "react-router-dom";
+import { useTheme } from "../contexts/ThemeContext";
 import MyQueriesHorizontalLayout from "../layouts/MyQueriesHorizontalLayout";
 import MyQueriesVerticalLayout from "../layouts/MyQueriesVerticalLayout";
 
 export default function MyQueries() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [layout, setLayout] = useState("list");
+  const { isDarkMode } = useTheme();
 
   const handleToggleDropdown = () => {
     setMenuOpen(!menuOpen);
@@ -20,19 +22,33 @@ export default function MyQueries() {
 
   return (
     <div className="max-w-screen-2xl w-11/12 mx-auto">
-      <section className="relative bg-[url('/src/assets/waves.svg')] bg-cover bg-center bg-no-repeat rounded-2xl h-[80vh] shadow-xl my-10">
-        {/* <div className="absolute inset-0 z-10 bg-black/30 rounded-2xl"></div> */}
-        <div className="absolute z-20 left-[50%] -translate-x-[50%] top-[50%] -translate-y-[50%] text-center">
-          <Typography className="font-bold text-black text-3xl">
+      <section className="mt-10 mb-20 grid grid-cols-1 lg:grid-cols-2 gap-8 place-content-center place-items-center">
+        <video autoPlay muted loop playsInline>
+          <source src="/src/assets/videos/Scene-23.webm" type="video/webm" />
+          <source src="/src/assets/videos/Scene-23.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+
+        <div className="text-center space-y-4">
+          <Typography
+            variant="h3"
+            className={`${isDarkMode ? "text-white" : "text-black"}`}
+          >
             Ask the Community
           </Typography>
-          <Typography variant="paragraph" className="text-gray-900">
-            Meet other Better Buy users like you. Get answers & discover new
-            ways to use Better Buy.
+          <Typography
+            variant="lead"
+            className={`w-3/4 mx-auto ${
+              isDarkMode ? "text-gray-300" : "text-gray-800"
+            }`}
+          >
+            Explore communities on any topic. Meet other{" "}
+            <span className="font-serif font-semibold">Qrius</span> users like
+            you.
           </Typography>
           <Link to={"/add-query"}>
             <Button
-              className="w-44 mt-4 normal-case rounded-md"
+              className="w-44 mt-4 normal-case rounded-full"
               size="lg"
               color="green"
             >
