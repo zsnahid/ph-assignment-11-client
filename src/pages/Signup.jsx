@@ -1,6 +1,7 @@
 /* eslint-disable no-unused-vars */
 import { Button } from "@material-tailwind/react";
 import { useContext, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../contexts/AuthContext";
 import { useTheme } from "../contexts/ThemeContext";
 import fwg from "/src/assets/auth/FWG.jpg";
@@ -10,6 +11,7 @@ export default function Signup() {
     useContext(AuthContext);
   const { isDarkMode } = useTheme();
   const [showPassword, setShowPassword] = useState(false);
+  const navigate = useNavigate();
 
   const handleEmailSignIn = (e) => {
     e.preventDefault();
@@ -25,13 +27,12 @@ export default function Signup() {
     createUser(email, password)
       .then((userCredential) => {
         updateUserProfile(userInfo)
-          .then()
+          .then(() => {
+            navigate("/", { replace: true });
+          })
           .catch((error) =>
             console.error("profile update error:", error.message)
           );
-
-        //const user = userCredential.user;
-        // console.log(user);
       })
       .catch((error) => {
         console.error("sign in error:", error.message);
@@ -39,7 +40,11 @@ export default function Signup() {
   };
 
   const handleGoogleSignIn = () => {
-    googleSignIn();
+    googleSignIn()
+      .then(() => {
+        navigate("/", { replace: true });
+      })
+      .catch((error) => console.error(error));
   };
 
   return (
