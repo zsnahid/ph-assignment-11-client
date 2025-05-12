@@ -28,7 +28,7 @@ Qrius is a modern MERN Stack-based Product Recommendation Platform that connects
   - Create, read, update, and delete queries
   - Rich query content with product details and images
   - Dynamic recommendation count updates
-  - Search and filter functionality
+  - Search functionality
 
 - **👥 Community Features**
 
@@ -67,7 +67,7 @@ Qrius is a modern MERN Stack-based Product Recommendation Platform that connects
 - **Backend**: Vercel
 - **Database**: MongoDB Atlas
 
-## 🚀 Local Setup
+## 🖥️ Local Setup
 
 1. **Clone the repository**
 
