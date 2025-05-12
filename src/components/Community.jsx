@@ -4,7 +4,7 @@ import { Typography } from "@material-tailwind/react";
 export default function Community({ community }) {
   //console.log(community);
 
-  const { name, icon, users } = community;
+  const { name, icon } = community;
 
   // console.log(name, icon, users);
 

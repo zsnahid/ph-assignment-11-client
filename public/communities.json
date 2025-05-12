@@ -2,7 +2,7 @@
   {
     "id": 1,
     "name": "Technology",
-    "icon": "/src/assets/communities_icons/group-icon1.svg",
+    "icon": "/communities_icons/group-icon1.svg",
     "followers": 12369,
     "answered": "75%",
     "users": "2M",
@@ -12,7 +12,7 @@
   {
     "id": 2,
     "name": "Education",
-    "icon": "/src/assets/communities_icons/group-icon2.svg",
+    "icon": "/communities_icons/group-icon2.svg",
     "followers": 12369,
     "answered": "75%",
     "users": "1M",
@@ -22,7 +22,7 @@
   {
     "id": 3,
     "name": "Development",
-    "icon": "/src/assets/communities_icons/group-icon3.svg",
+    "icon": "/communities_icons/group-icon3.svg",
     "followers": 12369,
     "answered": "75%",
     "users": "177K",
@@ -32,7 +32,7 @@
   {
     "id": 4,
     "name": "Graphic Design",
-    "icon": "/src/assets/communities_icons/group-icon4.svg",
+    "icon": "/communities_icons/group-icon4.svg",
     "followers": 12369,
     "answered": "75%",
     "users": "55K",
@@ -42,7 +42,7 @@
   {
     "id": 5,
     "name": "Health",
-    "icon": "/src/assets/communities_icons/group-icon5.svg",
+    "icon": "/communities_icons/group-icon5.svg",
     "followers": 12369,
     "answered": "75%",
     "users": "1.5M",
@@ -52,7 +52,7 @@
   {
     "id": 6,
     "name": "Fashion",
-    "icon": "/src/assets/communities_icons/group-icon6.svg",
+    "icon": "/communities_icons/group-icon6.svg",
     "followers": 12369,
     "answered": "75%",
     "users": "77K",
@@ -62,7 +62,7 @@
   {
     "id": 7,
     "name": "Animal",
-    "icon": "/src/assets/communities_icons/group-icon7.svg",
+    "icon": "/communities_icons/group-icon7.svg",
     "followers": 12369,
     "answered": "75%",
     "users": "2M",
@@ -72,7 +72,7 @@
   {
     "id": 8,
     "name": "Politics",
-    "icon": "/src/assets/communities_icons/group-icon8.svg",
+    "icon": "/communities_icons/group-icon8.svg",
     "followers": 12369,
     "answered": "75%",
     "users": "1.5M",
@@ -82,7 +82,7 @@
   {
     "id": 9,
     "name": "Sports",
-    "icon": "/src/assets/communities_icons/group-icon9.svg",
+    "icon": "/communities_icons/group-icon9.svg",
     "followers": 12369,
     "answered": "75%",
     "users": "654K",
@@ -92,7 +92,7 @@
   {
     "id": 10,
     "name": "Food",
-    "icon": "/src/assets/communities_icons/group-icon10.svg",
+    "icon": "/communities_icons/group-icon10.svg",
     "followers": 12369,
     "answered": "75%",
     "users": "2M",
@@ -102,7 +102,7 @@
   {
     "id": 11,
     "name": "Business",
-    "icon": "/src/assets/communities_icons/group-icon11.svg",
+    "icon": "/communities_icons/group-icon11.svg",
     "followers": 12369,
     "answered": "75%",
     "users": "1.7M",
@@ -112,7 +112,7 @@
   {
     "id": 12,
     "name": "Entertainment",
-    "icon": "/src/assets/communities_icons/group-icon12.svg",
+    "icon": "/communities_icons/group-icon12.svg",
     "followers": 12369,
     "answered": "75%",
     "users": "2M",
@@ -122,7 +122,7 @@
   {
     "id": 13,
     "name": "Technology",
-    "icon": "/src/assets/communities_icons/group-icon13.svg",
+    "icon": "/communities_icons/group-icon13.svg",
     "followers": 12369,
     "answered": "75%",
     "users": "99K",
@@ -132,7 +132,7 @@
   {
     "id": 14,
     "name": "Education",
-    "icon": "/src/assets/communities_icons/group-icon14.svg",
+    "icon": "/communities_icons/group-icon14.svg",
     "followers": 12369,
     "answered": "75%",
     "users": "46K",
@@ -142,7 +142,7 @@
   {
     "id": 15,
     "name": "Development",
-    "icon": "/src/assets/communities_icons/group-icon15.svg",
+    "icon": "/communities_icons/group-icon15.svg",
     "followers": 12369,
     "answered": "75%",
     "users": "100K",

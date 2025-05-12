@@ -24,8 +24,8 @@ export default function MyQueries() {
     <div className="max-w-screen-2xl w-11/12 mx-auto">
       <section className="mt-10 mb-20 grid grid-cols-1 lg:grid-cols-2 gap-8 place-content-center place-items-center">
         <video autoPlay muted loop playsInline>
-          <source src="/src/assets/videos/Scene-23.webm" type="video/webm" />
-          <source src="/src/assets/videos/Scene-23.mp4" type="video/mp4" />
+          <source src="/videos/Scene-23.webm" type="video/webm" />
+          <source src="/videos/Scene-23.mp4" type="video/mp4" />
           Your browser does not support the video tag.
         </video>
 
