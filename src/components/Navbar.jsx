@@ -33,6 +33,7 @@ export default function MyNavbar() {
     logOut()
       .then(() => {
         toast.success("Successfully logged out!");
+        setOpenNav(false); // Close nav drawer after logout
       })
       .catch((error) => {
         toast.error(error.message);
@@ -46,8 +47,18 @@ export default function MyNavbar() {
     );
   }, []);
 
+  // Close navigation drawer when route changes
+  React.useEffect(() => {
+    setOpenNav(false);
+  }, [location.pathname]);
+
   // Helper function to check if a link is active
   const isActive = (path) => location.pathname === path;
+
+  // Helper function to close the navigation drawer
+  const handleNavLinkClick = () => {
+    setOpenNav(false);
+  };
 
   const navItems = [
     { path: "/", label: "Home" },
@@ -111,7 +122,11 @@ export default function MyNavbar() {
               }`}
             >
               {item.items.map((subItem) => (
-                <Link key={subItem.path} to={subItem.path}>
+                <Link
+                  key={subItem.path}
+                  to={subItem.path}
+                  onClick={handleNavLinkClick}
+                >
                   <MenuItem
                     className={`flex items-center transition-all duration-200 ${
                       isActive(subItem.path)
@@ -143,6 +158,7 @@ export default function MyNavbar() {
                   ? "text-primary font-semibold"
                   : "hover:text-primary/80"
               }`}
+              onClick={handleNavLinkClick}
             >
               {item.label}
             </Link>
@@ -173,6 +189,7 @@ export default function MyNavbar() {
               className={`cursor-pointer py-1.5 font-medium text-2xl font-serif hover:opacity-80 transition-opacity ${
                 isDarkMode ? "text-white" : "text-gray-900"
               }`}
+              onClick={handleNavLinkClick}
             >
               Qrius
             </Typography>
@@ -221,7 +238,7 @@ export default function MyNavbar() {
                 </button>
               </div>
             ) : (
-              <Link to="/loginpage">
+              <Link to="/loginpage" onClick={handleNavLinkClick}>
                 <Button color="green" className="rounded-full">
                   Log In
                 </Button>
@@ -296,7 +313,11 @@ export default function MyNavbar() {
                 Log Out
               </button>
             ) : (
-              <Link to="/loginpage" className="block mt-4">
+              <Link
+                to="/loginpage"
+                className="block mt-4"
+                onClick={handleNavLinkClick}
+              >
                 <button
                   className={`w-full px-6 py-2 rounded-full text-sm font-medium ${
                     isDarkMode
