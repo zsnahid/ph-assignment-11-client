@@ -63,94 +63,101 @@ export default function MyQueriesHorizontalCard({
 
   return (
     <article
-      className={`rounded-xl border-2 ${
+      className={`rounded-xl border-2 overflow-hidden ${
         isDarkMode ? "border-gray-700 bg-gray-800" : "border-gray-100 bg-white"
       }`}
     >
-      <div className="flex items-start gap-4 p-4 sm:p-6 lg:p-8">
-        <span className="block shrink-0">
-          <img
-            alt=""
-            src={userImage}
-            className="size-14 rounded-lg object-cover"
-          />
-        </span>
-
-        <div className="mr-8">
-          <h3
-            className={`font-medium sm:text-lg ${
-              isDarkMode ? "text-white" : "text-gray-900"
-            }`}
-          >
-            <a href={`/query-details/${_id}`} className="hover:underline">
-              {question}
-            </a>
-          </h3>
-
-          <div className="mb-2 sm:flex sm:items-center sm:gap-4">
-            <p
-              className={`hidden sm:block sm:text-xs ${
-                isDarkMode ? "text-gray-400" : "text-gray-500"
-              }`}
-            >
-              Posted by <span className="font-medium">{userName} </span>
-            </p>
-
-            <div
-              className={`flex items-center gap-1 ${
-                isDarkMode ? "text-gray-400" : "text-gray-500"
-              }`}
-            >
-              <PiCalendarDotsDuotone />
-              <p className="text-xs">{uploadTime}</p>
-            </div>
+      <div className="flex flex-col md:flex-row gap-4 p-4">
+        {/* Left Side - User Info and Content */}
+        <div className="flex flex-grow gap-4">
+          {/* User Avatar */}
+          <div className="shrink-0">
+            <img
+              alt={`${userName}'s avatar`}
+              src={userImage}
+              className="w-12 h-12 sm:w-14 sm:h-14 rounded-lg object-cover"
+            />
           </div>
 
-          <p
-            className={`line-clamp-2 text-sm hidden lg:block ${
-              isDarkMode ? "text-gray-300" : "text-gray-700"
-            }`}
-          >
-            {details}
-          </p>
-
-          <div className="mt-4 flex flex-col lg:flex-row items-center gap-2">
-            <a href={`/query/details/${_id}`}>
-              <Button
-                variant="outlined"
-                className="flex items-center gap-2 normal-case rounded-full"
-                color={isDarkMode ? "white" : "gray"}
-                size="sm"
-              >
-                <TbListDetails className="h-4 w-4" /> Details
-              </Button>
-            </a>
-            <a href={`/query/update/${_id}`}>
-              <Button
-                variant="outlined"
-                className="flex items-center gap-2 normal-case rounded-full"
-                color={isDarkMode ? "white" : "gray"}
-                size="sm"
-              >
-                <GrDocumentUpdate className="h-4 w-4" /> Update
-              </Button>
-            </a>
-            <Button
-              variant="outlined"
-              className="flex items-center gap-2 normal-case rounded-full"
-              color="red"
-              size="sm"
-              onClick={handleDeleteQuery}
+          {/* Content */}
+          <div className="flex-grow">
+            <h3
+              className={`font-medium text-base sm:text-lg mb-1 ${
+                isDarkMode ? "text-white" : "text-gray-900"
+              }`}
             >
-              <RiDeleteBinLine className="h-4 w-4" /> Delete
-            </Button>
+              <a href={`/query-details/${_id}`} className="hover:underline">
+                {question}
+              </a>
+            </h3>
+
+            <div className="flex flex-wrap items-center gap-3 mb-2">
+              <p
+                className={`text-xs ${
+                  isDarkMode ? "text-gray-400" : "text-gray-500"
+                }`}
+              >
+                Posted by <span className="font-medium">{userName}</span>
+              </p>
+
+              <div
+                className={`flex items-center gap-1 ${
+                  isDarkMode ? "text-gray-400" : "text-gray-500"
+                }`}
+              >
+                <PiCalendarDotsDuotone />
+                <p className="text-xs">{uploadTime}</p>
+              </div>
+            </div>
+
+            <p
+              className={`text-sm mb-4 line-clamp-2 ${
+                isDarkMode ? "text-gray-300" : "text-gray-700"
+              }`}
+            >
+              {details}
+            </p>
+
+            <div className="flex lg:gap-2">
+              <a href={`/query/details/${_id}`}>
+                <Button
+                  variant="outlined"
+                  className="flex items-center gap-2 normal-case rounded-full"
+                  color={isDarkMode ? "white" : "gray"}
+                  size="sm"
+                >
+                  <TbListDetails className="h-4 w-4" /> Details
+                </Button>
+              </a>
+              <a href={`/query/update/${_id}`}>
+                <Button
+                  variant="outlined"
+                  className="flex items-center gap-2 normal-case rounded-full"
+                  color={isDarkMode ? "white" : "gray"}
+                  size="sm"
+                >
+                  <GrDocumentUpdate className="h-4 w-4" /> Update
+                </Button>
+              </a>
+              <Button
+                variant="outlined"
+                className="flex items-center gap-2 normal-case rounded-full"
+                color="red"
+                size="sm"
+                onClick={handleDeleteQuery}
+              >
+                <RiDeleteBinLine className="h-4 w-4" /> Delete
+              </Button>
+            </div>
           </div>
         </div>
 
-        <div className="">
+        {/* Right Side - Product Image */}
+        <div className="mt-3 md:mt-0 md:ml-2 flex-shrink-0 md:max-w-xs lg:max-w-sm">
           <img
             src={productImage}
-            className="w-96 h-44 object-cover object-center rounded-xl border border-gray-200"
+            alt="Product"
+            className="w-full lg:w-64 h-40 sm:h-44 object-cover object-center rounded-xl border border-gray-200"
           />
         </div>
       </div>

@@ -105,7 +105,7 @@ export default function AllQueriesHorizontalCard({ query }) {
           <img
             src={productImage}
             alt="Product image for query"
-            className="w-full h-40 lg:w-64 sm:h-44 object-cover object-center rounded-xl border border-gray-200"
+            className="w-full lg:w-64 h-40 sm:h-44 object-cover object-center rounded-xl border border-gray-200"
           />
         </div>
       </div>

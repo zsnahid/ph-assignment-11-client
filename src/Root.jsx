@@ -15,7 +15,7 @@ export default function Root() {
       } `}
     >
       <MyNavbar />
-      <div className="pt-20 lg:pt-16 flex-1 min-h-[calc(100vh-80px)]">
+      <div className="pt-20 lg:pt-16 flex-grow min-h-[calc(100vh-80px)]">
         <Outlet />
       </div>
       <Footer />

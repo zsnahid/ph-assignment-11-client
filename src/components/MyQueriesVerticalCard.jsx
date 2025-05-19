@@ -97,15 +97,6 @@ export default function MyQueriesVerticalCard({ query, queries, setQueries }) {
 
       <div className="mt-4 flex items-center justify-between gap-2">
         <div className="flex items-center gap-2">
-          <Button
-            variant="outlined"
-            className="flex items-center gap-2 normal-case rounded-full"
-            color="red"
-            size="sm"
-            onClick={handleDeleteQuery}
-          >
-            <RiDeleteBinLine className="h-4 w-4" /> Delete
-          </Button>
           <a href={`/query/update/${_id}`}>
             <Button
               variant="outlined"
@@ -126,6 +117,15 @@ export default function MyQueriesVerticalCard({ query, queries, setQueries }) {
               <TbListDetails className="h-4 w-4" /> Details
             </Button>
           </a>
+          <Button
+            variant="outlined"
+            className="flex items-center gap-2 normal-case rounded-full"
+            color="red"
+            size="sm"
+            onClick={handleDeleteQuery}
+          >
+            <RiDeleteBinLine className="h-4 w-4" /> Delete
+          </Button>
         </div>
       </div>
     </div>
