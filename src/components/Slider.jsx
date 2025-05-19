@@ -1,5 +1,5 @@
 /* eslint-disable react/no-unescaped-entities */
-import { Carousel, Typography } from "@material-tailwind/react";
+import { Button, Carousel, Typography } from "@material-tailwind/react";
 import hero_img_1 from "/src/assets/hero_img_1.png";
 import hero_img_2 from "/src/assets/hero_img_2.png";
 import hero_img_3 from "/src/assets/hero_img_3.png";
@@ -11,11 +11,22 @@ import img2 from "/src/assets/img2.jpg";
 import img3 from "/src/assets/img3.jpg";
 import img4 from "/src/assets/img4.jpg";
 
+import { useNavigate } from "react-router-dom";
 import form from "/src/assets/form.svg";
 import hero from "/src/assets/hero.svg";
 import qa from "/src/assets/qa.svg";
 
 export default function Slider() {
+  const navigate = useNavigate();
+
+  const handleLearnMore = () => {
+    navigate("/queries");
+  };
+
+  const handleGetStarted = () => {
+    navigate("/signup");
+  };
+
   return (
     <Carousel loop={true} className="h-[40rem]">
       <div className="relative h-full w-full">
@@ -43,6 +54,20 @@ export default function Slider() {
             >
               Join the world's biggest Q&A network
             </Typography>
+            <Button
+              variant="outlined"
+              onClick={handleLearnMore}
+              className="rounded-full text-white border-white shadow-sm hover:shadow-lg"
+            >
+              Learn More
+            </Button>
+            <Button
+              onClick={handleGetStarted}
+              color="green"
+              className="rounded-full ml-3 shadow-none"
+            >
+              Get Started
+            </Button>
           </div>
         </div>
       </div>
