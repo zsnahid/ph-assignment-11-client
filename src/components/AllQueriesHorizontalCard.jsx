@@ -24,20 +24,23 @@ export default function AllQueriesHorizontalCard({ query }) {
         isDarkMode ? "border-gray-700 bg-gray-800" : "border-gray-100 bg-white"
       }`}
     >
-      <div className="flex items-start gap-4 p-4 sm:p-6 lg:p-8">
-        <span className="block shrink-0">
+      <div className="flex flex-col md:flex-row gap-4 p-4 sm:p-6">
+        {/* User Image - Always visible */}
+        <div className="flex-shrink-0">
           <img
             alt={`Profile picture of ${userName}`}
             src={userImage}
-            className="size-14 rounded-lg object-cover"
+            className="size-12 md:size-14 rounded-lg object-cover"
           />
-        </span>
+        </div>
 
-        <div className="mr-8">
-          <h3 className="font-medium sm:text-lg">
+        {/* Content Section - Grows to fill available space */}
+        <div className="flex-grow space-y-3">
+          {/* Question Title */}
+          <h3 className="font-medium text-base sm:text-lg">
             <a
               href={`/query/details/${_id}`}
-              className={`underline ${
+              className={`hover:underline ${
                 isDarkMode ? "text-white" : "text-gray-900"
               }`}
             >
@@ -45,19 +48,20 @@ export default function AllQueriesHorizontalCard({ query }) {
             </a>
           </h3>
 
-          <div className="mb-2 sm:flex sm:items-center sm:gap-4">
+          {/* User Info & Timestamp */}
+          <div className="flex flex-wrap items-center gap-2 sm:gap-4">
             <p
-              className={`hidden sm:block sm:text-xs ${
+              className={`text-xs ${
                 isDarkMode ? "text-gray-400" : "text-gray-500"
               }`}
             >
               Posted by{" "}
               <span
-                className={`font-medium underline hover:text-gray-300 ${
-                  isDarkMode ? "text-gray-300" : "hover:text-gray-700"
+                className={`font-medium hover:underline ${
+                  isDarkMode ? "text-gray-300" : "text-gray-700"
                 }`}
               >
-                {userName}{" "}
+                {userName}
               </span>
             </p>
 
@@ -71,32 +75,37 @@ export default function AllQueriesHorizontalCard({ query }) {
             </div>
           </div>
 
+          {/* Query Details - Hidden on mobile, visible on larger screens */}
           <p
-            className={`line-clamp-2 text-sm hidden lg:block ${
+            className={`line-clamp-2 text-sm hidden sm:block ${
               isDarkMode ? "text-gray-300" : "text-gray-700"
             }`}
           >
             {details}
           </p>
 
-          <a href={`/query/details/${_id}`}>
-            <Button
-              variant="outlined"
-              className="flex items-center gap-2 normal-case rounded-full"
-              color={isDarkMode ? "white" : "gray"}
-              size="sm"
-            >
-              <PiChats className="h-4 w-4" />
-              {recommendationCount}
-            </Button>
-          </a>
+          {/* Recommendations Button */}
+          <div className="pt-1">
+            <a href={`/query/details/${_id}`}>
+              <Button
+                variant="outlined"
+                className="flex items-center gap-2 normal-case rounded-full"
+                color={isDarkMode ? "white" : "gray"}
+                size="sm"
+              >
+                <PiChats className="h-4 w-4" />
+                {recommendationCount}
+              </Button>
+            </a>
+          </div>
         </div>
 
-        <div className="">
+        {/* Product Image - Responsive width, full width on mobile */}
+        <div className="mt-3 md:mt-0 md:ml-2 flex-shrink-0 md:max-w-xs lg:max-w-sm">
           <img
             src={productImage}
             alt="Product image for query"
-            className="w-96 h-44 object-cover object-center rounded-xl border border-gray-200"
+            className="w-full h-40 lg:w-64 sm:h-44 object-cover object-center rounded-xl border border-gray-200"
           />
         </div>
       </div>

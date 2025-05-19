@@ -44,7 +44,7 @@ const LoginPage = () => {
   };
 
   return (
-    <div className="flex flex-col-reverse lg:flex-row lg:min-h-screen mt-20 mb-20 w-11/12 mx-auto">
+    <div className="flex flex-col-reverse lg:flex-row lg:min-h-[calc(100vh-220px)] mt-20 mb-20 w-11/12 mx-auto">
       {/* Left side - Hero content */}
       <div className="lg:w-1/2 p-8 pb-0 hidden lg:flex flex-col justify-center text-center">
         {/* Main heading section */}

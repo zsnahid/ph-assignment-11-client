@@ -53,10 +53,10 @@ export default function Signup() {
   };
 
   return (
-    <section className={`${isDarkMode ? "bg-gray-900" : "bg-white"} `}>
-      <div className="lg:grid lg:min-h-screen lg:grid-cols-12">
+    <section className={`${isDarkMode ? "bg-gray-900" : "bg-white"}`}>
+      <div className="lg:grid lg:min-h-[calc(100vh-80px)] lg:grid-cols-12">
         {/* large device layout */}
-        <section className="relative flex h-32 items-end bg-gray-900 lg:col-span-6 lg:h-full xl:col-span-6">
+        <section className="relative flex h-32 items-end lg:col-span-6 lg:h-full xl:col-span-6">
           <img
             src={fwg}
             className="absolute inset-0 h-full w-full object-cover brightness-90"

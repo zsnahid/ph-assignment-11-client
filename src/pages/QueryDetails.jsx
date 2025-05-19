@@ -9,6 +9,7 @@ import axios from "axios";
 import { useContext, useEffect, useState } from "react";
 import { PiCalendarDotsDuotone } from "react-icons/pi";
 import { useLoaderData } from "react-router-dom";
+import { toast } from "react-toastify";
 import { AuthContext } from "../contexts/AuthContext";
 import { useTheme } from "../contexts/ThemeContext";
 
@@ -49,7 +50,6 @@ export default function QueryDetails() {
     const recommendedProductName = form.reco_product_name.value;
     const recommendedProductImage = form.reco_product_image.value;
     const recommendationReason = form.reco_details.value;
-    const time = new Date().toLocaleString();
 
     const recommendation = {
       recommendationTitle,
@@ -59,7 +59,6 @@ export default function QueryDetails() {
       recommenderName: user.displayName,
       recommenderEmail: user.email,
       recommenderImage: user.photoURL,
-      recommendingTime: time,
       queryId: _id,
       queryTitle: question,
       queryProductName: productName,
@@ -85,146 +84,61 @@ export default function QueryDetails() {
       .then()
       .catch((error) => console.error(error));
 
-    setComments([...comments, recommendation]);
+    setComments([recommendation, ...comments]);
+    toast.success("Recommendation Added");
   };
 
   return (
-    <div className="flex-grow max-w-screen-2xl w-11/12 mx-auto py-8 grid lg:grid-cols-12 gap-14">
-      <div className="lg:col-span-7">
-        {/* user info */}
-        <div className="flex items-center gap-4 mb-8">
-          <Avatar src={userImage} />
-          <div>
-            <Typography
-              variant="lead"
-              className={isDarkMode ? "text-white" : ""}
-            >
-              {userName}
-            </Typography>
-            <Typography
-              className={`flex items-center gap-2 text-xs ${
-                isDarkMode ? "text-gray-400" : "text-gray-500"
-              }`}
-            >
-              <PiCalendarDotsDuotone />
-              {uploadTime}
-            </Typography>
-          </div>
-        </div>
-
-        {/* query */}
-        <div className="mb-12">
-          <Typography
-            variant="h4"
-            className={`mb-2 ${isDarkMode ? "text-white" : ""}`}
-          >
-            {question}
-          </Typography>
-          <Typography
-            variant="paragraph"
-            className={`font-medium mb-4 ${
-              isDarkMode ? "text-gray-300" : "text-gray-600"
-            }`}
-          >
-            {details}
-          </Typography>
-          <img
-            src={productImage}
-            className={`w-full h-[20rem] lg:h-[32rem] object-contain ${
-              isDarkMode ? "bg-gray-800" : "bg-white"
-            }`}
-          />
-        </div>
-
+    <div className="flex-grow max-w-screen-2xl w-11/12 mx-auto py-8 gap-14">
+      {/* user info */}
+      <div className="flex items-center gap-4 mb-8">
+        <Avatar src={userImage} />
         <div>
+          <Typography variant="lead" className={isDarkMode ? "text-white" : ""}>
+            {userName}
+          </Typography>
           <Typography
-            variant="h6"
-            className={`border-b py-2 mb-4 ${
-              isDarkMode
-                ? "border-gray-700 text-white"
-                : "border-gray-300 text-gray-900"
+            className={`flex items-center gap-2 text-xs ${
+              isDarkMode ? "text-gray-400" : "text-gray-500"
             }`}
           >
-            All Replies
+            <PiCalendarDotsDuotone />
+            {uploadTime}
           </Typography>
-
-          {/* comments */}
-          {comments?.map(
-            ({
-              _id,
-              recommenderImage,
-              recommenderName,
-              recommendationTitle,
-              recommendedProductName,
-              recommendedProductImage,
-              recommendationReason,
-              recommendingTime,
-            }) => (
-              <div key={_id} className="flex gap-2 mt-4">
-                <Avatar
-                  src={recommenderImage}
-                  size="sm"
-                  className="flex-none"
-                />
-                <div
-                  className={`rounded-xl p-4 ${
-                    isDarkMode ? "bg-gray-800" : "bg-gray-300"
-                  }`}
-                >
-                  <Typography
-                    variant="small"
-                    className={`font-normal tracking-wide ${
-                      isDarkMode ? "text-gray-300" : "text-gray-700"
-                    }`}
-                  >
-                    {recommenderName}
-                    <span
-                      className={`font-normal text-xs ${
-                        isDarkMode ? "text-gray-400" : "text-gray-600"
-                      }`}
-                    >
-                      {" "}
-                      . {recommendingTime}{" "}
-                    </span>
-                  </Typography>
-                  <Typography
-                    variant="paragraph"
-                    className={`font-bold tracking-wide ${
-                      isDarkMode ? "text-white" : "text-gray-800"
-                    }`}
-                  >
-                    {recommendationTitle}
-                    {": "}
-                    {recommendedProductName}{" "}
-                  </Typography>
-                  <Typography
-                    variant="small"
-                    className={`font-normal ${
-                      isDarkMode ? "text-gray-300" : "text-gray-700"
-                    }`}
-                  >
-                    {recommendationReason}
-                  </Typography>
-                  {recommendedProductImage && (
-                    <img
-                      src={recommendedProductImage}
-                      className="size-40 mt-2 rounded-xl object-cover"
-                    />
-                  )}
-                </div>
-              </div>
-            )
-          )}
         </div>
+      </div>
+
+      {/* query */}
+      <div className="mb-12">
+        <Typography
+          variant="h4"
+          className={`mb-2 ${isDarkMode ? "text-white" : ""}`}
+        >
+          {question}
+        </Typography>
+        <Typography
+          variant="paragraph"
+          className={`font-medium mb-4 ${
+            isDarkMode ? "text-gray-300" : "text-gray-600"
+          }`}
+        >
+          {details}
+        </Typography>
+        <img
+          src={productImage}
+          className={`w-full h-[20rem] lg:h-[32rem] object-contain rounded-2xl ${
+            isDarkMode ? "bg-gray-800" : "bg-white"
+          }`}
+        />
       </div>
 
       {/* form */}
       <div
-        className={`lg:col-span-5 px-6 py-4 rounded-2xl h-fit ${
+        className={`px-6 py-4 rounded-2xl h-fit ${
           isDarkMode ? "bg-gray-800" : "bg-white"
         }`}
       >
-        <Typography variant="h4" className={isDarkMode ? "text-white" : ""}>
+        <Typography variant="h5" className={isDarkMode ? "text-white" : ""}>
           Recommend a product
         </Typography>
         <form className="mt-8 mb-2" onSubmit={handleAddRecommendation}>
@@ -317,6 +231,83 @@ export default function QueryDetails() {
             </Button>
           </div>
         </form>
+      </div>
+
+      <div>
+        <Typography
+          variant="h6"
+          className={`border-b py-2 my-4 ${
+            isDarkMode
+              ? "border-gray-700 text-white"
+              : "border-gray-300 text-gray-900"
+          }`}
+        >
+          All Replies
+        </Typography>
+
+        {/* comments */}
+        {comments?.map(
+          ({
+            _id,
+            recommenderImage,
+            recommenderName,
+            recommendationTitle,
+            recommendedProductName,
+            recommendedProductImage,
+            recommendationReason,
+            createdAt,
+          }) => (
+            <div key={_id} className="flex gap-2 mt-4">
+              <Avatar src={recommenderImage} size="sm" className="flex-none" />
+              <div
+                className={`w-full rounded-2xl p-4 ${
+                  isDarkMode ? "bg-gray-800" : "bg-gray-300"
+                }`}
+              >
+                <Typography
+                  variant="small"
+                  className={`font-normal tracking-wide ${
+                    isDarkMode ? "text-gray-300" : "text-gray-700"
+                  }`}
+                >
+                  {recommenderName}
+                  <span
+                    className={`font-normal text-xs ${
+                      isDarkMode ? "text-gray-400" : "text-gray-600"
+                    }`}
+                  >
+                    {" "}
+                    {new Date(createdAt).toLocaleString()}{" "}
+                  </span>
+                </Typography>
+                <Typography
+                  variant="paragraph"
+                  className={`font-bold tracking-wide ${
+                    isDarkMode ? "text-white" : "text-gray-800"
+                  }`}
+                >
+                  {recommendationTitle}
+                  {": "}
+                  {recommendedProductName}{" "}
+                </Typography>
+                <Typography
+                  variant="small"
+                  className={`font-normal ${
+                    isDarkMode ? "text-gray-300" : "text-gray-700"
+                  }`}
+                >
+                  {recommendationReason}
+                </Typography>
+                {recommendedProductImage && (
+                  <img
+                    src={recommendedProductImage}
+                    className="size-40 mt-2 rounded-xl object-cover"
+                  />
+                )}
+              </div>
+            </div>
+          )
+        )}
       </div>
     </div>
   );
